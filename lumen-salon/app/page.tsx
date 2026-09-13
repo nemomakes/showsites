@@ -12,7 +12,7 @@ export default function Home() {
           alt="Editorial portrait of a woman with auburn hair and a precise fringe"
           fill
           priority
-          className="object-cover object-[center_20%]"
+          className="object-cover object-[center_28%]"
           sizes="100vw"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-espresso/80 via-espresso/40 to-espresso/15" />

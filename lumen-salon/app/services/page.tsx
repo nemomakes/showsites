@@ -25,12 +25,12 @@ export default function ServicesPage() {
       </header>
 
       <div className="mx-auto mb-6 max-w-6xl px-5 md:mb-10 md:px-8">
-        <div className="relative aspect-[16/9] overflow-hidden bg-stone md:aspect-[21/8]">
+        <div className="relative aspect-[16/10] overflow-hidden bg-stone md:aspect-[21/9]">
           <Image
-            src="/images/blonde.jpg"
-            alt="Lived-in blonde hair in soft studio light"
+            src="/images/waves.jpg"
+            alt="Dark hair being shaped with a curling iron"
             fill
-            className="object-cover object-top"
+            className="object-cover object-center"
             sizes="100vw"
             priority
           />
