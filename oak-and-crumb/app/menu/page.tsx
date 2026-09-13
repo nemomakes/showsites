@@ -19,10 +19,9 @@ export default function MenuPage() {
         </h1>
         <p className="mt-6 max-w-2xl text-pretty text-lg leading-relaxed text-ink">
           Prices are a guide. We bake through the day and sell out of the
-          good stuff — especially Saturday. Nothing here checks out online.
-          Come by, or call {site.phone} if you want something held.
+          good stuff — especially Saturday. Come by, or call {site.phone} if
+          you want something held.
         </p>
-        <p className="mt-4 text-sm text-muted">{site.hoursNote}</p>
       </header>
 
       <div className="mx-auto mb-6 max-w-6xl px-5 md:mb-10 md:px-8">

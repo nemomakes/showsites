@@ -4,12 +4,12 @@ import { nav, site } from "@/lib/site";
 export function Footer() {
   return (
     <footer className="bg-moss text-cream">
-      <div className="mx-auto grid max-w-6xl gap-12 px-5 py-16 md:grid-cols-12 md:px-8 md:py-20">
+      <div className="mx-auto grid max-w-6xl gap-10 px-5 py-12 md:grid-cols-12 md:px-8 md:py-14">
         <div className="md:col-span-5">
-          <p className="font-display text-4xl leading-none md:text-5xl">
+          <p className="font-display text-3xl leading-none md:text-4xl">
             {site.name}
           </p>
-          <p className="mt-5 max-w-sm text-pretty text-cream/80">
+          <p className="mt-4 max-w-sm text-pretty text-cream/80">
             A small bakery on North Main. Come in. Say hello. Take something
             warm home.
           </p>
@@ -64,6 +64,9 @@ export function Footer() {
                 {item.label}
               </Link>
             ))}
+            <Link href="/contact" className="text-cream/75 hover:text-cream">
+              Come by
+            </Link>
           </nav>
         </div>
       </div>

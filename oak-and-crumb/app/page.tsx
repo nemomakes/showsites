@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Marquee } from "@/components/Marquee";
-import { VisitPanel } from "@/components/VisitPanel";
 import { featured, site } from "@/lib/site";
 
 export default function Home() {
@@ -39,7 +38,7 @@ export default function Home() {
           <p className="eyebrow text-muted md:col-span-3">On North Main</p>
           <div className="md:col-span-9">
             <h2 className="max-w-3xl font-display text-4xl leading-[1.1] text-pretty md:text-6xl">
-              We bake for the people who walk here.
+              We bake for the people who walk these streets.
             </h2>
             <p className="mt-6 max-w-2xl text-pretty text-lg leading-relaxed text-ink">
               Oak is the live oak in the courtyard. Crumb is what we chase in
@@ -63,7 +62,7 @@ export default function Home() {
             <div>
               <p className="eyebrow text-muted">From the case</p>
               <h2 className="mt-3 font-display text-4xl md:text-5xl">
-                What we keep on the table
+                Our essentials
               </h2>
             </div>
             <Link
@@ -105,22 +104,25 @@ export default function Home() {
           />
         </div>
         <div>
-          <p className="eyebrow text-muted">How we work</p>
+          <p className="eyebrow text-muted">In the shop</p>
           <h2 className="mt-4 font-display text-4xl leading-[1.08] md:text-5xl">
-            Slow dough. Soft CTAs. No checkout.
+            Come in when you like. Stay as long as you want.
           </h2>
           <p className="mt-6 text-pretty text-lg leading-relaxed text-ink">
-            This is a shop you visit. We hold a loaf if you call. We write
-            catering notes by email. We do not ask you to make an account.
-            Prices live on the chalkboard and on the{" "}
-            <Link href="/menu" className="underline underline-offset-4">
-              menu page
-            </Link>{" "}
-            — come taste the rest.
+            The door opens onto the case — bread on the left, pastry on the
+            right, coffee at the far end. Take your time. Ask what’s just out of
+            the oven. We’ll wrap a croissant in paper, slice a country loaf if
+            you’re heading home, or pour a cup to drink at the window.
           </p>
           <p className="mt-4 text-pretty leading-relaxed text-ink">
-            Tuesday is focaccia. Saturday is cinnamon rolls until the pan is
-            empty. Monday we rest, and so does the starter we call June.
+            Nobody is in a hurry here. If you need a loaf held, call ahead. If
+            you just wandered in, we’ll find you something good. Then you’re
+            back on North Main with a warm bag and the rest of the morning still
+            ahead. The{" "}
+            <Link href="/menu" className="underline underline-offset-4">
+              full board
+            </Link>{" "}
+            is on the menu page, if you want to look before you come.
           </p>
         </div>
       </section>
@@ -146,7 +148,6 @@ export default function Home() {
         </div>
       </section>
 
-      <VisitPanel />
     </>
   );
 }
