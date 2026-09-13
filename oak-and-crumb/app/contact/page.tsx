@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { Reveal } from "@/components/Reveal";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -11,7 +12,7 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <>
-      <header className="mx-auto max-w-6xl px-5 pb-8 pt-14 md:px-8 md:pt-20">
+      <Reveal className="mx-auto max-w-6xl px-5 pb-8 pt-14 md:px-8 md:pt-20">
         <p className="eyebrow text-muted">Walnut Creek</p>
         <h1 className="mt-4 font-display text-5xl leading-[0.95] md:text-7xl">
           Come sit a minute.
@@ -21,10 +22,10 @@ export default function ContactPage() {
           tables inside, a bench under the oak. We are easiest to reach in
           person — or with a short call.
         </p>
-      </header>
+      </Reveal>
 
       <div className="mx-auto max-w-6xl px-5 md:px-8">
-        <div className="relative aspect-[16/10] overflow-hidden bg-sand">
+        <Reveal className="relative aspect-[16/10] overflow-hidden bg-sand">
           <Image
             src="/images/coffee.jpg"
             alt="Friends toasting with two lattes and an iced coffee"
@@ -33,11 +34,11 @@ export default function ContactPage() {
             sizes="100vw"
             priority
           />
-        </div>
+        </Reveal>
       </div>
 
       <section className="mx-auto grid max-w-6xl gap-12 px-5 py-16 md:grid-cols-2 md:px-8 md:py-24">
-        <div>
+        <Reveal>
           <p className="eyebrow text-muted">Address</p>
           <p className="mt-4 font-display text-3xl leading-snug md:text-4xl">
             {site.address.street}
@@ -64,9 +65,9 @@ export default function ContactPage() {
               Call the shop
             </a>
           </div>
-        </div>
+        </Reveal>
 
-        <div className="grid gap-10">
+        <Reveal className="grid gap-10" delay={0.08}>
           <div>
             <p className="eyebrow text-muted">Hours</p>
             <ul className="mt-4 divide-y divide-bark/10">
@@ -102,12 +103,12 @@ export default function ContactPage() {
               same inbox. We read it in the afternoon, after the second bake.
             </p>
           </div>
-        </div>
+        </Reveal>
       </section>
 
       <section className="bg-moss text-cream">
         <div className="mx-auto grid max-w-6xl gap-8 px-5 py-16 md:grid-cols-2 md:items-center md:px-8 md:py-20">
-          <div>
+          <Reveal>
             <h2 className="font-display text-4xl md:text-5xl">
               A map, if you want one.
             </h2>
@@ -115,7 +116,8 @@ export default function ContactPage() {
               Look for the cream awning and the oak in the courtyard. If you
               hit the bookstore, you went one door too far.
             </p>
-          </div>
+          </Reveal>
+          <Reveal delay={0.08}>
           <a
             href={site.mapsUrl}
             target="_blank"
@@ -126,6 +128,7 @@ export default function ContactPage() {
             <p className="mt-3 font-display text-2xl">{site.address.line}</p>
             <p className="mt-4 text-sm text-cream/70">Opens in a new tab →</p>
           </a>
+          </Reveal>
         </div>
       </section>
     </>

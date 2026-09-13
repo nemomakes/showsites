@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { Reveal, RevealItem, RevealStagger } from "@/components/Reveal";
 import { VisitPanel } from "@/components/VisitPanel";
 
 export const metadata: Metadata = {
@@ -11,7 +12,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
-      <header className="mx-auto max-w-6xl px-5 pb-8 pt-14 md:px-8 md:pt-20">
+      <Reveal className="mx-auto max-w-6xl px-5 pb-8 pt-14 md:px-8 md:pt-20">
         <p className="eyebrow text-muted">About the bakery</p>
         <h1 className="mt-4 max-w-3xl font-display text-5xl leading-[0.95] md:text-7xl">
           Named for a tree and a texture.
@@ -22,10 +23,10 @@ export default function AboutPage() {
           most mornings — neighbors, school drop-offs, and the folks who walk
           North Main before work.
         </p>
-      </header>
+      </Reveal>
 
       <div className="mx-auto max-w-6xl px-5 md:px-8">
-        <div className="relative aspect-[16/10] overflow-hidden bg-sand md:aspect-[21/9]">
+        <Reveal className="relative aspect-[16/10] overflow-hidden bg-sand md:aspect-[21/9]">
           <Image
             src="/images/bread-loaves.jpg"
             alt="Seeded and flour-dusted bakery loaves arranged with a wheat stalk"
@@ -34,14 +35,16 @@ export default function AboutPage() {
             sizes="100vw"
             priority
           />
-        </div>
+        </Reveal>
       </div>
 
       <section className="mx-auto grid max-w-6xl gap-12 px-5 py-16 md:grid-cols-12 md:px-8 md:py-24">
-        <h2 className="font-display text-3xl md:col-span-4 md:text-4xl">
-          How we got here
-        </h2>
-        <div className="space-y-5 text-pretty text-lg leading-relaxed text-ink md:col-span-8">
+        <Reveal className="md:col-span-4">
+          <h2 className="font-display text-3xl md:text-4xl">
+            How we got here
+          </h2>
+        </Reveal>
+        <Reveal className="space-y-5 text-pretty text-lg leading-relaxed text-ink md:col-span-8" delay={0.08}>
           <p>
             Maya Chen grew up in Oakland and learned bread the long way — first
             from her grandmother’s Sunday loaves, then in the pastry rooms of a
@@ -62,12 +65,12 @@ export default function AboutPage() {
             & Pine in Berkeley on weekdays, a guest bag when the weekend
             deserves it.
           </p>
-        </div>
+        </Reveal>
       </section>
 
       <section className="bg-paper">
         <div className="mx-auto grid max-w-6xl items-center gap-10 px-5 py-16 md:grid-cols-2 md:gap-16 md:px-8 md:py-24">
-          <div className="relative aspect-[4/5] overflow-hidden bg-sand">
+          <Reveal className="relative aspect-[4/5] overflow-hidden bg-sand">
             <Image
               src="/images/sourdough.jpg"
               alt="A seeded loaf sliced on a wooden board"
@@ -75,8 +78,8 @@ export default function AboutPage() {
               className="object-cover"
               sizes="(min-width: 768px) 45vw, 100vw"
             />
-          </div>
-          <div>
+          </Reveal>
+          <Reveal delay={0.08}>
             <p className="eyebrow text-muted">What we care about</p>
             <h2 className="mt-4 font-display text-4xl md:text-5xl">
               Neighborhood first.
@@ -97,11 +100,12 @@ export default function AboutPage() {
                 Some days the focaccia is a little more olive. We will tell you.
               </li>
             </ul>
-          </div>
+          </Reveal>
         </div>
       </section>
 
-      <section className="mx-auto grid max-w-6xl gap-8 px-5 py-16 md:grid-cols-2 md:px-8 md:py-24">
+      <RevealStagger className="mx-auto grid max-w-6xl gap-8 px-5 py-16 md:grid-cols-2 md:px-8 md:py-24">
+        <RevealItem>
         <figure>
           <div className="relative aspect-[4/5] overflow-hidden bg-sand">
             <Image
@@ -116,6 +120,8 @@ export default function AboutPage() {
             Seasonal tarts when the fruit is loud enough to bother with.
           </figcaption>
         </figure>
+        </RevealItem>
+        <RevealItem>
         <figure>
           <div className="relative aspect-[4/5] overflow-hidden bg-sand">
             <Image
@@ -130,7 +136,8 @@ export default function AboutPage() {
             The cookie we refuse to make cute. Brown butter, sea salt, two chocolates.
           </figcaption>
         </figure>
-      </section>
+        </RevealItem>
+      </RevealStagger>
 
       <VisitPanel tone="paper" />
     </>
