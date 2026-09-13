@@ -45,6 +45,6 @@ No environment variables are required.
 
 ## Stack
 
-Next.js App Router, TypeScript, Tailwind CSS v4.
+Next.js App Router, TypeScript, Tailwind CSS v4. Scroll reveals use Motion (`whileInView`, once) and honor `prefers-reduced-motion`.
 
 Photography is royalty-free (Unsplash / Pexels), stored in `public/images/`. Sources are listed in `public/images/CREDITS.txt`.

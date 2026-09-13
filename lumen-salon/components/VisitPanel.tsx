@@ -1,3 +1,4 @@
+import { Reveal } from "@/components/Reveal";
 import { site } from "@/lib/site";
 
 export function VisitPanel({ tone = "espresso" }: { tone?: "espresso" | "linen" }) {
@@ -9,7 +10,7 @@ export function VisitPanel({ tone = "espresso" }: { tone?: "espresso" | "linen" 
       aria-labelledby="visit-heading"
     >
       <div className="mx-auto grid max-w-6xl gap-10 px-5 py-16 md:grid-cols-2 md:gap-16 md:px-8 md:py-24">
-        <div>
+        <Reveal>
           <p className={`eyebrow ${dark ? "text-ivory/45" : "text-ash"}`}>
             The salon
           </p>
@@ -48,9 +49,9 @@ export function VisitPanel({ tone = "espresso" }: { tone?: "espresso" | "linen" 
               Get directions
             </a>
           </div>
-        </div>
+        </Reveal>
 
-        <div className="grid gap-8 sm:grid-cols-2">
+        <Reveal delay={0.08} className="grid gap-8 sm:grid-cols-2">
           <div>
             <p className={`eyebrow ${dark ? "text-ivory/45" : "text-ash"}`}>
               Address
@@ -79,7 +80,7 @@ export function VisitPanel({ tone = "espresso" }: { tone?: "espresso" | "linen" 
               ))}
             </ul>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

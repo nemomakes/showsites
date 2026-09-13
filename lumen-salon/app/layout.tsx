@@ -3,6 +3,7 @@ import { Cormorant_Garamond, Figtree } from "next/font/google";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { JsonLd } from "@/components/JsonLd";
+import { MotionProvider } from "@/components/MotionProvider";
 import { SkipLink } from "@/components/SkipLink";
 import { site } from "@/lib/site";
 import "./globals.css";
@@ -55,13 +56,15 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${cormorant.variable} ${figtree.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col bg-ivory font-sans text-ink">
-        <SkipLink />
-        <JsonLd />
-        <Header />
-        <main id="main" className="flex-1">
-          {children}
-        </main>
-        <Footer />
+        <MotionProvider>
+          <SkipLink />
+          <JsonLd />
+          <Header />
+          <main id="main" className="flex-1">
+            {children}
+          </main>
+          <Footer />
+        </MotionProvider>
       </body>
     </html>
   );
