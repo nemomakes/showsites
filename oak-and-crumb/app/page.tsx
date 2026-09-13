@@ -19,10 +19,11 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-t from-bark/80 via-bark/25 to-bark/30" />
         <div className="relative mx-auto flex min-h-[88vh] max-w-6xl flex-col justify-end px-5 pb-16 pt-28 md:px-8 md:pb-20">
           <p className="eyebrow text-cream/75">{site.tagline}</p>
-          <h1 className="mt-4 font-display text-[22vw] leading-[0.8] tracking-[-0.04em] sm:text-[18vw] md:text-[9.5rem]">
+          <h1 className="mt-4 font-display text-[clamp(4.75rem,22vw,9.5rem)] leading-[0.78] tracking-[-0.04em]">
             oak
-            <span className="italic text-gold"> &amp; </span>
-            crumb
+            <span className="block">
+              <span className="italic text-gold">&amp;</span> crumb
+            </span>
           </h1>
           <p className="mt-6 max-w-md text-pretty text-lg text-cream/85 md:text-xl">
             Pastries, sourdough, and a quiet cup — baked for Walnut Creek,
@@ -114,7 +115,7 @@ export default function Home() {
             Prices live on the chalkboard and on the{" "}
             <Link href="/menu" className="underline underline-offset-4">
               menu page
-            </Link>
+            </Link>{" "}
             — come taste the rest.
           </p>
           <p className="mt-4 text-pretty leading-relaxed text-ink">
