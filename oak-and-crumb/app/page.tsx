@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { HeroMedia } from "@/components/HeroMedia";
 import { Marquee } from "@/components/Marquee";
+import { Reveal, RevealItem, RevealStagger } from "@/components/Reveal";
 import { featured, site } from "@/lib/site";
 
 export default function Home() {
@@ -28,9 +29,11 @@ export default function Home() {
       <Marquee />
 
       <section className="mx-auto max-w-6xl px-5 py-20 md:px-8 md:py-28">
-        <div className="grid gap-12 md:grid-cols-12 md:gap-16">
-          <p className="eyebrow text-muted md:col-span-3">On North Main</p>
-          <div className="md:col-span-9">
+        <RevealStagger className="grid gap-12 md:grid-cols-12 md:gap-16">
+          <RevealItem className="md:col-span-3">
+            <p className="eyebrow text-muted">On North Main</p>
+          </RevealItem>
+          <RevealItem className="md:col-span-9">
             <h2 className="max-w-3xl font-display text-4xl leading-[1.1] text-pretty md:text-6xl">
               We bake for the people who walk these streets.
             </h2>
@@ -46,13 +49,13 @@ export default function Home() {
             >
               Read the story
             </Link>
-          </div>
-        </div>
+          </RevealItem>
+        </RevealStagger>
       </section>
 
       <section className="bg-paper">
         <div className="mx-auto max-w-6xl px-5 py-20 md:px-8 md:py-24">
-          <div className="flex flex-col justify-between gap-4 md:flex-row md:items-end">
+          <Reveal className="flex flex-col justify-between gap-4 md:flex-row md:items-end">
             <div>
               <p className="eyebrow text-muted">From the case</p>
               <h2 className="mt-3 font-display text-4xl md:text-5xl">
@@ -65,30 +68,32 @@ export default function Home() {
             >
               See the full menu
             </Link>
-          </div>
+          </Reveal>
 
-          <div className="mt-12 grid gap-10 md:grid-cols-3">
+          <RevealStagger className="mt-12 grid gap-10 md:grid-cols-3">
             {featured.map((item) => (
-              <article key={item.name}>
-                <div className="relative aspect-[4/5] overflow-hidden bg-sand">
-                  <Image
-                    src={item.image}
-                    alt={item.alt}
-                    fill
-                    className="object-cover"
-                    sizes="(min-width: 768px) 30vw, 100vw"
-                  />
-                </div>
-                <h3 className="mt-5 font-display text-2xl">{item.name}</h3>
-                <p className="mt-2 text-pretty text-muted">{item.note}</p>
-              </article>
+              <RevealItem key={item.name}>
+                <article>
+                  <div className="relative aspect-[4/5] overflow-hidden bg-sand">
+                    <Image
+                      src={item.image}
+                      alt={item.alt}
+                      fill
+                      className="object-cover"
+                      sizes="(min-width: 768px) 30vw, 100vw"
+                    />
+                  </div>
+                  <h3 className="mt-5 font-display text-2xl">{item.name}</h3>
+                  <p className="mt-2 text-pretty text-muted">{item.note}</p>
+                </article>
+              </RevealItem>
             ))}
-          </div>
+          </RevealStagger>
         </div>
       </section>
 
       <section className="mx-auto grid max-w-6xl items-center gap-10 px-5 py-20 md:grid-cols-2 md:gap-16 md:px-8 md:py-28">
-        <div className="relative aspect-[4/5] overflow-hidden bg-sand md:aspect-[5/6]">
+        <Reveal className="relative aspect-[4/5] overflow-hidden bg-sand md:aspect-[5/6]">
           <Image
             src="/images/bakery-counter.jpg"
             alt="A bakery case of loaves and baguettes behind glass"
@@ -96,8 +101,8 @@ export default function Home() {
             className="object-cover"
             sizes="(min-width: 768px) 45vw, 100vw"
           />
-        </div>
-        <div>
+        </Reveal>
+        <Reveal delay={0.08}>
           <p className="eyebrow text-muted">In the shop</p>
           <h2 className="mt-4 font-display text-4xl leading-[1.08] md:text-5xl">
             Come in when you like. Stay as long as you want.
@@ -118,11 +123,11 @@ export default function Home() {
             </Link>{" "}
             is on the menu page, if you want to look before you come.
           </p>
-        </div>
+        </Reveal>
       </section>
 
-      <section className="grid md:grid-cols-2">
-        <div className="relative aspect-[4/3] bg-sand">
+      <RevealStagger className="grid md:grid-cols-2">
+        <RevealItem className="relative aspect-[4/3] bg-sand">
           <Image
             src="/images/seeded-loaf.jpg"
             alt="A seeded loaf, half-sliced, on oats and flour"
@@ -130,8 +135,8 @@ export default function Home() {
             className="object-cover"
             sizes="(min-width: 768px) 50vw, 100vw"
           />
-        </div>
-        <div className="relative aspect-[4/3] bg-sand">
+        </RevealItem>
+        <RevealItem className="relative aspect-[4/3] bg-sand">
           <Image
             src="/images/sandwich-loaves.jpg"
             alt="Two scored sandwich loaves on a dark surface"
@@ -139,8 +144,8 @@ export default function Home() {
             className="object-cover"
             sizes="(min-width: 768px) 50vw, 100vw"
           />
-        </div>
-      </section>
+        </RevealItem>
+      </RevealStagger>
 
     </>
   );

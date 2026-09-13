@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { Reveal, RevealItem, RevealStagger } from "@/components/Reveal";
 import { menu, site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
 export default function MenuPage() {
   return (
     <>
-      <header className="mx-auto max-w-6xl px-5 pb-10 pt-14 md:px-8 md:pt-20">
+      <Reveal className="mx-auto max-w-6xl px-5 pb-10 pt-14 md:px-8 md:pt-20">
         <p className="eyebrow text-muted">The board</p>
         <h1 className="mt-4 font-display text-5xl leading-[0.95] md:text-7xl">
           Menu
@@ -22,10 +23,10 @@ export default function MenuPage() {
           good stuff — especially Saturday. Come by, or call {site.phone} if
           you want something held.
         </p>
-      </header>
+      </Reveal>
 
       <div className="mx-auto mb-6 max-w-6xl px-5 md:mb-10 md:px-8">
-        <div className="relative aspect-[16/9] overflow-hidden bg-sand md:aspect-[21/8]">
+        <Reveal className="relative aspect-[16/9] overflow-hidden bg-sand md:aspect-[21/8]">
           <Image
             src="/images/bakery-counter.jpg"
             alt="Loaves and baguettes in a bakery display case"
@@ -34,10 +35,11 @@ export default function MenuPage() {
             sizes="100vw"
             priority
           />
-        </div>
+        </Reveal>
       </div>
 
       <div className="mx-auto max-w-6xl px-5 pb-8 md:px-8">
+        <Reveal>
         <nav aria-label="Menu sections" className="flex flex-wrap gap-3">
           {menu.map((section) => (
             <a
@@ -49,6 +51,7 @@ export default function MenuPage() {
             </a>
           ))}
         </nav>
+        </Reveal>
       </div>
 
       {menu.map((section) => (
@@ -57,14 +60,15 @@ export default function MenuPage() {
           id={section.id}
           className="mx-auto max-w-6xl scroll-mt-24 px-5 py-12 md:px-8 md:py-16"
         >
-          <div className="grid gap-8 border-t border-bark/10 pt-10 md:grid-cols-12">
-            <div className="md:col-span-4">
+          <RevealStagger className="grid gap-8 border-t border-bark/10 pt-10 md:grid-cols-12">
+            <RevealItem className="md:col-span-4">
               <h2 className="font-display text-4xl">{section.title}</h2>
               <p className="mt-4 max-w-sm text-pretty text-muted">
                 {section.intro}
               </p>
-            </div>
-            <ul className="divide-y divide-bark/10 md:col-span-8">
+            </RevealItem>
+            <RevealItem className="md:col-span-8">
+            <ul className="divide-y divide-bark/10">
               {section.items.map((item) => (
                 <li
                   key={item.name}
@@ -80,13 +84,14 @@ export default function MenuPage() {
                 </li>
               ))}
             </ul>
-          </div>
+            </RevealItem>
+          </RevealStagger>
         </section>
       ))}
 
       <section className="bg-paper">
         <div className="mx-auto grid max-w-6xl items-center gap-10 px-5 py-16 md:grid-cols-2 md:px-8 md:py-20">
-          <div className="relative aspect-[4/5] overflow-hidden bg-sand">
+          <Reveal className="relative aspect-[4/5] overflow-hidden bg-sand">
             <Image
               src="/images/weekend-cake.jpg"
               alt="A baker piping an ombré buttercream cake on a white stand"
@@ -94,8 +99,8 @@ export default function MenuPage() {
               className="object-cover"
               sizes="(min-width: 768px) 45vw, 100vw"
             />
-          </div>
-          <div>
+          </Reveal>
+          <Reveal delay={0.08}>
             <p className="eyebrow text-muted">Special orders</p>
             <h2 className="mt-4 font-display text-4xl md:text-5xl">
               Cakes, loaves, and a note on the counter.
@@ -115,7 +120,7 @@ export default function MenuPage() {
             >
               Write or visit
             </Link>
-          </div>
+          </Reveal>
         </div>
       </section>
     </>
