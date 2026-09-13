@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { PageIntro } from "@/components/PageIntro";
 import { Reveal, RevealGroup, RevealItem } from "@/components/Reveal";
 import { site } from "@/lib/site";
 
@@ -12,26 +13,12 @@ export const metadata: Metadata = {
 export default function VisitPage() {
   return (
     <>
-      <header className="mx-auto max-w-6xl px-5 pb-8 pt-14 md:px-8 md:pt-20">
-        <RevealGroup mode="load" stagger={0.08}>
-          <RevealItem>
-            <p className="eyebrow text-ash">Walnut Creek</p>
-          </RevealItem>
-          <RevealItem distance={16}>
-            <h1 className="mt-4 font-display text-5xl leading-[0.95] italic md:text-7xl">
-              Come sit a minute.
-            </h1>
-          </RevealItem>
-          <RevealItem>
-            <p className="mt-6 max-w-xl text-pretty text-lg leading-relaxed text-ink/80">
-              Downtown, on Locust Street, a short walk from Broadway Plaza. Street
-              parking on Locust and the plaza garage a block over. We are easiest
-              to reach by phone — or with a short email if Saturday is already
-              spoken for.
-            </p>
-          </RevealItem>
-        </RevealGroup>
-      </header>
+      <PageIntro eyebrow="Walnut Creek" title="Come sit a minute.">
+        Downtown, on Locust Street, a short walk from Broadway Plaza. Street
+        parking on Locust and the plaza garage a block over. We are easiest to
+        reach by phone — or with a short email if Saturday is already spoken
+        for.
+      </PageIntro>
 
       <div className="mx-auto max-w-6xl px-5 md:px-8">
         <Reveal>
@@ -51,7 +38,7 @@ export default function VisitPage() {
       <section className="mx-auto grid max-w-6xl gap-12 px-5 py-16 md:grid-cols-2 md:px-8 md:py-24">
         <Reveal>
           <p className="eyebrow text-ash">Address</p>
-          <p className="mt-4 font-display text-3xl leading-snug italic md:text-4xl">
+          <p className="mt-4 font-display text-3xl font-medium leading-snug md:text-4xl">
             {site.address.street}
             <br />
             {site.address.city}, {site.address.region} {site.address.postal}
@@ -145,7 +132,7 @@ export default function VisitPage() {
       <section className="bg-espresso text-ivory">
         <div className="mx-auto grid max-w-6xl gap-8 px-5 py-16 md:grid-cols-2 md:items-center md:px-8 md:py-20">
           <Reveal>
-            <h2 className="font-display text-4xl italic md:text-5xl">
+            <h2 className="font-display text-4xl font-medium md:text-5xl">
               A map, if you want one.
             </h2>
             <p className="mt-4 max-w-md text-pretty text-ivory/75">
@@ -161,7 +148,7 @@ export default function VisitPage() {
               className="block bg-ivory/8 p-8 transition-colors hover:bg-ivory/12"
             >
               <p className="eyebrow text-ivory/45">Google Maps</p>
-              <p className="mt-3 font-display text-2xl italic">
+              <p className="mt-3 font-display text-2xl font-medium">
                 {site.address.line}
               </p>
               <p className="mt-4 text-sm text-ivory/65">Opens in a new tab →</p>

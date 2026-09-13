@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { PageIntro } from "@/components/PageIntro";
 import { Reveal, RevealGroup, RevealItem } from "@/components/Reveal";
 import { services, site } from "@/lib/site";
 
@@ -12,26 +13,14 @@ export const metadata: Metadata = {
 export default function ServicesPage() {
   return (
     <>
-      <header className="mx-auto max-w-6xl px-5 pb-10 pt-14 md:px-8 md:pt-20">
-        <RevealGroup mode="load" stagger={0.08}>
-          <RevealItem>
-            <p className="eyebrow text-ash">The menu</p>
-          </RevealItem>
-          <RevealItem distance={16}>
-            <h1 className="mt-4 font-display text-5xl leading-[0.95] italic md:text-7xl">
-              Services
-            </h1>
-          </RevealItem>
-          <RevealItem>
-            <p className="mt-6 max-w-2xl text-pretty text-lg leading-relaxed text-ink/80">
-              Prices are a guide. Hair length, density, and history change the
-              chair time. Nothing here checks out online — call {site.phone} to
-              book a consult, or write if you already know who you want.
-            </p>
-            <p className="mt-4 text-sm text-ash">{site.hoursNote}</p>
-          </RevealItem>
-        </RevealGroup>
-      </header>
+      <PageIntro eyebrow="The menu" title="Services">
+        <p>
+          Prices are a guide. Hair length, density, and history change the
+          chair time. Nothing here checks out online — call {site.phone} to
+          book a consult, or write if you already know who you want.
+        </p>
+        <p className="mt-4 text-sm text-ash">{site.hoursNote}</p>
+      </PageIntro>
 
       <div className="mx-auto mb-6 max-w-6xl px-5 md:mb-10 md:px-8">
         <Reveal>
@@ -111,7 +100,7 @@ export default function ServicesPage() {
         >
           <div className="grid gap-8 border-t border-ink/10 pt-10 md:grid-cols-12">
             <Reveal className="md:col-span-4">
-              <h2 className="font-display text-4xl italic">{section.title}</h2>
+              <h2 className="font-display text-4xl font-medium">{section.title}</h2>
               <p className="mt-4 max-w-sm text-pretty text-ash">
                 {section.intro}
               </p>
@@ -129,7 +118,7 @@ export default function ServicesPage() {
                       {item.note}
                     </p>
                   </div>
-                  <p className="font-display text-xl italic text-ink">
+                  <p className="font-display text-xl font-medium text-ink">
                     {item.price}
                   </p>
                 </RevealItem>
@@ -154,7 +143,7 @@ export default function ServicesPage() {
           </Reveal>
           <Reveal delay={0.08}>
             <p className="eyebrow text-ash">New guests</p>
-            <h2 className="mt-4 font-display text-4xl italic md:text-5xl">
+            <h2 className="mt-5 font-display text-4xl font-medium md:text-5xl">
               Start with thirty minutes.
             </h2>
             <p className="mt-5 text-pretty leading-relaxed text-ink/80">

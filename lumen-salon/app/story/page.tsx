@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { PageIntro } from "@/components/PageIntro";
 import { Reveal, RevealGroup, RevealItem } from "@/components/Reveal";
 import { VisitPanel } from "@/components/VisitPanel";
 import { team } from "@/lib/site";
@@ -13,25 +14,14 @@ export const metadata: Metadata = {
 export default function StoryPage() {
   return (
     <>
-      <header className="mx-auto max-w-6xl px-5 pb-8 pt-14 md:px-8 md:pt-20">
-        <RevealGroup mode="load" stagger={0.08}>
-          <RevealItem>
-            <p className="eyebrow text-ash">About the salon</p>
-          </RevealItem>
-          <RevealItem distance={16}>
-            <h1 className="mt-4 max-w-3xl font-display text-5xl leading-[0.95] italic md:text-7xl">
-              Named for the light that finds the hair you already have.
-            </h1>
-          </RevealItem>
-          <RevealItem>
-            <p className="mt-6 max-w-2xl text-pretty text-lg leading-relaxed text-ink/80">
-              Lumen is a small salon in downtown Walnut Creek. We color slowly,
-              cut with weight in mind, and keep the room quiet enough that you can
-              hear the question we actually asked.
-            </p>
-          </RevealItem>
-        </RevealGroup>
-      </header>
+      <PageIntro
+        eyebrow="About the salon"
+        title="Named for the light that finds the hair you already have."
+      >
+        Lumen is a small salon in downtown Walnut Creek. We color slowly, cut
+        with weight in mind, and keep the room quiet enough that you can hear
+        the question we actually asked.
+      </PageIntro>
 
       <div className="mx-auto max-w-6xl px-5 md:px-8">
         <Reveal>
@@ -50,7 +40,7 @@ export default function StoryPage() {
 
       <section className="mx-auto grid max-w-6xl gap-12 px-5 py-16 md:grid-cols-12 md:px-8 md:py-24">
         <Reveal className="md:col-span-4">
-          <h2 className="font-display text-3xl italic md:text-4xl">
+          <h2 className="font-display text-3xl font-medium md:text-4xl">
             How we got here
           </h2>
         </Reveal>
@@ -92,7 +82,7 @@ export default function StoryPage() {
           </Reveal>
           <Reveal delay={0.08}>
             <p className="eyebrow text-ash">What we care about</p>
-            <h2 className="mt-4 font-display text-4xl italic md:text-5xl">
+            <h2 className="mt-5 font-display text-4xl font-medium md:text-5xl">
               Hospitality, then hair.
             </h2>
             <ul className="mt-6 space-y-4 text-pretty leading-relaxed text-ink/80">
@@ -119,7 +109,7 @@ export default function StoryPage() {
       <section className="mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-24">
         <Reveal className="max-w-2xl">
           <p className="eyebrow text-ash">The chairs</p>
-          <h2 className="mt-3 font-display text-4xl italic md:text-5xl">
+          <h2 className="mt-4 font-display text-4xl font-medium md:text-5xl">
             Who you will sit with
           </h2>
           <p className="mt-4 text-pretty text-ink/75">
@@ -138,7 +128,7 @@ export default function StoryPage() {
               as="div"
               className="grid gap-3 py-8 md:grid-cols-12 md:items-baseline"
             >
-              <p className="font-display text-2xl italic md:col-span-4">
+              <p className="font-display text-2xl font-medium md:col-span-4">
                 {person.name}
               </p>
               <p className="eyebrow text-ash md:col-span-3">{person.role}</p>

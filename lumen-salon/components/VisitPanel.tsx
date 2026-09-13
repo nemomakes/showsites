@@ -16,7 +16,7 @@ export function VisitPanel({ tone = "espresso" }: { tone?: "espresso" | "linen" 
           </p>
           <h2
             id="visit-heading"
-            className="mt-4 font-display text-4xl leading-[1.05] italic md:text-5xl"
+            className="mt-5 font-display text-4xl font-medium leading-[1.08] md:text-5xl"
           >
             Come sit when the door is open.
           </h2>

@@ -1,13 +1,13 @@
 @import "tailwindcss";
 
 :root {
-  --ivory: #f4efe8;
-  --linen: #ebe4d9;
-  --stone: #d8cfc3;
-  --ink: #1c1814;
-  --ash: #6e665c;
-  --espresso: #231e1a;
-  --copper: #8f5a3c;
+  --ivory: #f7f4ef;
+  --linen: #efe9e1;
+  --stone: #d9d1c6;
+  --ink: #1a1714;
+  --ash: #6a635b;
+  --espresso: #161311;
+  --copper: #8a6a52;
 }
 
 @theme inline {
@@ -50,7 +50,7 @@ body {
 
 .eyebrow {
   font-size: 0.68rem;
-  letter-spacing: 0.28em;
+  letter-spacing: 0.32em;
   text-transform: uppercase;
 }
 

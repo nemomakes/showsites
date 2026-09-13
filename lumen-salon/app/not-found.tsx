@@ -3,10 +3,10 @@ import { Reveal } from "@/components/Reveal";
 
 export default function NotFound() {
   return (
-    <div className="mx-auto flex min-h-[60vh] max-w-3xl flex-col justify-center px-5 py-24 md:px-8">
+    <div className="mx-auto flex min-h-[70vh] max-w-3xl flex-col justify-center px-5 pb-24 pt-32 md:px-8">
       <Reveal mode="load">
         <p className="eyebrow text-ash">404</p>
-        <h1 className="mt-4 font-display text-5xl italic md:text-6xl">
+        <h1 className="mt-4 font-display text-5xl font-medium md:text-6xl">
           That chair is empty.
         </h1>
         <p className="mt-5 max-w-md text-pretty text-ink/75">

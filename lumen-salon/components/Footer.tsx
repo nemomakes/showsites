@@ -6,7 +6,7 @@ export function Footer() {
     <footer className="bg-espresso text-ivory">
       <div className="mx-auto grid max-w-6xl gap-12 px-5 py-16 md:grid-cols-12 md:px-8 md:py-20">
         <div className="md:col-span-5">
-          <p className="font-display text-5xl italic leading-none">
+          <p className="font-display text-5xl font-medium tracking-[0.08em] leading-none">
             {site.name}
           </p>
           <p className="mt-5 max-w-sm text-pretty text-ivory/75">
