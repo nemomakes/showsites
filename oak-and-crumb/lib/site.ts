@@ -2,7 +2,7 @@ export const site = {
   name: "Oak & Crumb",
   legalName: "Oak & Crumb Bakery",
   tagline: "Walnut Creek · baked before you wake",
-  dek: "A neighborhood bakery on North Main. Pastries, sourdough, and coffee — made for the people who walk here.",
+  dek: "A neighborhood bakery on North Main. Pastries, sourdough, and coffee — made for the people who walk these streets.",
   description:
     "Oak & Crumb is a neighborhood bakery in Walnut Creek, California. We bake pastries, sourdough, and coffee for the East Bay — no checkout, just come by.",
   url: "https://oakandcrumb.example",
@@ -31,14 +31,14 @@ export const site = {
 } as const;
 
 export const nav = [
+  { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/menu", label: "Menu" },
-  { href: "/contact", label: "Visit" },
 ] as const;
 
 export const ticker = [
   "Country loaf",
-  "Morning bun",
+  "Morning croissants",
   "Butter croissant",
   "Kouign-amann",
   "Olive focaccia",
@@ -103,7 +103,7 @@ export const menu: MenuSection[] = [
     id: "pastry",
     title: "Pastry",
     intro:
-      "Laminated doughs start midweek. The morning bun is the one people line up for, and we will not apologize for that.",
+      "Laminated doughs start midweek. The morning croissants are the ones people line up for, and we will not apologize for that.",
     items: [
       {
         name: "Butter croissant",
@@ -116,9 +116,9 @@ export const menu: MenuSection[] = [
         note: "Yesterday’s croissant, a second life, frangipane, toasted almonds.",
       },
       {
-        name: "Morning bun",
+        name: "Morning croissants",
         price: "4.50",
-        note: "Orange zest, cinnamon, a lot of sugar on the outside. Eat it over the bag.",
+        note: "The first tray of the day. Shatter-warm, all butter, meant to be eaten over the bag.",
       },
       {
         name: "Kouign-amann",
@@ -173,14 +173,14 @@ export const featured = [
     alt: "Three rustic bakery loaves on a dark board with a stalk of wheat",
   },
   {
-    name: "Morning bun",
-    note: "Orange, cinnamon, sugar on your fingers. The Saturday regular.",
+    name: "Morning croissants",
+    note: "Shatter-warm from the first tray. Butter, a little sugar in the air, best on the walk to work.",
     image: "/images/hero-croissants.jpg",
     alt: "Two golden croissants on a dark slate with powdered sugar in the air",
   },
   {
     name: "House drip",
-    note: "Harbor & Pine on the bar. Sit a minute. We have two small tables.",
+    note: "Take a minute and enjoy the morning brew. We always have space for you.",
     image: "/images/coffee.jpg",
     alt: "Three people toasting with lattes and a glass of iced coffee",
   },
