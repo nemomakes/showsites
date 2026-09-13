@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { HeroMedia } from "@/components/HeroMedia";
 import { Marquee } from "@/components/Marquee";
 import { featured, site } from "@/lib/site";
 
@@ -7,14 +8,7 @@ export default function Home() {
   return (
     <>
       <section className="relative min-h-[88vh] overflow-hidden bg-bark text-cream">
-        <Image
-          src="/images/hero-croissants.jpg"
-          alt="Two golden butter croissants on dark slate, sugar falling through the air"
-          fill
-          priority
-          className="object-cover object-center"
-          sizes="100vw"
-        />
+        <HeroMedia />
         <div className="absolute inset-0 bg-gradient-to-t from-bark/80 via-bark/25 to-bark/30" />
         <div className="relative mx-auto flex min-h-[88vh] max-w-6xl flex-col justify-end px-5 pb-16 pt-28 md:px-8 md:pb-20">
           <p className="eyebrow text-cream/75">{site.tagline}</p>

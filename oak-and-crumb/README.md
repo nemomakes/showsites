@@ -46,4 +46,4 @@ No environment variables are required.
 
 Next.js App Router, TypeScript, Tailwind CSS v4.
 
-Photography is royalty-free (Unsplash / Pexels), stored in `public/images/`.
+Photography is royalty-free (Unsplash / Pexels), stored in `public/images/`. The homepage hero uses a muted looping clip (`public/hero-sugar.mp4`) by [Maksim Goncharenok](https://www.pexels.com/video/powdered-sugar-being-sprinkled-on-apple-pie-6162074/) on Pexels; a still poster is used when `prefers-reduced-motion: reduce` is set.

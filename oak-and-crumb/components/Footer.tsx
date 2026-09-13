@@ -73,7 +73,7 @@ export function Footer() {
       <div className="border-t border-cream/10">
         <p className="mx-auto max-w-6xl px-5 py-5 text-xs text-cream/45 md:px-8">
           Fictional neighborhood bakery — a Nemomakes showsite demo. Photos via
-          Unsplash and Pexels.
+          Unsplash and Pexels. Hero video: Maksim Goncharenok / Pexels.
         </p>
       </div>
     </footer>
