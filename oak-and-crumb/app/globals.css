@@ -1,0 +1,84 @@
+@import "tailwindcss";
+
+:root {
+  --cream: #f3ebe0;
+  --paper: #efe3d4;
+  --sand: #e2d2be;
+  --bark: #241c16;
+  --ink: #3a2e24;
+  --muted: #6b5848;
+  --rust: #b84a28;
+  --clay: #c46a3d;
+  --moss: #2c3828;
+  --gold: #c4a36a;
+}
+
+@theme inline {
+  --color-cream: var(--cream);
+  --color-paper: var(--paper);
+  --color-sand: var(--sand);
+  --color-bark: var(--bark);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-rust: var(--rust);
+  --color-clay: var(--clay);
+  --color-moss: var(--moss);
+  --color-gold: var(--gold);
+  --font-display: var(--font-fraunces), "Times New Roman", serif;
+  --font-sans: var(--font-outfit), "Helvetica Neue", sans-serif;
+}
+
+html {
+  background: var(--cream);
+  scroll-behavior: smooth;
+  overflow-x: clip;
+}
+
+body {
+  background: var(--cream);
+  color: var(--bark);
+  font-family: var(--font-sans);
+}
+
+::selection {
+  background: var(--rust);
+  color: var(--cream);
+}
+
+:focus-visible {
+  outline: 2px solid var(--rust);
+  outline-offset: 3px;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.marquee-track {
+  animation: marquee 42s linear infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .marquee-track {
+    animation: none;
+  }
+}
