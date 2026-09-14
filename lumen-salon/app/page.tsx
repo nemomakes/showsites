@@ -1,8 +1,7 @@
 import Image from "next/image";
-import Link from "next/link";
 import { Reveal, RevealGroup, RevealItem } from "@/components/Reveal";
 import { VisitPanel } from "@/components/VisitPanel";
-import { featured, site } from "@/lib/site";
+import { featured, hairGoals, site, visitSteps } from "@/lib/site";
 
 export default function Home() {
   return (
@@ -23,14 +22,19 @@ export default function Home() {
               <p className="eyebrow text-ivory/70">{site.tagline}</p>
             </RevealItem>
             <RevealItem distance={18}>
-              <h1 className="mt-5 font-display text-[clamp(4.5rem,16vw,8.5rem)] font-medium leading-[0.86] tracking-[0.02em]">
+              <p className="mt-5 font-display text-[clamp(4.5rem,16vw,8.5rem)] font-medium leading-[0.86] tracking-[0.02em]">
                 Lumen
+              </p>
+            </RevealItem>
+            <RevealItem>
+              <h1 className="mx-auto mt-6 max-w-xl font-display text-3xl font-medium leading-[1.12] text-pretty md:text-4xl">
+                Lived-in color and precise cuts in Walnut Creek.
               </h1>
             </RevealItem>
             <RevealItem>
-              <p className="mx-auto mt-6 max-w-md text-pretty text-lg text-ivory/85 md:text-xl">
-                Lived-in color and precision cuts — a calm chair on Locust
-                Street, for the hair you already have.
+              <p className="mx-auto mt-5 max-w-md text-pretty text-lg text-ivory/85 md:text-xl">
+                Lumen is a small salon on Locust Street. We do color that grows
+                out clean, and cuts that work with your texture — not against it.
               </p>
             </RevealItem>
             <RevealItem>
@@ -39,57 +43,35 @@ export default function Home() {
                   href={site.phoneHref}
                   className="inline-flex h-12 items-center rounded-full bg-ivory px-7 text-[0.72rem] tracking-[0.16em] uppercase text-espresso hover:bg-linen"
                 >
-                  Book a consult
+                  Call {site.phone}
                 </a>
-                <Link
-                  href="/services"
+                <a
+                  href={site.emailHref}
                   className="inline-flex h-12 items-center rounded-full border border-ivory/40 px-7 text-[0.72rem] tracking-[0.16em] uppercase text-ivory hover:border-ivory"
                 >
-                  Services
-                </Link>
+                  Email {site.email}
+                </a>
               </div>
             </RevealItem>
           </RevealGroup>
         </div>
       </section>
 
-      <section className="mx-auto max-w-3xl px-5 py-24 text-center md:px-8 md:py-32">
-        <Reveal>
-          <p className="eyebrow text-ash">On Locust Street</p>
-          <h2 className="mt-6 font-display text-4xl font-medium leading-[1.12] text-pretty md:text-6xl">
-            We do not do a new you. We do the hair you will keep living in.
-          </h2>
-          <p className="mx-auto mt-7 max-w-xl text-pretty text-lg leading-relaxed text-ink/70">
-            Lumen is a small salon in downtown Walnut Creek. Color is built
-            slowly. Cuts are measured twice. Hospitality is a glass of water
-            and a conversation that does not rush you toward a trend.
-          </p>
-          <Link
-            href="/story"
-            className="mt-9 inline-flex h-12 items-center text-[0.72rem] tracking-[0.18em] uppercase underline decoration-ink/20 underline-offset-[6px] hover:decoration-ink"
-          >
-            Read the story
-          </Link>
-        </Reveal>
-      </section>
-
       <section className="bg-linen">
         <div className="mx-auto max-w-6xl px-5 py-24 md:px-8 md:py-28">
           <Reveal>
-            <div className="flex flex-col justify-between gap-5 md:flex-row md:items-end">
-              <div>
-                <p className="eyebrow text-ash">The work</p>
-                <h2 className="mt-4 font-display text-4xl font-medium md:text-5xl">
-                  What we keep on the chair
-                </h2>
-              </div>
-              <Link
-                href="/services"
-                className="text-[0.72rem] tracking-[0.18em] uppercase underline decoration-ink/20 underline-offset-[6px] hover:decoration-ink"
-              >
-                Full services
-              </Link>
-            </div>
+            <p className="eyebrow text-ash">What we do</p>
+            <h2 className="mt-4 max-w-3xl font-display text-4xl font-medium leading-[1.12] text-pretty md:text-5xl">
+              Color that still looks good between visits. Cuts you can wear
+              every day.
+            </h2>
+            <p className="mt-7 max-w-2xl text-pretty text-lg leading-relaxed text-ink/70">
+              Most people come in for lived-in color — soft dimension for
+              brunettes and blondes that still looks intentional at week six,
+              not just day one. We cut dry or wet depending on your texture,
+              finish with a blowout or air-dry style, and take new color guests
+              through a consult before we mix anything.
+            </p>
           </Reveal>
 
           <RevealGroup className="mt-14 grid gap-12 md:grid-cols-3" stagger={0.12}>
@@ -127,50 +109,55 @@ export default function Home() {
           </div>
         </Reveal>
         <Reveal delay={0.08}>
-          <p className="eyebrow text-ash">How we work</p>
+          <p className="eyebrow text-ash">In the chair</p>
           <h2 className="mt-5 font-display text-4xl font-medium leading-[1.1] md:text-5xl">
-            A consult is a conversation, not a pitch.
+            Here’s what a visit usually looks like.
           </h2>
-          <p className="mt-6 text-pretty text-lg leading-relaxed text-ink/75">
-            New color guests start here. Bring a photo if you want. We will
-            tell you what the hair can hold this visit, and what should wait.
-            There is no checkout on this site — call {site.phone}, or write{" "}
-            <a href={site.emailHref} className="underline underline-offset-4">
-              {site.email}
-            </a>
-            .
-          </p>
-          <p className="mt-4 text-pretty leading-relaxed text-ink/75">
-            Tuesday through Saturday. Closed Sunday and Monday so the chairs —
-            and the people in them — can rest.
+          <ol className="mt-8 divide-y divide-ink/10">
+            {visitSteps.map((step, i) => (
+              <li key={step} className="flex gap-4 py-4">
+                <span className="font-display text-2xl font-medium text-copper">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <p className="text-pretty leading-relaxed text-ink/75">{step}</p>
+              </li>
+            ))}
+          </ol>
+          <p className="mt-6 text-pretty leading-relaxed text-ink/70">
+            New color guests start with a consult. If you book the service same
+            day, the 30 minutes comes off the ticket.
           </p>
         </Reveal>
       </section>
 
-      <section className="relative min-h-[72vh] overflow-hidden bg-espresso text-ivory">
-        <Image
-          src="/images/interior.jpg"
-          alt="A quiet row of salon chairs and mirrors in black and white"
-          fill
-          className="object-cover"
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-espresso/40" />
-        <div className="relative mx-auto flex min-h-[72vh] max-w-3xl flex-col items-center justify-center px-5 py-24 text-center">
-          <Reveal>
-            <p className="eyebrow text-ivory/65">Walnut Creek</p>
-            <h2 className="mt-5 font-display text-4xl font-medium leading-[1.12] md:text-6xl">
-              Lived-in color.
-              <span className="block">Precision cuts.</span>
-            </h2>
-            <Link
-              href="/services"
-              className="mt-9 inline-flex h-12 items-center rounded-full border border-ivory/45 px-7 text-[0.72rem] tracking-[0.16em] uppercase text-ivory hover:bg-ivory hover:text-espresso"
+      <section className="mx-auto max-w-3xl px-5 py-24 md:px-8 md:py-32">
+        <Reveal>
+          <p className="eyebrow text-ash">Hair goals</p>
+          <h2 className="mt-5 font-display text-4xl font-medium leading-[1.12] text-pretty md:text-5xl">
+            Things people often ask for.
+          </h2>
+        </Reveal>
+        <ul className="mt-10 divide-y divide-ink/10 border-y border-ink/10">
+          {hairGoals.map((goal) => (
+            <Reveal key={goal}>
+              <li className="py-5 font-display text-2xl font-medium leading-snug text-pretty md:text-[1.65rem]">
+                {goal}
+              </li>
+            </Reveal>
+          ))}
+        </ul>
+        <Reveal delay={0.08}>
+          <p className="mt-8 text-pretty text-ink/75">
+            Not sure what to book?{" "}
+            <a
+              href={site.phoneHref}
+              className="underline decoration-ink/20 underline-offset-4 hover:decoration-ink"
             >
-              See the work
-            </Link>
-          </Reveal>
-        </div>
+              Call
+            </a>{" "}
+            and we’ll talk it through.
+          </p>
+        </Reveal>
       </section>
 
       <VisitPanel />

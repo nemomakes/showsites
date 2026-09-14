@@ -10,8 +10,7 @@ export function Footer() {
             {site.name}
           </p>
           <p className="mt-5 max-w-sm text-pretty text-ivory/75">
-            A neighborhood salon on Locust Street. Come sit. We will look at
-            your hair together.
+            {site.footer}
           </p>
         </div>
 

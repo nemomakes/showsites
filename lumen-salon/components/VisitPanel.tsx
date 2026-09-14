@@ -9,21 +9,21 @@ export function VisitPanel({ tone = "espresso" }: { tone?: "espresso" | "linen" 
       className={dark ? "bg-espresso text-ivory" : "bg-linen text-ink"}
       aria-labelledby="visit-heading"
     >
-      <div className="mx-auto grid max-w-6xl gap-10 px-5 py-16 md:grid-cols-2 md:gap-16 md:px-8 md:py-24">
+      <div className="mx-auto grid max-w-6xl gap-12 px-5 py-16 md:grid-cols-2 md:gap-16 md:px-8 md:py-24">
         <Reveal>
           <p className={`eyebrow ${dark ? "text-ivory/45" : "text-ash"}`}>
-            The salon
+            Hours & booking
           </p>
           <h2
             id="visit-heading"
             className="mt-5 font-display text-4xl font-medium leading-[1.08] md:text-5xl"
           >
-            Come sit when the door is open.
+            Come in when we’re open.
           </h2>
           <p className={`mt-5 max-w-md text-pretty ${dark ? "text-ivory/75" : "text-ink/80"}`}>
-            We do not take online checkout. Call to book a consult, or write if
-            a Saturday is already full. New color guests start with a
-            conversation — thirty minutes, applied to the service if you stay.
+            Tue–Fri 9–6, Sat 9–4, closed Sun–Mon. Last color chair 4:00
+            weekdays / 2:30 Sat. Evening consults by request. No online
+            checkout — call to book, or email if Saturday is full.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <a
@@ -34,7 +34,17 @@ export function VisitPanel({ tone = "espresso" }: { tone?: "espresso" | "linen" 
                   : "bg-espresso text-ivory hover:bg-copper"
               }`}
             >
-              Call to book
+              Call
+            </a>
+            <a
+              href={site.emailHref}
+              className={`inline-flex h-12 items-center rounded-full border px-6 text-sm ${
+                dark
+                  ? "border-ivory/30 text-ivory hover:border-ivory"
+                  : "border-ink/20 text-ink hover:border-ink"
+              }`}
+            >
+              Email
             </a>
             <a
               href={site.mapsUrl}
@@ -46,40 +56,34 @@ export function VisitPanel({ tone = "espresso" }: { tone?: "espresso" | "linen" 
                   : "border-ink/20 text-ink hover:border-ink"
               }`}
             >
-              Get directions
+              Open map
             </a>
           </div>
         </Reveal>
 
-        <Reveal delay={0.08} className="grid gap-8 sm:grid-cols-2">
-          <div>
-            <p className={`eyebrow ${dark ? "text-ivory/45" : "text-ash"}`}>
-              Address
-            </p>
-            <p className="mt-3 text-pretty">
-              {site.address.street}
-              <br />
-              {site.address.city}, {site.address.region} {site.address.postal}
-            </p>
-            <p className={`mt-2 text-sm ${dark ? "text-ivory/60" : "text-ash"}`}>
-              Downtown Walnut Creek, a short walk from Broadway Plaza.
-            </p>
-          </div>
-          <div>
-            <p className={`eyebrow ${dark ? "text-ivory/45" : "text-ash"}`}>
-              Hours
-            </p>
-            <ul className="mt-3 space-y-2">
-              {site.hours.map((row) => (
-                <li key={row.days} className="flex flex-col">
-                  <span className={dark ? "text-ivory/55" : "text-ash"}>
-                    {row.days}
-                  </span>
-                  <span>{row.time}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
+        <Reveal delay={0.08}>
+          <p className={`eyebrow ${dark ? "text-ivory/45" : "text-ash"}`}>
+            Location
+          </p>
+          <h3 className="mt-5 font-display text-4xl font-medium leading-[1.08] md:text-5xl">
+            Downtown on Locust Street.
+          </h3>
+          <p className={`mt-5 max-w-md text-pretty ${dark ? "text-ivory/75" : "text-ink/80"}`}>
+            1632 Locust Street — street parking on Locust; plaza garage one
+            block over.
+          </p>
+          <a
+            href={site.mapsUrl}
+            target="_blank"
+            rel="noreferrer"
+            className={`mt-8 inline-flex h-12 items-center rounded-full border px-6 text-sm ${
+              dark
+                ? "border-ivory/30 text-ivory hover:border-ivory"
+                : "border-ink/20 text-ink hover:border-ink"
+            }`}
+          >
+            Get directions
+          </a>
         </Reveal>
       </div>
     </section>
