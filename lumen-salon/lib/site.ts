@@ -21,6 +21,10 @@ export const site = {
   },
   mapsUrl:
     "https://www.google.com/maps/search/?api=1&query=1632+Locust+Street+Walnut+Creek+CA+94596",
+  mapsEmbedUrl:
+    "https://maps.google.com/maps?q=1632+Locust+Street,+Walnut+Creek,+CA+94596&z=16&output=embed",
+  directionsUrl:
+    "https://www.google.com/maps/dir/?api=1&destination=1632+Locust+Street+Walnut+Creek+CA+94596",
   hoursLine: "Sun–Mon closed · Tue–Fri 9:00 am–6:00 pm · Sat 9:00 am–4:00 pm",
   hoursNote: "Last color 4:00 weekdays / 2:30 Sat. Evening consults by request.",
   hours: [

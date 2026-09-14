@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { Reveal, RevealGroup, RevealItem } from "@/components/Reveal";
-import { VisitPanel } from "@/components/VisitPanel";
 import { featured, hairGoals, site, visitSteps } from "@/lib/site";
 
 export default function Home() {
@@ -105,7 +104,7 @@ export default function Home() {
           </div>
         </Reveal>
         <Reveal delay={0.08}>
-          <h2 className="font-display text-4xl font-medium leading-[1.1] md:text-5xl">
+          <h2 className="font-display text-4xl font-medium leading-[1.1] text-balance md:text-5xl">
             Here’s what a visit usually looks like.
           </h2>
           <ol className="mt-8 divide-y divide-ink/10">
@@ -125,22 +124,21 @@ export default function Home() {
         </Reveal>
       </section>
 
-      <section className="mx-auto max-w-3xl px-5 py-24 md:px-8 md:py-32">
+      <section className="mx-auto grid max-w-6xl items-center gap-12 px-5 py-24 md:grid-cols-2 md:gap-20 md:px-8 md:py-32">
         <Reveal>
-          <h2 className="font-display text-4xl font-medium leading-[1.12] text-pretty md:text-5xl">
+          <h2 className="font-display text-4xl font-medium leading-[1.1] text-balance md:text-5xl">
             Things people often ask for.
           </h2>
-        </Reveal>
-        <ul className="mt-10 divide-y divide-ink/10 border-y border-ink/10">
-          {hairGoals.map((goal) => (
-            <Reveal key={goal}>
-              <li className="py-5 font-display text-2xl font-medium leading-snug text-pretty md:text-[1.65rem]">
+          <ul className="mt-10 divide-y divide-ink/10 border-y border-ink/10">
+            {hairGoals.map((goal) => (
+              <li
+                key={goal}
+                className="py-5 font-display text-2xl font-medium leading-snug text-pretty md:text-[1.65rem]"
+              >
                 {goal}
               </li>
-            </Reveal>
-          ))}
-        </ul>
-        <Reveal delay={0.08}>
+            ))}
+          </ul>
           <p className="mt-8 text-pretty text-ink/75">
             Not sure what to book?{" "}
             <a
@@ -152,9 +150,18 @@ export default function Home() {
             and we’ll talk it through.
           </p>
         </Reveal>
+        <Reveal delay={0.08}>
+          <div className="relative aspect-[4/5] overflow-hidden bg-stone md:aspect-[5/6]">
+            <Image
+              src="/images/chair.jpg"
+              alt="A leather salon chair waiting in a quiet room"
+              fill
+              className="object-cover"
+              sizes="(min-width: 768px) 45vw, 100vw"
+            />
+          </div>
+        </Reveal>
       </section>
-
-      <VisitPanel />
     </>
   );
 }
