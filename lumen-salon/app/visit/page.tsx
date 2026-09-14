@@ -12,20 +12,20 @@ export const metadata: Metadata = {
 export default function VisitPage() {
   return (
     <>
-      <PageIntro title="Visit us in downtown Walnut Creek.">
+      <PageIntro oneLine title="Visit us in downtown Walnut Creek.">
         1632 Locust Street — a short walk from Broadway Plaza.
       </PageIntro>
 
       <div className="mx-auto max-w-6xl px-5 md:px-8">
         <Reveal>
           <div className="relative aspect-[16/10] overflow-hidden bg-stone">
-            <Image
-              src="/images/chair.jpg"
-              alt="A leather salon chair waiting in a quiet room"
-              fill
-              className="object-cover"
-              sizes="100vw"
-              priority
+            <iframe
+              title="Map of Lumen Salon at 1632 Locust Street, Walnut Creek"
+              src={site.mapsEmbedUrl}
+              className="absolute inset-0 h-full w-full border-0"
+              loading="eager"
+              referrerPolicy="no-referrer-when-downgrade"
+              allowFullScreen
             />
           </div>
         </Reveal>
@@ -43,7 +43,7 @@ export default function VisitPage() {
             over.
           </p>
           <p className="mt-3 text-ash">{site.address.line}</p>
-          <div className="mt-8">
+          <div className="mt-8 flex flex-wrap gap-3">
             <a
               href={site.mapsUrl}
               target="_blank"
@@ -51,6 +51,14 @@ export default function VisitPage() {
               className="inline-flex h-12 items-center rounded-full bg-espresso px-6 text-sm text-ivory hover:bg-copper"
             >
               Open map
+            </a>
+            <a
+              href={site.directionsUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex h-12 items-center rounded-full border border-ink/20 px-6 text-sm hover:border-ink"
+            >
+              Get directions
             </a>
           </div>
         </Reveal>

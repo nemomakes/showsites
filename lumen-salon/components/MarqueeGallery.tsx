@@ -9,10 +9,22 @@ const frames = [
     src: "/images/portrait-bun.jpg",
     alt: "Portrait of a woman with a clean bun and soft fringe",
   },
+  {
+    src: "/images/blonde.jpg",
+    alt: "Portrait of a woman with lived-in blonde hair against a dark backdrop",
+  },
+  {
+    src: "/images/blowdry.jpg",
+    alt: "A stylist finishing a blowout at the chair",
+  },
+  {
+    src: "/images/waves.jpg",
+    alt: "Dark hair being shaped with a curling iron",
+  },
 ] as const;
 
-/** Repeat the pair so each half of the track is wider than the viewport. */
-const rowFrames = [...frames, ...frames, ...frames];
+/** Repeat the set so each half of the track stays wider than the viewport. */
+const rowFrames = [...frames, ...frames];
 
 function FrameRow({ decorative }: { decorative?: boolean }) {
   return (
