@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+:root {
+  --ivory: #f7f4ef;
+  --linen: #efe9e1;
+  --stone: #d9d1c6;
+  --ink: #1a1714;
+  --ash: #6a635b;
+  --espresso: #161311;
+  --copper: #8a6a52;
+}
+
+@theme inline {
+  --color-ivory: var(--ivory);
+  --color-linen: var(--linen);
+  --color-stone: var(--stone);
+  --color-ink: var(--ink);
+  --color-ash: var(--ash);
+  --color-espresso: var(--espresso);
+  --color-copper: var(--copper);
+  --font-display: var(--font-cormorant), "Times New Roman", serif;
+  --font-sans: var(--font-figtree), "Helvetica Neue", sans-serif;
+}
+
+html {
+  background: var(--ivory);
+  scroll-behavior: smooth;
+  overflow-x: clip;
+}
+
+body {
+  background: var(--ivory);
+  color: var(--ink);
+  font-family: var(--font-sans);
+}
+
+::selection {
+  background: var(--espresso);
+  color: var(--ivory);
+}
+
+:focus-visible {
+  outline: 2px solid var(--copper);
+  outline-offset: 3px;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.eyebrow {
+  font-size: 0.68rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+}
+
+.rule {
+  height: 1px;
+  background: color-mix(in srgb, var(--ink) 12%, transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
