@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default function ServicesPage() {
   return (
     <>
-      <PageIntro eyebrow="Services" title="Services and what to book.">
+      <PageIntro title="Services and what to book.">
         Prices are a guide. Length, density, and color history change chair
         time. Nothing checks out online — call to book a consult, or email if
         you already know what you need.
@@ -48,8 +48,7 @@ export default function ServicesPage() {
             </div>
           </Reveal>
           <Reveal delay={0.08}>
-            <p className="eyebrow text-ash">Start here</p>
-            <h2 className="mt-5 font-display text-4xl font-medium md:text-5xl">
+            <h2 className="font-display text-4xl font-medium md:text-5xl">
               New to Lumen? Book a consult.
             </h2>
             <p className="mt-5 text-pretty leading-relaxed text-ink/80">

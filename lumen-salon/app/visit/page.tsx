@@ -12,10 +12,7 @@ export const metadata: Metadata = {
 export default function VisitPage() {
   return (
     <>
-      <PageIntro
-        eyebrow="Visit"
-        title="Visit us in downtown Walnut Creek."
-      >
+      <PageIntro title="Visit us in downtown Walnut Creek.">
         1632 Locust Street — a short walk from Broadway Plaza.
       </PageIntro>
 
@@ -36,8 +33,7 @@ export default function VisitPage() {
 
       <section className="mx-auto grid max-w-6xl gap-12 px-5 py-16 md:grid-cols-2 md:px-8 md:py-24">
         <Reveal>
-          <p className="eyebrow text-ash">Find the door</p>
-          <p className="mt-4 font-display text-3xl font-medium leading-snug md:text-4xl">
+          <p className="font-display text-3xl font-medium leading-snug md:text-4xl">
             {site.address.street}
             <br />
             {site.address.city}, {site.address.region} {site.address.postal}
@@ -61,8 +57,7 @@ export default function VisitPage() {
 
         <Reveal delay={0.08} className="grid gap-10">
           <div>
-            <p className="eyebrow text-ash">Hours</p>
-            <p className="mt-4 text-pretty leading-relaxed text-ink/80">
+            <p className="text-pretty leading-relaxed text-ink/80">
               {site.hoursLine}
             </p>
             <ul className="mt-4 divide-y divide-ink/10">
@@ -80,8 +75,7 @@ export default function VisitPage() {
           </div>
 
           <div>
-            <p className="eyebrow text-ash">Talk to us</p>
-            <p className="mt-4 text-pretty leading-relaxed text-ink/80">
+            <p className="text-pretty leading-relaxed text-ink/80">
               Phone is fastest. Email if Saturday is full — we reply in the
               afternoon.
             </p>

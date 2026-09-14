@@ -2,22 +2,28 @@ import type { ReactNode } from "react";
 import { RevealGroup, RevealItem } from "@/components/Reveal";
 
 export function PageIntro({
-  eyebrow,
   title,
+  titleClassName,
+  className,
   children,
 }: {
-  eyebrow: string;
   title: string;
+  titleClassName?: string;
+  className?: string;
   children?: ReactNode;
 }) {
   return (
-    <header className="mx-auto max-w-6xl px-5 pb-12 pt-28 md:px-8 md:pb-16 md:pt-32">
+    <header
+      className={`mx-auto px-5 pb-12 pt-28 md:px-8 md:pb-16 md:pt-32 ${className ?? "max-w-6xl"}`}
+    >
       <RevealGroup mode="load" stagger={0.08}>
-        <RevealItem>
-          <p className="eyebrow text-ash">{eyebrow}</p>
-        </RevealItem>
         <RevealItem distance={16}>
-          <h1 className="mt-5 max-w-4xl font-display text-5xl font-medium leading-[0.96] md:text-7xl">
+          <h1
+            className={
+              titleClassName ??
+              "max-w-4xl font-display text-5xl font-medium leading-[0.96] md:text-7xl"
+            }
+          >
             {title}
           </h1>
         </RevealItem>
