@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { MarqueeGallery } from "@/components/MarqueeGallery";
 import { PageIntro } from "@/components/PageIntro";
-import { Reveal, RevealGroup, RevealItem } from "@/components/Reveal";
+import { Reveal } from "@/components/Reveal";
 import { howWeWork, site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -13,7 +14,11 @@ export const metadata: Metadata = {
 export default function StoryPage() {
   return (
     <>
-      <PageIntro eyebrow="Story" title="A quieter chair on Locust Street.">
+      <PageIntro
+        className="max-w-none"
+        title="A quieter chair on Locust Street."
+        titleClassName="max-w-full whitespace-nowrap font-display text-[length:min(4.25rem,calc((100vw-2.5rem)/19.4))] font-medium leading-[0.96] tracking-[-0.03em] md:text-[length:min(4.25rem,calc((100vw-4rem)/18.8))]"
+      >
         Lumen is Noor Alami’s neighborhood salon — for color done carefully, and
         cuts that respect how your hair grows.
       </PageIntro>
@@ -35,8 +40,7 @@ export default function StoryPage() {
 
       <section className="mx-auto grid max-w-6xl gap-12 px-5 py-16 md:grid-cols-12 md:px-8 md:py-24">
         <Reveal className="md:col-span-4">
-          <p className="eyebrow text-ash">How we got here</p>
-          <h2 className="mt-4 font-display text-3xl font-medium md:text-4xl">
+          <h2 className="font-display text-3xl font-medium md:text-4xl">
             From kitchen color to a Locust Street chair.
           </h2>
         </Reveal>
@@ -71,11 +75,10 @@ export default function StoryPage() {
             </div>
           </Reveal>
           <Reveal delay={0.08}>
-            <p className="eyebrow text-ash">How we work</p>
-            <h2 className="mt-5 font-display text-4xl font-medium md:text-5xl">
+            <h2 className="font-display text-4xl font-medium md:text-5xl">
               What you can expect.
             </h2>
-            <ul className="mt-6 space-y-4 text-pretty leading-relaxed text-ink/80">
+            <ul className="mt-6 list-disc space-y-3 pl-5 text-pretty leading-relaxed text-ink/80 marker:text-copper">
               {howWeWork.map((item) => (
                 <li key={item}>{item}</li>
               ))}
@@ -84,33 +87,7 @@ export default function StoryPage() {
         </div>
       </section>
 
-      <RevealGroup
-        className="mx-auto grid max-w-6xl gap-8 px-5 py-16 md:grid-cols-2 md:px-8 md:py-24"
-        stagger={0.12}
-      >
-        <RevealItem>
-          <div className="relative aspect-[4/5] overflow-hidden bg-stone">
-            <Image
-              src="/images/texture.jpg"
-              alt="Editorial portrait celebrating natural hair texture"
-              fill
-              className="object-cover"
-              sizes="(min-width: 768px) 45vw, 100vw"
-            />
-          </div>
-        </RevealItem>
-        <RevealItem>
-          <div className="relative aspect-[4/5] overflow-hidden bg-stone">
-            <Image
-              src="/images/portrait-bun.jpg"
-              alt="Portrait of a woman with a clean bun and soft fringe"
-              fill
-              className="object-cover"
-              sizes="(min-width: 768px) 45vw, 100vw"
-            />
-          </div>
-        </RevealItem>
-      </RevealGroup>
+      <MarqueeGallery />
 
       <section className="bg-espresso text-ivory">
         <div className="mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-20">

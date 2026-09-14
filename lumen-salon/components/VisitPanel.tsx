@@ -11,12 +11,9 @@ export function VisitPanel({ tone = "espresso" }: { tone?: "espresso" | "linen" 
     >
       <div className="mx-auto grid max-w-6xl gap-12 px-5 py-16 md:grid-cols-2 md:gap-16 md:px-8 md:py-24">
         <Reveal>
-          <p className={`eyebrow ${dark ? "text-ivory/45" : "text-ash"}`}>
-            Hours & booking
-          </p>
           <h2
             id="visit-heading"
-            className="mt-5 font-display text-4xl font-medium leading-[1.08] md:text-5xl"
+            className="font-display text-4xl font-medium leading-[1.08] md:text-5xl"
           >
             Come in when we’re open.
           </h2>
@@ -62,10 +59,7 @@ export function VisitPanel({ tone = "espresso" }: { tone?: "espresso" | "linen" 
         </Reveal>
 
         <Reveal delay={0.08}>
-          <p className={`eyebrow ${dark ? "text-ivory/45" : "text-ash"}`}>
-            Location
-          </p>
-          <h3 className="mt-5 font-display text-4xl font-medium leading-[1.08] md:text-5xl">
+          <h3 className="font-display text-4xl font-medium leading-[1.08] md:text-5xl">
             Downtown on Locust Street.
           </h3>
           <p className={`mt-5 max-w-md text-pretty ${dark ? "text-ivory/75" : "text-ink/80"}`}>

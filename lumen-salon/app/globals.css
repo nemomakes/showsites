@@ -54,6 +54,20 @@ body {
   text-transform: uppercase;
 }
 
+@keyframes marquee-ltr {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.marquee-ltr {
+  animation: marquee-ltr 88s linear infinite;
+  will-change: transform;
+}
+
 .rule {
   height: 1px;
   background: color-mix(in srgb, var(--ink) 12%, transparent);
@@ -62,5 +76,11 @@ body {
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  .marquee-ltr {
+    animation: none;
+    will-change: auto;
+    transform: translateX(-8%);
   }
 }

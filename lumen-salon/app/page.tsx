@@ -18,11 +18,8 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-t from-espresso/70 via-espresso/20 to-espresso/25" />
         <div className="relative mx-auto flex min-h-[100svh] max-w-4xl flex-col items-center justify-end px-5 pb-20 pt-32 text-center md:justify-center md:pb-24">
           <RevealGroup mode="load" stagger={0.09}>
-            <RevealItem>
-              <p className="eyebrow text-ivory/70">{site.tagline}</p>
-            </RevealItem>
             <RevealItem distance={18}>
-              <p className="mt-5 font-display text-[clamp(4.5rem,16vw,8.5rem)] font-medium leading-[0.86] tracking-[0.02em]">
+              <p className="font-display text-[clamp(4.5rem,16vw,8.5rem)] font-medium leading-[0.86] tracking-[0.02em]">
                 Lumen
               </p>
             </RevealItem>
@@ -60,8 +57,7 @@ export default function Home() {
       <section className="bg-linen">
         <div className="mx-auto max-w-6xl px-5 py-24 md:px-8 md:py-28">
           <Reveal>
-            <p className="eyebrow text-ash">What we do</p>
-            <h2 className="mt-4 max-w-3xl font-display text-4xl font-medium leading-[1.12] text-pretty md:text-5xl">
+            <h2 className="max-w-3xl font-display text-4xl font-medium leading-[1.12] text-pretty md:text-5xl">
               Color that still looks good between visits. Cuts you can wear
               every day.
             </h2>
@@ -109,8 +105,7 @@ export default function Home() {
           </div>
         </Reveal>
         <Reveal delay={0.08}>
-          <p className="eyebrow text-ash">In the chair</p>
-          <h2 className="mt-5 font-display text-4xl font-medium leading-[1.1] md:text-5xl">
+          <h2 className="font-display text-4xl font-medium leading-[1.1] md:text-5xl">
             Here’s what a visit usually looks like.
           </h2>
           <ol className="mt-8 divide-y divide-ink/10">
@@ -132,8 +127,7 @@ export default function Home() {
 
       <section className="mx-auto max-w-3xl px-5 py-24 md:px-8 md:py-32">
         <Reveal>
-          <p className="eyebrow text-ash">Hair goals</p>
-          <h2 className="mt-5 font-display text-4xl font-medium leading-[1.12] text-pretty md:text-5xl">
+          <h2 className="font-display text-4xl font-medium leading-[1.12] text-pretty md:text-5xl">
             Things people often ask for.
           </h2>
         </Reveal>
