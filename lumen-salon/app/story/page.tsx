@@ -17,7 +17,7 @@ export default function StoryPage() {
       <PageIntro
         className="max-w-none"
         title="A quieter chair on Locust Street."
-        titleClassName="whitespace-nowrap font-display text-[length:min(4.25rem,calc((100vw-2.5rem)/18.6))] font-medium leading-[0.96] tracking-[-0.025em] md:text-[length:min(4.25rem,calc((100vw-4rem)/18.6))]"
+        titleClassName="max-w-full whitespace-nowrap font-display text-[length:min(4.25rem,calc((100vw-2.5rem)/19.4))] font-medium leading-[0.96] tracking-[-0.03em] md:text-[length:min(4.25rem,calc((100vw-4rem)/18.8))]"
       >
         Lumen is Noor Alami’s neighborhood salon — for color done carefully, and
         cuts that respect how your hair grows.
