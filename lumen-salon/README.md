@@ -7,8 +7,8 @@ Soft CTAs only: book a consult by phone, email, or map. No booking checkout.
 ## Pages
 
 - `/` — Home
-- `/story` — About, team, how the salon works
-- `/services` — Color, cut, style & care
+- `/story` — How Lumen started and how the room works
+- `/services` — Consult, color, cuts & styling, add-ons
 - `/visit` — Hours, address, map link, phone, email
 
 ## Local

@@ -7,19 +7,16 @@ import { services, site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Lived-in color, precision cuts, blowouts, and treatments at Lumen Salon in Walnut Creek. Call to book — no online checkout.",
+    "Prices are a guide. Length, density, and color history change chair time. Nothing checks out online — call to book a consult, or email if you already know what you need.",
 };
 
 export default function ServicesPage() {
   return (
     <>
-      <PageIntro eyebrow="The menu" title="Services">
-        <p>
-          Prices are a guide. Hair length, density, and history change the
-          chair time. Nothing here checks out online — call {site.phone} to
-          book a consult, or write if you already know who you want.
-        </p>
-        <p className="mt-4 text-sm text-ash">{site.hoursNote}</p>
+      <PageIntro eyebrow="Services" title="Services and what to book.">
+        Prices are a guide. Length, density, and color history change chair
+        time. Nothing checks out online — call to book a consult, or email if
+        you already know what you need.
       </PageIntro>
 
       <div className="mx-auto mb-6 max-w-6xl px-5 md:mb-10 md:px-8">
@@ -37,7 +34,55 @@ export default function ServicesPage() {
         </Reveal>
       </div>
 
-      <div className="mx-auto max-w-6xl px-5 pb-8 md:px-8">
+      <section className="bg-linen">
+        <div className="mx-auto grid max-w-6xl items-center gap-10 px-5 py-16 md:grid-cols-2 md:px-8 md:py-20">
+          <Reveal>
+            <div className="relative aspect-[4/5] overflow-hidden bg-stone">
+              <Image
+                src="/images/extensions.jpg"
+                alt="Curled hair being prepared during an extension appointment"
+                fill
+                className="object-cover"
+                sizes="(min-width: 768px) 45vw, 100vw"
+              />
+            </div>
+          </Reveal>
+          <Reveal delay={0.08}>
+            <p className="eyebrow text-ash">Start here</p>
+            <h2 className="mt-5 font-display text-4xl font-medium md:text-5xl">
+              New to Lumen? Book a consult.
+            </h2>
+            <p className="mt-5 text-pretty leading-relaxed text-ink/80">
+              Thirty minutes: we look at your hair and history, talk goals, and
+              leave you with a plan you can live with. Credited to the ticket if
+              you book same day. Otherwise you leave with a clear note — not a
+              hard sell.
+            </p>
+            <p className="mt-5 font-display text-2xl font-medium">
+              $50{" "}
+              <span className="text-lg text-ash">
+                (credited if you book same day)
+              </span>
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <a
+                href={site.phoneHref}
+                className="inline-flex h-12 items-center rounded-full bg-espresso px-6 text-sm text-ivory hover:bg-copper"
+              >
+                Call
+              </a>
+              <a
+                href={site.emailHref}
+                className="inline-flex h-12 items-center rounded-full border border-ink/20 px-6 text-sm hover:border-ink"
+              >
+                Email
+              </a>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      <div className="mx-auto max-w-6xl px-5 pt-12 md:px-8">
         <Reveal>
           <nav aria-label="Service sections" className="flex flex-wrap gap-3">
             {services.map((section) => (
@@ -54,7 +99,7 @@ export default function ServicesPage() {
       </div>
 
       <RevealGroup
-        className="mx-auto grid max-w-6xl gap-4 px-5 pb-6 md:grid-cols-3 md:px-8"
+        className="mx-auto grid max-w-6xl gap-4 px-5 pb-6 pt-8 md:grid-cols-3 md:px-8"
         stagger={0.1}
       >
         <RevealItem>
@@ -101,9 +146,14 @@ export default function ServicesPage() {
           <div className="grid gap-8 border-t border-ink/10 pt-10 md:grid-cols-12">
             <Reveal className="md:col-span-4">
               <h2 className="font-display text-4xl font-medium">{section.title}</h2>
-              <p className="mt-4 max-w-sm text-pretty text-ash">
-                {section.intro}
-              </p>
+              {section.intro ? (
+                <p className="mt-4 max-w-sm text-pretty text-ash">
+                  {section.intro}
+                </p>
+              ) : null}
+              {section.note ? (
+                <p className="mt-4 max-w-sm text-sm text-ash">{section.note}</p>
+              ) : null}
             </Reveal>
             <RevealGroup className="divide-y divide-ink/10 md:col-span-8" stagger={0.06}>
               {section.items.map((item) => (
@@ -114,9 +164,11 @@ export default function ServicesPage() {
                 >
                   <div>
                     <p className="font-medium text-ink">{item.name}</p>
-                    <p className="mt-1 max-w-xl text-pretty text-sm text-ash">
-                      {item.note}
-                    </p>
+                    {item.note ? (
+                      <p className="mt-1 max-w-xl text-pretty text-sm text-ash">
+                        {item.note}
+                      </p>
+                    ) : null}
                   </div>
                   <p className="font-display text-xl font-medium text-ink">
                     {item.price}
@@ -129,41 +181,27 @@ export default function ServicesPage() {
       ))}
 
       <section className="bg-linen">
-        <div className="mx-auto grid max-w-6xl items-center gap-10 px-5 py-16 md:grid-cols-2 md:px-8 md:py-20">
+        <div className="mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-20">
           <Reveal>
-            <div className="relative aspect-[4/5] overflow-hidden bg-stone">
-              <Image
-                src="/images/extensions.jpg"
-                alt="Curled hair being prepared during an extension appointment"
-                fill
-                className="object-cover"
-                sizes="(min-width: 768px) 45vw, 100vw"
-              />
-            </div>
-          </Reveal>
-          <Reveal delay={0.08}>
-            <p className="eyebrow text-ash">New guests</p>
-            <h2 className="mt-5 font-display text-4xl font-medium md:text-5xl">
-              Start with thirty minutes.
+            <h2 className="font-display text-4xl font-medium md:text-5xl">
+              How to book
             </h2>
-            <p className="mt-5 text-pretty leading-relaxed text-ink/80">
-              A consult is a look at the hair, a look at the history, and a
-              plan you can live with. If you book the service, those thirty
-              minutes come off the ticket. If you need time to think, you
-              leave with a note — not a hard sell.
+            <p className="mt-5 max-w-xl text-pretty leading-relaxed text-ink/80">
+              Call {site.phone} or email {site.email}. Evening consults by
+              request. We read email in the afternoon after the last gloss.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <a
                 href={site.phoneHref}
                 className="inline-flex h-12 items-center rounded-full bg-espresso px-6 text-sm text-ivory hover:bg-copper"
               >
-                Call to book
+                Call
               </a>
               <a
                 href={site.emailHref}
                 className="inline-flex h-12 items-center rounded-full border border-ink/20 px-6 text-sm hover:border-ink"
               >
-                Email the desk
+                Email
               </a>
             </div>
           </Reveal>

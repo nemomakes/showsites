@@ -7,10 +7,10 @@ export default function NotFound() {
       <Reveal mode="load">
         <p className="eyebrow text-ash">404</p>
         <h1 className="mt-4 font-display text-5xl font-medium md:text-6xl">
-          That chair is empty.
+          Page not found.
         </h1>
         <p className="mt-5 max-w-md text-pretty text-ink/75">
-          Nothing here. Head back to the salon — the door is still open.
+          Nothing here. Head back to the salon.
         </p>
         <Link
           href="/"

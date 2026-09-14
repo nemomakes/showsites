@@ -1,10 +1,10 @@
 export const site = {
   name: "Lumen",
   legalName: "Lumen Salon",
-  tagline: "Walnut Creek · lived-in color",
-  dek: "An elevated neighborhood salon on Locust Street. Lived-in color, precision cuts, and a quiet chair.",
+  tagline: "Lived-in color and cuts in downtown Walnut Creek",
+  dek: "Lived-in color and cuts in downtown Walnut Creek",
   description:
-    "Lumen is a neighborhood salon in Walnut Creek, California. Lived-in color, precision cuts, and calm hospitality — call to book a consult.",
+    "Lived-in color and cuts in downtown Walnut Creek",
   url: "https://lumensalon.example",
   email: "hello@lumensalon.com",
   phone: "(925) 555-0163",
@@ -21,13 +21,15 @@ export const site = {
   },
   mapsUrl:
     "https://www.google.com/maps/search/?api=1&query=1632+Locust+Street+Walnut+Creek+CA+94596",
-  hoursNote:
-    "Pacific time. Last color chair sits at 4:00 on weekdays and 2:30 on Saturday. Evening consults by request.",
+  hoursLine: "Sun–Mon closed · Tue–Fri 9:00 am–6:00 pm · Sat 9:00 am–4:00 pm",
+  hoursNote: "Last color 4:00 weekdays / 2:30 Sat. Evening consults by request.",
   hours: [
     { days: "Sunday – Monday", time: "Closed" },
     { days: "Tuesday – Friday", time: "9:00 am – 6:00 pm" },
     { days: "Saturday", time: "9:00 am – 4:00 pm" },
   ],
+  footer:
+    "A neighborhood salon on Locust Street. Color, cuts, and a chair that doesn’t rush you.",
 } as const;
 
 export const nav = [
@@ -46,6 +48,7 @@ export type ServiceSection = {
   id: string;
   title: string;
   intro: string;
+  note?: string;
   items: ServiceItem[];
 };
 
@@ -53,149 +56,124 @@ export const services: ServiceSection[] = [
   {
     id: "color",
     title: "Color",
-    intro:
-      "We build color you can wear to the grocery store and a dinner — not a trend you grow out of in six weeks. New color guests start with a consult.",
+    intro: "Lived-in results — dimension that still looks good as it grows.",
+    note: "Last color chair: 4:00 weekdays, 2:30 Sat.",
     items: [
       {
-        name: "Lived-in color",
-        price: "from 195",
-        note: "Balayage, soft dimension, or a brunette that still reads as yours. The work we are known for.",
+        name: "Lived-in highlight / balayage",
+        price: "from $280",
+        note: "Consult, placement, toner/gloss, blowout",
       },
       {
         name: "Full highlight",
-        price: "from 220",
-        note: "Foil work when you want more lift. We still keep a root that belongs to you.",
+        price: "from $320",
+        note: "Full-head foils, toner, finish",
       },
       {
-        name: "Blonding",
-        price: "consult",
-        note: "A conversation first. We will tell you what the hair can hold this visit, and what should wait.",
+        name: "Partial / face-frame",
+        price: "from $180",
+        note: "Face + part focus",
+      },
+      {
+        name: "Root touch-up / refresh",
+        price: "from $120",
+        note: "Regrowth blend or all-over deposit",
       },
       {
         name: "Gloss / toner",
-        price: "75",
-        note: "Shine, tone, a reset between bigger appointments. Forty-five quiet minutes.",
+        price: "from $75",
+        note: "Shine + tone between bigger visits",
       },
       {
-        name: "Root refresh",
-        price: "95",
-        note: "A clean grow-out, matched to the color you already live in.",
-      },
-      {
-        name: "Gray blending",
-        price: "from 120",
-        note: "We do not hide every silver unless you ask. Soft coverage, or a brightening around the face.",
+        name: "Color correction",
+        price: "by consult",
+        note: "Multi-visit; consult first",
       },
     ],
   },
   {
-    id: "cut",
-    title: "Cut",
-    intro:
-      "Weight, not just length. We cut dry when the hair needs it, wet when it doesn’t, and we will say which before we pick up the shears.",
+    id: "cuts",
+    title: "Cuts & styling",
+    intro: "",
     items: [
       {
-        name: "Precision cut",
-        price: "95",
-        note: "The everyday haircut. Shape that lasts past the first wash.",
+        name: "Haircut + blowout",
+        price: "from $95",
+        note: "Consult, cut wet/dry by texture, blow-dry",
       },
       {
-        name: "Restyle",
-        price: "125",
-        note: "A new silhouette. Bring a photo if you want — we will still look at your actual hair.",
+        name: "Haircut only (air-dry / curl)",
+        price: "from $85",
+        note: "Cut in natural pattern + home finish tips",
       },
       {
-        name: "Fringe / bangs",
-        price: "45",
-        note: "A trim between cuts, or a first fringe if you are ready. Ten extra minutes of honesty.",
+        name: "Trim",
+        price: "from $65",
+        note: "Ends + shape, no full restyle",
       },
-      {
-        name: "Texture cut",
-        price: "110",
-        note: "Curly, wavy, and coily hair cut in the pattern it grows. No forcing a blowout first.",
-      },
-    ],
-  },
-  {
-    id: "style",
-    title: "Style & care",
-    intro:
-      "The Tuesday blowout. The Saturday you have somewhere to be. Treatments that make the next color take better.",
-    items: [
       {
         name: "Blowout",
-        price: "65",
-        note: "Wash, round brush, a finish that lasts a few days if you sleep on a silk pillow. We will not pretend otherwise.",
+        price: "from $55",
+        note: "Wash, condition, round-brush or air-dry",
       },
       {
-        name: "Event style",
-        price: "95",
-        note: "Up, down, or something in between. Book with a trial if the day matters.",
+        name: "Special-occasion style",
+        price: "from $90",
+        note: "Updo/polish; consult for events",
       },
-      {
-        name: "Bond treatment",
-        price: "45",
-        note: "Added to color when the hair asks for it. We would rather slow a lightening than repair it later.",
-      },
-      {
-        name: "Treatment only",
-        price: "55",
-        note: "Moisture or protein, chosen after we feel the hair. No menu of twelve serums.",
-      },
-      {
-        name: "Extension consult",
-        price: "50*",
-        note: "Wefts and tape-ins when the hair can take them. *Applied to the install if you move forward.",
-      },
+    ],
+  },
+  {
+    id: "addons",
+    title: "Add-ons",
+    intro: "",
+    items: [
+      { name: "Deep conditioning", price: "from $35", note: "" },
+      { name: "Bond-building (w/ lightening)", price: "from $40", note: "" },
+      { name: "Scalp treatment", price: "from $30", note: "" },
     ],
   },
 ];
 
-export const team = [
-  {
-    name: "Noor Alami",
-    role: "Owner · lived-in color",
-    bio: "Oakland-raised. A decade in San Francisco color rooms before she wanted a quieter chair. Opened Lumen on Locust in 2021. Still takes the first consult of the day.",
-  },
-  {
-    name: "Sadie Chen",
-    role: "Precision cuts",
-    bio: "Obsessed with weight and movement. If your last cut died in a week, sit with Sadie. She will tell you why, without making it a speech.",
-  },
-  {
-    name: "Mateo Ruiz",
-    role: "Blonding · gloss",
-    bio: "Concord kid, trained in Portland. The one who says no to a two-level jump when the hair is not ready — and means it kindly.",
-  },
-  {
-    name: "Priya Shah",
-    role: "Texture",
-    bio: "Curly, wavy, and coily hair, cut in the pattern it grows. Priya treats the hair you have, not a straightened version of it.",
-  },
-  {
-    name: "Wren Solis",
-    role: "Blowouts · events",
-    bio: "The Tuesday that looks like you slept. Also the person you call when a wedding is in three weeks and you need a calm plan.",
-  },
-] as const;
-
 export const featured = [
   {
     name: "Lived-in color",
-    note: "Dimension that belongs to the hair you already have. Soft grow-out, no stripes.",
+    note: "balayage, highlights, glosses",
     image: "/images/blonde.jpg",
     alt: "Portrait of a woman with lived-in blonde hair against a dark backdrop",
   },
   {
-    name: "Precision cut",
-    note: "Shape first. Length second. A haircut that still makes sense in six weeks.",
+    name: "Precision cuts",
+    note: "layers and shapes by density and curl",
     image: "/images/cut.jpg",
     alt: "Close view of a stylist making a precise cut with comb and shears",
   },
   {
-    name: "The chair",
-    note: "A consult is a conversation. Bring a photo if you want. We will look at your hair either way.",
+    name: "First-visit consult",
+    note: "30 min on history, goals, what’s realistic",
     image: "/images/consult.jpg",
     alt: "Stylist and guest talking in the salon before a service",
   },
+] as const;
+
+export const visitSteps = [
+  "We talk — goals, history, how you style at home",
+  "We check the hair — density, prior color, damage, what’s safe this visit",
+  "We do the work — foils, freehand, gloss, or cut, with time built in",
+  "We finish + send you home with care notes — wash routine, when to gloss, what to book next",
+] as const;
+
+export const hairGoals = [
+  "Soft dimension that still looks like your color",
+  "Blonde that doesn’t go brassy between visits",
+  "A cut that grows out without a weird shape",
+  "Curl-friendly layers that don’t need a straightener",
+  "A gloss or refresh between bigger color appointments",
+] as const;
+
+export const howWeWork = [
+  "Honest consults — if your hair can’t take a big jump this visit, we say so first",
+  "Texture as it grows — curly and coily hair cut in pattern; we don’t straighten to cut",
+  "Professional color only — lines we’d use on ourselves, plus clear home-care guidance",
+  "A human room — water, a low playlist, no shame language at the mirror",
 ] as const;

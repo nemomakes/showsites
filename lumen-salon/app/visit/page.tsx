@@ -6,18 +6,17 @@ import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Visit",
-  description:
-    "Find Lumen Salon at 1632 Locust Street, Walnut Creek, CA. Hours, phone, email, and map.",
+  description: "1632 Locust Street — a short walk from Broadway Plaza.",
 };
 
 export default function VisitPage() {
   return (
     <>
-      <PageIntro eyebrow="Walnut Creek" title="Come sit a minute.">
-        Downtown, on Locust Street, a short walk from Broadway Plaza. Street
-        parking on Locust and the plaza garage a block over. We are easiest to
-        reach by phone — or with a short email if Saturday is already spoken
-        for.
+      <PageIntro
+        eyebrow="Visit"
+        title="Visit us in downtown Walnut Creek."
+      >
+        1632 Locust Street — a short walk from Broadway Plaza.
       </PageIntro>
 
       <div className="mx-auto max-w-6xl px-5 md:px-8">
@@ -37,30 +36,25 @@ export default function VisitPage() {
 
       <section className="mx-auto grid max-w-6xl gap-12 px-5 py-16 md:grid-cols-2 md:px-8 md:py-24">
         <Reveal>
-          <p className="eyebrow text-ash">Address</p>
+          <p className="eyebrow text-ash">Find the door</p>
           <p className="mt-4 font-display text-3xl font-medium leading-snug md:text-4xl">
             {site.address.street}
             <br />
             {site.address.city}, {site.address.region} {site.address.postal}
           </p>
-          <p className="mt-4 text-ash">
-            East Bay · downtown Walnut Creek · look for the cream awning and
-            the fig in the window.
+          <p className="mt-4 text-pretty text-ash">
+            Street parking on Locust; Broadway Plaza garage about one block
+            over.
           </p>
-          <div className="mt-8 flex flex-wrap gap-3">
+          <p className="mt-3 text-ash">{site.address.line}</p>
+          <div className="mt-8">
             <a
               href={site.mapsUrl}
               target="_blank"
               rel="noreferrer"
               className="inline-flex h-12 items-center rounded-full bg-espresso px-6 text-sm text-ivory hover:bg-copper"
             >
-              Open in Maps
-            </a>
-            <a
-              href={site.phoneHref}
-              className="inline-flex h-12 items-center rounded-full border border-ink/20 px-6 text-sm hover:border-ink"
-            >
-              Call the salon
+              Open map
             </a>
           </div>
         </Reveal>
@@ -68,6 +62,9 @@ export default function VisitPage() {
         <Reveal delay={0.08} className="grid gap-10">
           <div>
             <p className="eyebrow text-ash">Hours</p>
+            <p className="mt-4 text-pretty leading-relaxed text-ink/80">
+              {site.hoursLine}
+            </p>
             <ul className="mt-4 divide-y divide-ink/10">
               {site.hours.map((row) => (
                 <li
@@ -84,22 +81,35 @@ export default function VisitPage() {
 
           <div>
             <p className="eyebrow text-ash">Talk to us</p>
-            <ul className="mt-4 space-y-3 text-lg">
-              <li>
-                <a href={site.phoneHref} className="hover:underline">
-                  {site.phone}
-                </a>
-              </li>
-              <li>
-                <a href={site.emailHref} className="hover:underline">
-                  {site.email}
-                </a>
-              </li>
-            </ul>
-            <p className="mt-4 max-w-md text-pretty text-ash">
-              Consults, holds, and event notes all go to the same desk. We
-              read email in the afternoon, after the last gloss.
+            <p className="mt-4 text-pretty leading-relaxed text-ink/80">
+              Phone is fastest. Email if Saturday is full — we reply in the
+              afternoon.
             </p>
+            <p className="mt-4 text-lg">
+              {site.phone} · {site.email}
+            </p>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <a
+                href={site.phoneHref}
+                className="inline-flex h-12 items-center rounded-full bg-espresso px-6 text-sm text-ivory hover:bg-copper"
+              >
+                Call
+              </a>
+              <a
+                href={site.emailHref}
+                className="inline-flex h-12 items-center rounded-full border border-ink/20 px-6 text-sm hover:border-ink"
+              >
+                Email
+              </a>
+              <a
+                href={site.mapsUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex h-12 items-center rounded-full border border-ink/20 px-6 text-sm hover:border-ink"
+              >
+                Open map
+              </a>
+            </div>
           </div>
         </Reveal>
       </section>
@@ -133,25 +143,20 @@ export default function VisitPage() {
         <div className="mx-auto grid max-w-6xl gap-8 px-5 py-16 md:grid-cols-2 md:items-center md:px-8 md:py-20">
           <Reveal>
             <h2 className="font-display text-4xl font-medium md:text-5xl">
-              A map, if you want one.
+              First time here?
             </h2>
             <p className="mt-4 max-w-md text-pretty text-ivory/75">
-              If you hit the bookstore, you went one door too far. If you see
-              the fig, you are here.
+              Bring one or two reference photos if you have them. Wear a shirt
+              you don’t mind near color. New color guests start with a consult
+              so we can plan what this visit can hold — and what should wait.
             </p>
           </Reveal>
           <Reveal delay={0.08}>
             <a
-              href={site.mapsUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="block bg-ivory/8 p-8 transition-colors hover:bg-ivory/12"
+              href={site.phoneHref}
+              className="inline-flex h-12 items-center rounded-full bg-ivory px-6 text-sm text-espresso hover:bg-linen"
             >
-              <p className="eyebrow text-ivory/45">Google Maps</p>
-              <p className="mt-3 font-display text-2xl font-medium">
-                {site.address.line}
-              </p>
-              <p className="mt-4 text-sm text-ivory/65">Opens in a new tab →</p>
+              Call to book a consult
             </a>
           </Reveal>
         </div>
