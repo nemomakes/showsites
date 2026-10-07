@@ -18,18 +18,7 @@ export default function MenuPage() {
         {menuIntro}
       </PageIntro>
 
-      <div className="relative aspect-[3/4] w-full overflow-hidden bg-stone sm:aspect-[16/9]">
-        <Image
-          src="/images/plate.jpg"
-          alt="Sliced beets and greens on a white ceramic plate"
-          fill
-          className="object-cover object-[center_45%]"
-          sizes="100vw"
-          priority
-        />
-      </div>
-
-      <div className="mx-auto max-w-6xl px-5 md:px-8">
+      <div className="mx-auto w-full max-w-[100rem] px-5 pt-8 md:px-8 md:pt-10 xl:px-12">
         <Reveal>
           <nav aria-label="Menu sections" className="flex flex-wrap gap-3">
             {menu.map((section) => (
@@ -45,17 +34,28 @@ export default function MenuPage() {
         </Reveal>
       </div>
 
+      <div className="relative mt-8 h-[50vh] min-h-[14rem] w-full overflow-hidden bg-stone md:mt-10">
+        <Image
+          src="/images/plate.jpg"
+          alt="Sliced beets and greens on a white ceramic plate"
+          fill
+          className="object-cover object-[center_45%]"
+          sizes="100vw"
+          priority
+        />
+      </div>
+
       {menu.map((section) => (
         <section
           key={section.id}
           id={section.id}
-          className="mx-auto max-w-6xl scroll-mt-28 px-5 py-12 md:px-8 md:py-16"
+          className="mx-auto w-full max-w-[100rem] scroll-mt-28 px-5 py-12 md:px-8 md:py-16 xl:px-12"
         >
           <div className="grid gap-8 border-t border-ink/10 pt-10 md:grid-cols-12">
-            <Reveal className="md:col-span-4">
+            <Reveal className="md:col-span-3">
               <SectionTitle>{section.title}</SectionTitle>
             </Reveal>
-            <Reveal delay={0.06} className="md:col-span-8">
+            <Reveal delay={0.06} className="md:col-span-9">
               <ul className="menu-list list-disc space-y-5 pl-6 text-pretty marker:text-madrone">
                 {section.items.map((item) => (
                   <li key={item.name}>

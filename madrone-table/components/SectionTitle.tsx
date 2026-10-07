@@ -11,14 +11,20 @@ export function SectionTitle({
   children,
   className = "",
   maxRem = 3.15,
+  card = false,
 }: {
   children: string;
   className?: string;
   maxRem?: number;
+  /** Shared size for home and story cards. Ignores per-title scaling. */
+  card?: boolean;
 }) {
   return (
     <div className={`title-frame ${className}`}>
-      <h2 className="section-title" style={titleStyle(children, maxRem)}>
+      <h2
+        className={card ? "section-title card-title" : "section-title"}
+        style={card ? undefined : titleStyle(children, maxRem)}
+      >
         {children}
       </h2>
     </div>
