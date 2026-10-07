@@ -1,0 +1,120 @@
+@import "tailwindcss";
+
+:root {
+  --paper: #f3f1ea;
+  --mist: #e7e6de;
+  --stone: #d5d3c8;
+  --ink: #1c211c;
+  --sage: #4a5646;
+  --forest: #17201a;
+  --madrone: #7d4a3a;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-mist: var(--mist);
+  --color-stone: var(--stone);
+  --color-ink: var(--ink);
+  --color-sage: var(--sage);
+  --color-forest: var(--forest);
+  --color-madrone: var(--madrone);
+  --font-display: var(--font-newsreader), "Iowan Old Style", "Palatino Linotype", serif;
+  --font-sans: var(--font-manrope), "Helvetica Neue", sans-serif;
+}
+
+html {
+  background: var(--paper);
+  scroll-behavior: smooth;
+  overflow-x: clip;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+}
+
+::selection {
+  background: var(--forest);
+  color: var(--paper);
+}
+
+:focus-visible {
+  outline: 2px solid var(--madrone);
+  outline-offset: 3px;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.eyebrow {
+  font-size: 0.68rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+}
+
+.title-frame {
+  container-type: inline-size;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  font-size: clamp(1.85rem, 6vw, 2.4rem);
+}
+
+.page-title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  font-size: clamp(2.35rem, 8vw, 3.15rem);
+}
+
+@media (min-width: 768px) {
+  .section-title,
+  .page-title {
+    white-space: nowrap;
+    font-size: min(
+      var(--title-max, 3.15rem),
+      calc(100cqi / var(--title-factor, 18))
+    );
+  }
+}
+
+@keyframes marquee-ltr {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.marquee-ltr {
+  animation: marquee-ltr 96s linear infinite;
+  will-change: transform;
+}
+
+.rule {
+  height: 1px;
+  background: color-mix(in srgb, var(--ink) 12%, transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .marquee-ltr {
+    animation: none;
+    will-change: auto;
+    transform: translateX(-8%);
+  }
+}
