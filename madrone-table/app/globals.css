@@ -138,6 +138,20 @@ body {
   }
 }
 
+.card-photo {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  background: var(--stone);
+}
+
+@media (min-width: 768px) {
+  .card-photo {
+    height: 100%;
+    aspect-ratio: auto;
+    min-height: 28rem;
+  }
+}
+
 @media (min-width: 1280px) {
   .card-copy li {
     white-space: nowrap;
