@@ -39,7 +39,7 @@ export function Header() {
         <Link
           href="/"
           className={`font-display text-[1.65rem] leading-none tracking-[-0.02em] md:text-[1.85rem] ${
-            overlay ? "text-paper" : "text-ink"
+            overlay ? "nav-on-hero" : "text-ink"
           }`}
         >
           {site.name}
@@ -48,7 +48,7 @@ export function Header() {
         <nav
           aria-label="Primary"
           className={`hidden items-center gap-10 text-[0.72rem] tracking-[0.18em] uppercase md:flex ${
-            overlay ? "text-paper/75" : "text-sage"
+            overlay ? "nav-on-hero" : "text-sage"
           }`}
         >
           {nav.map((item) => (
@@ -58,7 +58,7 @@ export function Header() {
               aria-current={pathname === item.href ? "page" : undefined}
               className={`transition-colors ${
                 overlay
-                  ? "hover:text-paper"
+                  ? "nav-on-hero hover:text-white"
                   : pathname === item.href
                     ? "text-ink"
                     : "hover:text-ink"
@@ -71,7 +71,7 @@ export function Header() {
             href={site.phoneHref}
             className={`inline-flex h-10 items-center rounded-full px-5 text-[0.68rem] tracking-[0.16em] transition-colors ${
               overlay
-                ? "border border-paper/45 text-paper hover:bg-paper hover:text-forest"
+                ? "nav-on-hero border border-white/80 hover:bg-white hover:text-forest hover:[text-shadow:none]"
                 : "border border-ink/15 text-ink hover:bg-forest hover:text-paper"
             }`}
           >
@@ -84,7 +84,7 @@ export function Header() {
             href={site.phoneHref}
             className={`inline-flex h-10 items-center rounded-full px-4 text-[0.68rem] tracking-[0.16em] uppercase ${
               overlay
-                ? "border border-paper/45 text-paper"
+                ? "nav-on-hero border border-white/80"
                 : "bg-forest text-paper"
             }`}
           >
@@ -103,17 +103,17 @@ export function Header() {
             <span aria-hidden className="flex w-4 flex-col gap-1.5">
               <span
                 className={`h-px transition-transform ${
-                  overlay ? "bg-paper" : "bg-ink"
+                  overlay ? "bg-white" : "bg-ink"
                 } ${open ? "translate-y-[3.5px] rotate-45" : ""}`}
               />
               <span
-                className={`h-px ${overlay ? "bg-paper" : "bg-ink"} ${
+                className={`h-px ${overlay ? "bg-white" : "bg-ink"} ${
                   open ? "opacity-0" : ""
                 }`}
               />
               <span
                 className={`h-px transition-transform ${
-                  overlay ? "bg-paper" : "bg-ink"
+                  overlay ? "bg-white" : "bg-ink"
                 } ${open ? "-translate-y-[3.5px] -rotate-45" : ""}`}
               />
             </span>

@@ -20,27 +20,27 @@ export default function StoryPage() {
         {story.sub}
       </PageIntro>
 
-      <div className="relative aspect-[16/10] w-full overflow-hidden bg-stone md:aspect-[21/9]">
-            <Image
-              src="/images/hall.jpg"
-              alt="A wood dining set in an empty restaurant room"
-              fill
-              className="object-cover"
-              sizes="100vw"
-              priority
-            />
+      <div className="relative mt-8 h-[50vh] min-h-[14rem] w-full overflow-hidden bg-stone md:mt-12">
+        <Image
+          src="/images/hall.jpg"
+          alt="A wood dining set in an empty restaurant room"
+          fill
+          className="object-cover"
+          sizes="100vw"
+          priority
+        />
       </div>
 
-      <div className="mx-auto flex max-w-6xl flex-col gap-8 px-6 py-16 md:gap-12 md:px-10 md:py-24">
+      <div className="mx-auto flex w-full max-w-[100rem] flex-col gap-8 px-5 py-16 md:gap-10 md:px-8 md:py-24 xl:px-12">
         <SwayCard index={0} className="overflow-hidden rounded-[1.75rem] bg-white">
-          <div className="grid gap-8 px-6 py-10 md:grid-cols-12 md:gap-12 md:px-12 md:py-16">
-            <Reveal className="md:col-span-4">
-              <SectionTitle>{story.originTitle}</SectionTitle>
+          <div className="grid gap-8 px-6 py-10 md:grid-cols-[minmax(15.5rem,0.8fr)_minmax(0,1.4fr)] md:items-start md:gap-12 md:px-8 md:py-14 xl:px-12 xl:py-16">
+            <Reveal>
+              <SectionTitle card>{story.originTitle}</SectionTitle>
             </Reveal>
-            <Reveal delay={0.06} className="md:col-span-8">
+            <Reveal delay={0.06}>
               <div className="space-y-5">
                 {story.origin.map((paragraph) => (
-                  <p key={paragraph} className="copy text-pretty">
+                  <p key={paragraph} className="card-copy text-pretty">
                     {paragraph}
                   </p>
                 ))}
@@ -50,7 +50,7 @@ export default function StoryPage() {
         </SwayCard>
 
         <SwayCard index={1} className="overflow-hidden rounded-[1.75rem] bg-white">
-          <div className="grid items-stretch md:grid-cols-2">
+          <div className="grid items-stretch md:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)]">
             <Reveal>
               <div className="relative aspect-[4/5] bg-stone md:h-full md:aspect-auto md:min-h-[28rem]">
                 <Image
@@ -64,8 +64,8 @@ export default function StoryPage() {
               </div>
             </Reveal>
             <Reveal delay={0.08}>
-              <div className="px-6 py-10 md:px-12 md:py-16">
-                <SectionTitle>{story.cookTitle}</SectionTitle>
+              <div className="px-6 py-10 md:px-8 md:py-14 xl:px-12 xl:py-16">
+                <SectionTitle card>{story.cookTitle}</SectionTitle>
                 <BulletList items={story.cook} />
               </div>
             </Reveal>
@@ -76,10 +76,10 @@ export default function StoryPage() {
           index={2}
           className="overflow-hidden rounded-[1.75rem] bg-forest text-paper"
         >
-          <div className="px-6 py-10 md:px-12 md:py-16">
+          <div className="px-6 py-10 md:px-8 md:py-14 xl:px-12 xl:py-16">
             <Reveal>
-              <SectionTitle className="text-paper">{story.reserveTitle}</SectionTitle>
-              <p className="mt-6 max-w-2xl text-pretty text-xl font-semibold leading-snug text-paper md:text-2xl">
+              <SectionTitle card className="text-paper">{story.reserveTitle}</SectionTitle>
+              <p className="card-copy on-dark mt-5 max-w-3xl text-pretty">
                 {story.reserveBody}
               </p>
               <div className="mt-8 flex flex-wrap gap-3">

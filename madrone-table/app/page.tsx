@@ -14,7 +14,7 @@ export default function Home() {
     <>
       <section className="relative min-h-[100svh] overflow-hidden bg-forest text-paper">
         <HeroMedia />
-        <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-t from-forest via-forest/70 to-forest/20" />
+        <div className="pointer-events-none absolute inset-0 z-10 bg-[linear-gradient(to_top,rgba(23,32,26,0.5)_0%,rgba(23,32,26,0.16)_26%,transparent_48%)]" />
         <div className="relative z-20 mx-auto flex min-h-[100svh] max-w-6xl flex-col justify-end px-5 pb-16 pt-32 md:px-8 md:pb-24">
           <Reveal mode="load">
             <PageTitle maxRem={3.75}>{home.heroTitle}</PageTitle>
@@ -33,13 +33,13 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="mx-auto flex max-w-6xl flex-col gap-8 px-6 py-16 md:gap-12 md:px-10 md:py-24">
+      <div className="mx-auto flex w-full max-w-[100rem] flex-col gap-8 px-5 py-16 md:gap-10 md:px-8 md:py-24 xl:px-12">
         <SwayCard index={0} className="overflow-hidden rounded-[1.75rem] bg-white">
           <div className="grid items-stretch md:grid-cols-2">
             <Reveal>
-              <div className="px-6 py-10 md:px-12 md:py-16">
-                <SectionTitle>{home.introTitle}</SectionTitle>
-                <p className="copy mt-6 text-pretty">{home.introBody}</p>
+              <div className="px-6 py-10 md:px-8 md:py-14 xl:px-12 xl:py-16">
+                <SectionTitle card>{home.introTitle}</SectionTitle>
+                <p className="card-copy mt-5 text-pretty">{home.introBody}</p>
               </div>
             </Reveal>
             <Reveal delay={0.08}>
@@ -60,8 +60,8 @@ export default function Home() {
         <SwayCard index={1} className="overflow-hidden rounded-[1.75rem] bg-white">
           <div className="grid items-stretch md:grid-cols-2">
             <Reveal className="md:order-2">
-              <div className="px-6 py-10 md:px-12 md:py-16">
-                <SectionTitle>{home.expectTitle}</SectionTitle>
+              <div className="px-6 py-10 md:px-8 md:py-14 xl:px-12 xl:py-16">
+                <SectionTitle card>{home.expectTitle}</SectionTitle>
                 <BulletList items={home.expect} />
               </div>
             </Reveal>
@@ -83,11 +83,11 @@ export default function Home() {
         <SwayCard index={2} className="overflow-hidden rounded-[1.75rem] bg-white">
           <div className="grid items-stretch md:grid-cols-2">
             <Reveal>
-              <div className="px-6 py-10 md:px-12 md:py-16">
-                <SectionTitle>{home.menuTitle}</SectionTitle>
-                <p className="copy mt-6 text-pretty">{home.menuBody}</p>
+              <div className="px-6 py-10 md:px-8 md:py-14 xl:px-12 xl:py-16">
+                <SectionTitle card>{home.menuTitle}</SectionTitle>
+                <p className="card-copy mt-5 text-pretty">{home.menuBody}</p>
                 <BulletList items={home.menuItems} />
-                <p className="copy mt-8 text-pretty">
+                <p className="card-copy mt-6 text-pretty">
                   <Link
                     href="/menu"
                     className="underline decoration-ink/30 underline-offset-4 hover:decoration-ink"
@@ -135,9 +135,9 @@ export default function Home() {
               </div>
             </Reveal>
             <Reveal delay={0.08}>
-              <div className="px-6 py-10 md:px-12 md:py-16">
-                <SectionTitle>{home.patioTitle}</SectionTitle>
-                <p className="copy mt-6 text-pretty">{home.patioBody}</p>
+              <div className="px-6 py-10 md:px-8 md:py-14 xl:px-12 xl:py-16">
+                <SectionTitle card>{home.patioTitle}</SectionTitle>
+                <p className="card-copy mt-5 text-pretty">{home.patioBody}</p>
               </div>
             </Reveal>
           </div>
