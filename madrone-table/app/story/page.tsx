@@ -64,14 +64,14 @@ export default function StoryPage() {
         <SwayCard index={1} className="overflow-hidden rounded-[1.75rem] bg-white">
           <div className="card-split">
             <Reveal>
-              <div className="relative aspect-[4/5] bg-stone md:h-full md:aspect-auto md:min-h-[28rem]">
+              <div className="relative aspect-[4/5] bg-stone md:aspect-square">
                 <Image
                   src="/images/pass.jpg"
                   alt="Hands finishing a plate with herbs"
                   fill
                   loading="eager"
-                  className="object-cover"
-                  sizes="(min-width: 768px) 45vw, 100vw"
+                  className="object-cover object-top"
+                  sizes="(min-width: 768px) 50vw, 100vw"
                 />
               </div>
             </Reveal>
