@@ -18,23 +18,7 @@ export default function MenuPage() {
         {menuIntro}
       </PageIntro>
 
-      <div className="mx-auto w-full max-w-[100rem] px-5 pt-8 md:px-8 md:pt-10 xl:px-12">
-        <Reveal>
-          <nav aria-label="Menu sections" className="flex flex-wrap gap-3">
-            {menu.map((section) => (
-              <a
-                key={section.id}
-                href={`#${section.id}`}
-                className="inline-flex h-10 items-center rounded-full border border-ink/15 px-4 text-sm text-ink hover:border-ink"
-              >
-                {section.title}
-              </a>
-            ))}
-          </nav>
-        </Reveal>
-      </div>
-
-      <div className="relative mt-8 h-[50vh] min-h-[14rem] w-full overflow-hidden bg-stone md:mt-10">
+      <div className="relative h-[50vh] min-h-[14rem] w-full overflow-hidden bg-stone">
         <Image
           src="/images/plate.jpg"
           alt="Sliced beets and greens on a white ceramic plate"

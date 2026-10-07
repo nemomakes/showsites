@@ -191,6 +191,18 @@ body {
   will-change: transform;
 }
 
+.gallery-frame {
+  width: 100vw;
+  flex: none;
+}
+
+.gallery-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: grayscale(1) contrast(1.28) brightness(0.94);
+}
+
 .rule {
   height: 1px;
   background: color-mix(in srgb, var(--ink) 12%, transparent);
