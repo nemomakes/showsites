@@ -8,9 +8,9 @@ Unsplash (https://unsplash.com/license)
 
 Pexels (https://www.pexels.com/license/)
 - dining.jpg — 941861
-- pass.jpg — 3338497
 
 AI-generated for Nemomakes (Runway).
+- how-we-cook.jpg — Finished rockfish plate on the kitchen pass
 - story-room.jpg — Story page dining room banner
 - patio.jpg — Homepage patio card
 - chef-luke.jpg — Chef Luke Park plating a salmon dish

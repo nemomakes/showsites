@@ -66,11 +66,11 @@ export default function StoryPage() {
             <Reveal className="h-full">
               <div className="card-photo">
                 <Image
-                  src="/images/pass.jpg"
-                  alt="Hands finishing a plate with herbs"
+                  src="/images/how-we-cook.jpg"
+                  alt="A finished rockfish plate with spring vegetables on the kitchen pass"
                   fill
                   loading="eager"
-                  className="object-cover object-top"
+                  className="object-cover object-[center_70%]"
                   sizes="(min-width: 768px) 50vw, 100vw"
                 />
               </div>
