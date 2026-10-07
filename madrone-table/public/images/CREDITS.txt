@@ -3,14 +3,19 @@ No identifiable restaurant signage or people's faces.
 
 Unsplash (https://unsplash.com/license)
 - plate.jpg — photo-1592417817098-8fd3d9eb14a5
-- room.jpg — photo-1525610553991-2bede1a236e2
+- hall.jpg — photo-1550966871-3ed3cdb5ed0c (brown wooden dining set inside a room)
+- linen.jpg — photo-1573788709046-96c8de6ba551, Erik Mclean (empty restaurant interior)
 - produce.jpg — photo-1766596737206-214abffe65bf
 
 Pexels (https://www.pexels.com/license/)
 - dining.jpg — 941861
 - pass.jpg — 3338497
-- dish-counter-1.jpg — 1640769, Ella Olsson (pale counter, plated dish)
-- dish-counter-2.jpg — 1640775, Ella Olsson (same pale counter)
-- dish-counter-3.jpg — 1640767, Ella Olsson (same pale counter)
-- dish-table-1.jpg — 20182307, Valeria Boltneva (light oak table, white plate)
-- dish-table-2.jpg — 1640590, photographer unverified (beige table, plated dish)
+- dish-table-1.jpg — 8112419, Rachel Claire series (dark table; same upload batch as 8112420 and 8112424)
+- dish-table-2.jpg — 8112409, Rachel Claire series (same dark table)
+- dish-table-3.jpg — 8112421, Rachel Claire series (same dark table)
+- dish-counter-1.jpg — 6107767, alleksana series (white marble; same upload batch as 6107760)
+- dish-counter-2.jpg — 6107766, alleksana series (same white marble)
+
+Video
+- videos/hero.mp4 — H.264, provided hero clip (chef finishing a salmon plate)
+- videos/hero.webm — VP9 encode of the same clip

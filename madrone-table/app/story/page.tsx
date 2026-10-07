@@ -21,14 +21,14 @@ export default function StoryPage() {
       </PageIntro>
 
       <div className="relative aspect-[16/10] w-full overflow-hidden bg-stone md:aspect-[21/9]">
-        <Image
-          src="/images/room.jpg"
-          alt="An empty wood table set before dinner service"
-          fill
-          className="object-cover"
-          sizes="100vw"
-          priority
-        />
+            <Image
+              src="/images/hall.jpg"
+              alt="A wood dining set in an empty restaurant room"
+              fill
+              className="object-cover"
+              sizes="100vw"
+              priority
+            />
       </div>
 
       <div className="mx-auto flex max-w-6xl flex-col gap-8 px-6 py-16 md:gap-12 md:px-10 md:py-24">

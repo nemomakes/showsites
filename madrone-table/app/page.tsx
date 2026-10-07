@@ -5,6 +5,7 @@ import { Cta } from "@/components/Cta";
 import { MarqueeGallery } from "@/components/MarqueeGallery";
 import { PageTitle, SectionTitle } from "@/components/SectionTitle";
 import { Reveal } from "@/components/Reveal";
+import { HeroMedia } from "@/components/HeroMedia";
 import { SwayCard } from "@/components/SwayCard";
 import { home, site } from "@/lib/site";
 
@@ -12,16 +13,9 @@ export default function Home() {
   return (
     <>
       <section className="relative min-h-[100svh] overflow-hidden bg-forest text-paper">
-        <Image
-          src="/images/dining.jpg"
-          alt="An empty dining room with tables set before service"
-          fill
-          priority
-          className="object-cover object-center"
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-forest via-forest/70 to-forest/20" />
-        <div className="relative mx-auto flex min-h-[100svh] max-w-6xl flex-col justify-end px-5 pb-16 pt-32 md:px-8 md:pb-24">
+        <HeroMedia />
+        <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-t from-forest via-forest/70 to-forest/20" />
+        <div className="relative z-20 mx-auto flex min-h-[100svh] max-w-6xl flex-col justify-end px-5 pb-16 pt-32 md:px-8 md:pb-24">
           <Reveal mode="load">
             <PageTitle maxRem={3.75}>{home.heroTitle}</PageTitle>
             <p className="hero-copy mt-6 max-w-2xl text-pretty">
@@ -51,8 +45,8 @@ export default function Home() {
             <Reveal delay={0.08}>
               <div className="relative aspect-[4/5] bg-stone md:h-full md:aspect-auto md:min-h-[28rem]">
                 <Image
-                  src="/images/room.jpg"
-                  alt="An empty wood table set before dinner service"
+                  src="/images/linen.jpg"
+                  alt="An empty restaurant interior before service"
                   fill
                   loading="eager"
                   className="object-cover"
