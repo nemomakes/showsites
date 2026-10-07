@@ -33,7 +33,7 @@ export default function MenuPage() {
         <section
           key={section.id}
           id={section.id}
-          className="mx-auto w-full max-w-[100rem] scroll-mt-28 px-5 py-12 md:px-8 md:py-16 xl:px-12"
+          className="mx-auto w-full max-w-6xl scroll-mt-28 px-5 py-12 md:px-8 md:py-16"
         >
           <div className="grid gap-8 border-t border-ink/10 pt-10 md:grid-cols-12">
             <Reveal className="md:col-span-3">
