@@ -14,21 +14,19 @@ export const metadata: Metadata = {
 export default function MenuPage() {
   return (
     <>
-      <PageIntro title="Seasonal menu.">{menuIntro}</PageIntro>
+      <PageIntro band title="Seasonal menu.">
+        {menuIntro}
+      </PageIntro>
 
-      <div className="mx-auto mb-6 max-w-6xl px-5 md:mb-10 md:px-8">
-        <Reveal>
-          <div className="relative aspect-[4/5] overflow-hidden bg-stone sm:aspect-[16/10]">
-            <Image
-              src="/images/plate.jpg"
-              alt="Sliced beets and greens on a white ceramic plate"
-              fill
-              className="object-cover object-[center_45%]"
-              sizes="100vw"
-              priority
-            />
-          </div>
-        </Reveal>
+      <div className="relative aspect-[3/4] w-full overflow-hidden bg-stone sm:aspect-[16/9]">
+        <Image
+          src="/images/plate.jpg"
+          alt="Sliced beets and greens on a white ceramic plate"
+          fill
+          className="object-cover object-[center_45%]"
+          sizes="100vw"
+          priority
+        />
       </div>
 
       <div className="mx-auto max-w-6xl px-5 md:px-8">
@@ -58,14 +56,12 @@ export default function MenuPage() {
               <SectionTitle>{section.title}</SectionTitle>
             </Reveal>
             <Reveal delay={0.06} className="md:col-span-8">
-              <ul className="list-disc space-y-4 pl-5 marker:text-madrone">
+              <ul className="menu-list list-disc space-y-5 pl-6 text-pretty marker:text-madrone">
                 {section.items.map((item) => (
-                  <li key={item.name} className="text-pretty leading-relaxed">
-                    <span className="font-medium text-ink">{item.name}</span>
-                    <span className="text-sage"> — {item.note} — </span>
-                    <span className="whitespace-nowrap font-medium text-ink">
-                      {item.price}
-                    </span>
+                  <li key={item.name}>
+                    <span>{item.name}</span>
+                    <span> — {item.note} — </span>
+                    <span className="whitespace-nowrap">{item.price}</span>
                   </li>
                 ))}
               </ul>
@@ -77,9 +73,7 @@ export default function MenuPage() {
       <section className="bg-mist">
         <div className="mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-20">
           <Reveal>
-            <p className="max-w-xl text-pretty text-lg leading-relaxed text-ink">
-              {menuNote}
-            </p>
+            <p className="copy max-w-3xl text-pretty">{menuNote}</p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Cta href={site.phoneHref}>Call to reserve</Cta>
               <Cta href={site.emailHref} tone="ghost">
