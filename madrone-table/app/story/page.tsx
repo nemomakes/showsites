@@ -67,10 +67,10 @@ export default function StoryPage() {
               <div className="card-photo">
                 <Image
                   src="/images/how-we-cook.jpg"
-                  alt="A finished rockfish plate with spring vegetables on the kitchen pass"
+                  alt="A finished rockfish plate with spring vegetables on a dining room table"
                   fill
                   loading="eager"
-                  className="object-cover object-[center_70%]"
+                  className="object-cover object-center"
                   sizes="(min-width: 768px) 50vw, 100vw"
                 />
               </div>
