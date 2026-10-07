@@ -16,7 +16,7 @@ export default function Home() {
         <HeroMedia />
         <div className="pointer-events-none absolute inset-0 z-10 bg-[linear-gradient(to_top,rgba(30,30,30,0.68)_0%,rgba(30,30,30,0.34)_48%,rgba(30,30,30,0.12)_100%)]" />
         <div className="relative z-20 mx-auto flex min-h-[100svh] max-w-6xl flex-col justify-end px-5 pb-16 pt-32 md:px-8 md:pb-24">
-          <Reveal mode="load">
+          <Reveal mode="load" className="hero-text">
             <PageTitle maxRem={3.75}>{home.heroTitle}</PageTitle>
             <p className="hero-copy mt-6 max-w-2xl text-pretty">
               {site.description}

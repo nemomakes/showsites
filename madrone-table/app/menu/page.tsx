@@ -37,7 +37,7 @@ export default function MenuPage() {
         >
           <div className="grid gap-8 border-t border-ink/10 pt-10 md:grid-cols-12">
             <Reveal className="md:col-span-3">
-              <SectionTitle>{section.title}</SectionTitle>
+              <SectionTitle scaleWith="Small plates">{section.title}</SectionTitle>
             </Reveal>
             <Reveal delay={0.06} className="md:col-span-9">
               <ul className="menu-list list-disc space-y-5 pl-6 text-pretty marker:text-madrone">
