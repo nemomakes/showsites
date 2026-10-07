@@ -179,10 +179,10 @@ export const menu: readonly MenuSection[] = [
 
 export const story = {
   title: "A kitchen that stayed local.",
-  sub: "Madrone Table is chef Lena Park's East Bay restaurant — seasonal cooking, a short list, and a patio that fills when the weather is good.",
+  sub: "Madrone Table is chef Luke Park's East Bay restaurant — seasonal cooking, a short list, and a patio that fills when the weather is good.",
   originTitle: "How we got here.",
   origin: [
-    "Lena cooked in San Francisco dining rooms for twelve years before she wanted a place closer to home. She opened Madrone Table in Lafayette in 2022, in a narrow storefront with a door that opens onto School Street and a small patio out back.",
+    "Luke cooked in San Francisco dining rooms for twelve years before he wanted a place closer to home. He opened Madrone Table in Lafayette in 2022, in a narrow storefront with a door that opens onto School Street and a small patio out back.",
     "The name comes from the madrone trees in the hills above town — bark that peels, leaves that stay green. The cooking follows the same idea: clear, seasonal, not overworked. Produce comes from East Bay farms and a few trusted North Coast boats. The menu stays short so the kitchen can change it when something's good.",
   ],
   cookTitle: "How we cook.",

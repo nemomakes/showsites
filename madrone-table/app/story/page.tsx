@@ -20,7 +20,7 @@ export default function StoryPage() {
         {story.sub}
       </PageIntro>
 
-      <div className="relative mt-8 h-[50vh] min-h-[14rem] w-full overflow-hidden bg-stone md:mt-12">
+      <div className="relative h-[50vh] min-h-[14rem] w-full overflow-hidden bg-stone">
         <Image
           src="/images/hall.jpg"
           alt="A wood dining set in an empty restaurant room"
@@ -33,17 +33,29 @@ export default function StoryPage() {
 
       <div className="mx-auto flex w-full max-w-[100rem] flex-col gap-8 px-5 py-16 md:gap-10 md:px-8 md:py-24 xl:px-12">
         <SwayCard index={0} className="overflow-hidden rounded-[1.75rem] bg-white">
-          <div className="grid gap-8 px-6 py-10 md:grid-cols-[minmax(15.5rem,0.8fr)_minmax(0,1.4fr)] md:items-start md:gap-12 md:px-8 md:py-14 xl:px-12 xl:py-16">
+          <div className="grid items-stretch md:grid-cols-2">
             <Reveal>
-              <SectionTitle card>{story.originTitle}</SectionTitle>
+              <div className="relative aspect-[4/5] bg-stone md:h-full md:aspect-auto md:min-h-[28rem]">
+                <Image
+                  src="/images/chef-luke.jpg"
+                  alt="Chef Luke Park"
+                  fill
+                  loading="eager"
+                  className="object-cover"
+                  sizes="(min-width: 768px) 45vw, 100vw"
+                />
+              </div>
             </Reveal>
-            <Reveal delay={0.06}>
-              <div className="space-y-5">
-                {story.origin.map((paragraph) => (
-                  <p key={paragraph} className="card-copy text-pretty">
-                    {paragraph}
-                  </p>
-                ))}
+            <Reveal delay={0.08}>
+              <div className="px-6 py-10 md:px-8 md:py-14 xl:px-12 xl:py-16">
+                <SectionTitle card>{story.originTitle}</SectionTitle>
+                <div className="mt-5 space-y-5">
+                  {story.origin.map((paragraph) => (
+                    <p key={paragraph} className="card-copy text-pretty">
+                      {paragraph}
+                    </p>
+                  ))}
+                </div>
               </div>
             </Reveal>
           </div>

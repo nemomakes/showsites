@@ -10,6 +10,7 @@ Unsplash (https://unsplash.com/license)
 Pexels (https://www.pexels.com/license/)
 - dining.jpg — 941861
 - pass.jpg — 3338497
+- chef-luke.jpg — temporary stand-in copied from dining.jpg until the chef portrait is added
 
 AI-generated for Nemomakes (Runway). Home gallery only.
 - gallery/dish-table-1.jpg — Roasted beets

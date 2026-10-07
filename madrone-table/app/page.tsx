@@ -14,7 +14,7 @@ export default function Home() {
     <>
       <section className="relative min-h-[100svh] overflow-hidden bg-forest text-paper">
         <HeroMedia />
-        <div className="pointer-events-none absolute inset-0 z-10 bg-[linear-gradient(to_top,rgba(23,32,26,0.5)_0%,rgba(23,32,26,0.16)_26%,transparent_48%)]" />
+        <div className="pointer-events-none absolute inset-0 z-10 bg-[linear-gradient(to_top,rgba(30,30,30,0.68)_0%,rgba(30,30,30,0.34)_48%,rgba(30,30,30,0.12)_100%)]" />
         <div className="relative z-20 mx-auto flex min-h-[100svh] max-w-6xl flex-col justify-end px-5 pb-16 pt-32 md:px-8 md:pb-24">
           <Reveal mode="load">
             <PageTitle maxRem={3.75}>{home.heroTitle}</PageTitle>
@@ -33,34 +33,32 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="mx-auto flex w-full max-w-[100rem] flex-col gap-8 px-5 py-16 md:gap-10 md:px-8 md:py-24 xl:px-12">
+      <div className="mx-auto flex max-w-6xl flex-col gap-8 px-6 py-16 md:gap-12 md:px-10 md:py-24">
         <SwayCard index={0} className="overflow-hidden rounded-[1.75rem] bg-white">
-          <div className="grid items-stretch md:grid-cols-2">
-            <Reveal>
-              <div className="px-6 py-10 md:px-8 md:py-14 xl:px-12 xl:py-16">
-                <SectionTitle card>{home.introTitle}</SectionTitle>
-                <p className="card-copy mt-5 text-pretty">{home.introBody}</p>
-              </div>
-            </Reveal>
-            <Reveal delay={0.08}>
-              <div className="relative aspect-[4/5] bg-stone md:h-full md:aspect-auto md:min-h-[28rem]">
-                <Image
-                  src="/images/linen.jpg"
-                  alt="An empty restaurant interior before service"
-                  fill
-                  loading="eager"
-                  className="object-cover"
-                  sizes="(min-width: 768px) 45vw, 100vw"
-                />
-              </div>
-            </Reveal>
-          </div>
+          <Reveal>
+            <div className="px-6 py-10 md:px-12 md:py-14">
+              <SectionTitle card>{home.introTitle}</SectionTitle>
+              <p className="card-copy mt-5 max-w-3xl text-pretty">{home.introBody}</p>
+            </div>
+          </Reveal>
+          <Reveal delay={0.08}>
+            <div className="relative aspect-video bg-stone">
+              <Image
+                src="/images/linen.jpg"
+                alt="An empty restaurant interior before service"
+                fill
+                loading="eager"
+                className="object-cover"
+                sizes="(min-width: 1152px) 72rem, 100vw"
+              />
+            </div>
+          </Reveal>
         </SwayCard>
 
         <SwayCard index={1} className="overflow-hidden rounded-[1.75rem] bg-white">
           <div className="grid items-stretch md:grid-cols-2">
             <Reveal className="md:order-2">
-              <div className="px-6 py-10 md:px-8 md:py-14 xl:px-12 xl:py-16">
+              <div className="px-6 py-10 md:px-8 md:py-14">
                 <SectionTitle card>{home.expectTitle}</SectionTitle>
                 <BulletList items={home.expect} />
               </div>
@@ -83,7 +81,7 @@ export default function Home() {
         <SwayCard index={2} className="overflow-hidden rounded-[1.75rem] bg-white">
           <div className="grid items-stretch md:grid-cols-2">
             <Reveal>
-              <div className="px-6 py-10 md:px-8 md:py-14 xl:px-12 xl:py-16">
+              <div className="px-6 py-10 md:px-8 md:py-14">
                 <SectionTitle card>{home.menuTitle}</SectionTitle>
                 <p className="card-copy mt-5 text-pretty">{home.menuBody}</p>
                 <BulletList items={home.menuItems} />
@@ -121,26 +119,24 @@ export default function Home() {
         </SwayCard>
 
         <SwayCard index={3} className="overflow-hidden rounded-[1.75rem] bg-white">
-          <div className="grid items-stretch md:grid-cols-2">
-            <Reveal>
-              <div className="relative aspect-[4/5] bg-stone md:h-full md:aspect-auto md:min-h-[28rem]">
-                <Image
-                  src="/images/dining.jpg"
-                  alt="An empty dining room with tables set before service"
-                  fill
-                  loading="eager"
-                  className="object-cover object-[center_30%]"
-                  sizes="(min-width: 768px) 45vw, 100vw"
-                />
-              </div>
-            </Reveal>
-            <Reveal delay={0.08}>
-              <div className="px-6 py-10 md:px-8 md:py-14 xl:px-12 xl:py-16">
-                <SectionTitle card>{home.patioTitle}</SectionTitle>
-                <p className="card-copy mt-5 text-pretty">{home.patioBody}</p>
-              </div>
-            </Reveal>
-          </div>
+          <Reveal>
+            <div className="px-6 py-10 md:px-12 md:py-14">
+              <SectionTitle card>{home.patioTitle}</SectionTitle>
+              <p className="card-copy mt-5 max-w-3xl text-pretty">{home.patioBody}</p>
+            </div>
+          </Reveal>
+          <Reveal delay={0.08}>
+            <div className="relative aspect-video bg-stone">
+              <Image
+                src="/images/dining.jpg"
+                alt="An empty dining room with tables set before service"
+                fill
+                loading="eager"
+                className="object-cover object-[center_30%]"
+                sizes="(min-width: 1152px) 72rem, 100vw"
+              />
+            </div>
+          </Reveal>
         </SwayCard>
       </div>
 
