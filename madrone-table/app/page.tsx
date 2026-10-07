@@ -12,11 +12,11 @@ export default function Home() {
     <>
       <section className="relative min-h-[100svh] overflow-hidden bg-forest text-paper">
         <Image
-          src="/images/patio.jpg"
-          alt="Empty outdoor tables under string lights at dusk"
+          src="/images/dining.jpg"
+          alt="An empty dining room with tables set before service"
           fill
           priority
-          className="object-cover object-[center_40%]"
+          className="object-cover object-center"
           sizes="100vw"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-forest/80 via-forest/30 to-forest/25" />
@@ -51,6 +51,7 @@ export default function Home() {
               src="/images/room.jpg"
               alt="An empty wood table set before dinner service"
               fill
+              loading="eager"
               className="object-cover"
               sizes="(min-width: 768px) 45vw, 100vw"
             />
@@ -70,6 +71,7 @@ export default function Home() {
                 src="/images/produce.jpg"
                 alt="Greens, herbs, and tomatoes on a prep board"
                 fill
+                loading="eager"
                 className="object-cover"
                 sizes="(min-width: 768px) 45vw, 100vw"
               />
@@ -108,6 +110,7 @@ export default function Home() {
               src="/images/plate.jpg"
               alt="Sliced beets and greens on a white ceramic plate"
               fill
+              loading="eager"
               className="object-cover"
               sizes="(min-width: 768px) 45vw, 100vw"
             />
@@ -120,9 +123,10 @@ export default function Home() {
           <Reveal>
             <div className="relative aspect-[4/5] overflow-hidden bg-stone md:aspect-[5/6]">
               <Image
-                src="/images/patio.jpg"
-                alt="Empty outdoor tables under string lights at dusk"
+                src="/images/dining.jpg"
+                alt="An empty dining room with tables set before service"
                 fill
+                loading="eager"
                 className="object-cover object-[center_30%]"
                 sizes="(min-width: 768px) 45vw, 100vw"
               />

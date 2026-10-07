@@ -2,8 +2,8 @@ import Image from "next/image";
 
 const frames = [
   {
-    src: "/images/patio.jpg",
-    alt: "Empty outdoor tables under string lights at dusk",
+    src: "/images/dining.jpg",
+    alt: "An empty dining room with tables set before service",
   },
   {
     src: "/images/plate.jpg",
@@ -41,6 +41,7 @@ function FrameRow({ decorative }: { decorative?: boolean }) {
             src={frame.src}
             alt={decorative ? "" : index < frames.length ? frame.alt : ""}
             fill
+            loading="eager"
             className="object-cover"
             sizes="(min-width: 1024px) 30rem, (min-width: 768px) 26rem, 18rem"
           />

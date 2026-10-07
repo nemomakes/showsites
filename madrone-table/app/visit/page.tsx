@@ -92,9 +92,10 @@ export default function VisitPage() {
         <RevealItem>
           <div className="relative aspect-[4/3] bg-stone">
             <Image
-              src="/images/patio.jpg"
-              alt="Empty outdoor tables under string lights at dusk"
+              src="/images/dining.jpg"
+              alt="An empty dining room with tables set before service"
               fill
+              loading="eager"
               className="object-cover"
               sizes="(min-width: 768px) 50vw, 100vw"
             />
@@ -106,6 +107,7 @@ export default function VisitPage() {
               src="/images/produce.jpg"
               alt="Greens, herbs, and tomatoes on a prep board"
               fill
+              loading="eager"
               className="object-cover"
               sizes="(min-width: 768px) 50vw, 100vw"
             />

@@ -1,11 +1,42 @@
 "use client";
 
-import { motion, useReducedMotion, type HTMLMotionProps } from "motion/react";
-import type { ReactNode } from "react";
+import { useReducedMotion } from "motion/react";
+import {
+  useEffect,
+  useRef,
+  useState,
+  type CSSProperties,
+  type ReactNode,
+  type Ref,
+} from "react";
 
-const ease = [0.22, 1, 0.36, 1] as const;
+type Mode = "view" | "load";
 
-const viewport = { once: true, amount: 0.22, margin: "0px 0px -48px 0px" } as const;
+function useRevealPlay(mode: Mode) {
+  const reduce = useReducedMotion();
+  const ref = useRef<HTMLDivElement>(null);
+  const [seen, setSeen] = useState(false);
+  const play = reduce === false && (mode === "load" || seen);
+
+  useEffect(() => {
+    if (reduce !== false || mode === "load") return;
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry?.isIntersecting) {
+          setSeen(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.2, rootMargin: "0px 0px -48px 0px" },
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [mode, reduce]);
+
+  return { ref, play };
+}
 
 type RevealProps = {
   children: ReactNode;
@@ -13,31 +44,28 @@ type RevealProps = {
   delay?: number;
   distance?: number;
   /** `load` plays on mount (hero / page titles). `view` waits for the viewport. */
-  mode?: "view" | "load";
+  mode?: Mode;
 };
 
 export function Reveal({
   children,
   className,
   delay = 0,
-  distance = 22,
   mode = "view",
 }: RevealProps) {
-  const reduce = useReducedMotion();
-  const hidden = reduce ? false : { opacity: 0, y: distance };
-  const shown = { opacity: 1, y: 0 };
-  const transition = { duration: reduce ? 0 : 0.72, delay: reduce ? 0 : delay, ease };
+  const { ref, play } = useRevealPlay(mode);
+  const style: CSSProperties | undefined =
+    play && delay ? { animationDelay: `${delay}s` } : undefined;
 
-  const props: HTMLMotionProps<"div"> = {
-    className,
-    initial: hidden,
-    transition,
-    ...(mode === "load"
-      ? { animate: shown }
-      : { whileInView: shown, viewport }),
-  };
-
-  return <motion.div {...props}>{children}</motion.div>;
+  return (
+    <div
+      ref={ref as Ref<HTMLDivElement>}
+      className={[className, play ? "reveal-play" : ""].filter(Boolean).join(" ")}
+      style={style}
+    >
+      {children}
+    </div>
+  );
 }
 
 type GroupProps = {
@@ -45,7 +73,7 @@ type GroupProps = {
   className?: string;
   stagger?: number;
   delay?: number;
-  mode?: "view" | "load";
+  mode?: Mode;
 };
 
 export function RevealGroup({
@@ -55,28 +83,20 @@ export function RevealGroup({
   delay = 0,
   mode = "view",
 }: GroupProps) {
-  const reduce = useReducedMotion();
-  const variants = {
-    hidden: {},
-    visible: {
-      transition: {
-        staggerChildren: reduce ? 0 : stagger,
-        delayChildren: reduce ? 0 : delay,
-      },
-    },
-  };
+  const { ref, play } = useRevealPlay(mode);
+  const style: CSSProperties = {
+    "--reveal-step": `${stagger}s`,
+    ...(play && delay ? { animationDelay: `${delay}s` } : {}),
+  } as CSSProperties;
 
   return (
-    <motion.div
-      className={className}
-      initial={reduce ? "visible" : "hidden"}
-      variants={variants}
-      {...(mode === "load"
-        ? { animate: "visible" }
-        : { whileInView: "visible", viewport })}
+    <div
+      ref={ref as Ref<HTMLDivElement>}
+      className={[className, play ? "reveal-play" : ""].filter(Boolean).join(" ")}
+      style={style}
     >
       {children}
-    </motion.div>
+    </div>
   );
 }
 
@@ -87,32 +107,10 @@ type ItemProps = {
   as?: "div" | "li" | "article" | "figure";
 };
 
-export function RevealItem({
-  children,
-  className,
-  distance = 20,
-  as = "div",
-}: ItemProps) {
-  const reduce = useReducedMotion();
-  const variants = {
-    hidden: reduce ? { opacity: 1, y: 0 } : { opacity: 0, y: distance },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: reduce ? 0 : 0.68, ease },
-    },
-  };
-
-  const shared = { className, variants };
-
-  if (as === "li") {
-    return <motion.li {...shared}>{children}</motion.li>;
-  }
-  if (as === "article") {
-    return <motion.article {...shared}>{children}</motion.article>;
-  }
-  if (as === "figure") {
-    return <motion.figure {...shared}>{children}</motion.figure>;
-  }
-  return <motion.div {...shared}>{children}</motion.div>;
+export function RevealItem({ children, className, as = "div" }: ItemProps) {
+  const itemClass = ["reveal-item", className].filter(Boolean).join(" ");
+  if (as === "li") return <li className={itemClass}>{children}</li>;
+  if (as === "article") return <article className={itemClass}>{children}</article>;
+  if (as === "figure") return <figure className={itemClass}>{children}</figure>;
+  return <div className={itemClass}>{children}</div>;
 }

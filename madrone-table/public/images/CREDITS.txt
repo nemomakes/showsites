@@ -7,5 +7,5 @@ Unsplash (https://unsplash.com/license)
 - produce.jpg — photo-1766596737206-214abffe65bf
 
 Pexels (https://www.pexels.com/license/)
-- patio.jpg — 5825576
+- dining.jpg — 941861
 - pass.jpg — 3338497

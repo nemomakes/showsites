@@ -53,6 +53,7 @@ export default function StoryPage() {
                 src="/images/pass.jpg"
                 alt="Hands finishing a plate with herbs"
                 fill
+                loading="eager"
                 className="object-cover"
                 sizes="(min-width: 768px) 45vw, 100vw"
               />
