@@ -305,6 +305,10 @@ body {
   }
 }
 
+.hero-still {
+  transition: opacity 1s linear;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .hero-still {
     opacity: 1 !important;

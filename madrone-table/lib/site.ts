@@ -189,8 +189,11 @@ export const story = {
   cook: [
     "Seasonal first — if it isn't good this week, it isn't on the plate",
     "A short menu so every dish gets attention",
-    "Local where it matters: greens, fruit, dairy, fish when the boats have it",
+    "Local greens, fruit, dairy, and fish when the boats have it",
     "A room meant for conversation",
+    "Bread and stocks made in-house every morning",
+    "Whole fish and whole birds, so nothing goes to waste",
+    "Wine from small California producers that suits the food",
   ],
   reserveTitle: "Reserve a table.",
   reserveBody:
