@@ -34,8 +34,8 @@ export default function StoryPage() {
       <div className="mx-auto flex w-full max-w-[100rem] flex-col gap-8 px-5 py-16 md:gap-10 md:px-8 md:py-24 xl:px-12">
         <SwayCard index={0} className="overflow-hidden rounded-[1.75rem] bg-white">
           <div className="card-split">
-            <Reveal>
-              <div className="relative aspect-[4/5] bg-stone md:h-full md:aspect-auto md:min-h-[28rem]">
+            <Reveal className="h-full">
+              <div className="card-photo">
                 <Image
                   src="/images/chef-luke.jpg"
                   alt="Chef Luke Park plating a salmon dish at the pass"
@@ -63,14 +63,14 @@ export default function StoryPage() {
 
         <SwayCard index={1} className="overflow-hidden rounded-[1.75rem] bg-white">
           <div className="card-split">
-            <Reveal>
-              <div className="relative aspect-[4/5] bg-stone md:aspect-square">
+            <Reveal className="h-full">
+              <div className="card-photo">
                 <Image
-                  src="/images/pass.jpg"
-                  alt="Hands finishing a plate with herbs"
+                  src="/images/how-we-cook.jpg"
+                  alt="A finished rockfish plate with spring vegetables on the kitchen pass"
                   fill
                   loading="eager"
-                  className="object-cover object-top"
+                  className="object-cover object-[center_70%]"
                   sizes="(min-width: 768px) 50vw, 100vw"
                 />
               </div>
