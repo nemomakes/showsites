@@ -3,7 +3,6 @@ Stock photos have no identifiable restaurant signage or people's faces.
 
 Unsplash (https://unsplash.com/license)
 - plate.jpg — photo-1592417817098-8fd3d9eb14a5
-- hall.jpg — photo-1550966871-3ed3cdb5ed0c (brown wooden dining set inside a room)
 - linen.jpg — photo-1573788709046-96c8de6ba551, Erik Mclean (empty restaurant interior)
 - produce.jpg — photo-1766596737206-214abffe65bf
 
@@ -12,6 +11,8 @@ Pexels (https://www.pexels.com/license/)
 - pass.jpg — 3338497
 
 AI-generated for Nemomakes (Runway).
+- story-room.jpg — Story page dining room banner
+- patio.jpg — Homepage patio card
 - chef-luke.jpg — Chef Luke Park plating a salmon dish
 - gallery/dish-table-1.jpg — Roasted beets
 - gallery/dish-counter-1.jpg — Day-boat rockfish
