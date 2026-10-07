@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useEffect, useRef } from "react";
 
 const HOLD_MS = 2000;
+const FADE_MS = 1000;
 
 /**
  * Still dining room, then a crossfade into the chef clip, then a crossfade
@@ -54,8 +55,8 @@ export function HeroMedia() {
       if (cancelled) return;
       showClip();
       const duration = video.duration;
-      if (Number.isFinite(duration) && duration > 1) {
-        const wait = Math.max(0, (duration - 1 - video.currentTime) * 1000);
+      if (Number.isFinite(duration) && duration * 1000 > FADE_MS) {
+        const wait = Math.max(0, duration * 1000 - FADE_MS - video.currentTime * 1000);
         fadeTimer = window.setTimeout(showStill, wait);
       }
     };
@@ -157,7 +158,7 @@ export function HeroMedia() {
       />
       <div
         ref={stillRef}
-        className="hero-still absolute inset-0 transition-opacity duration-1000 ease-linear"
+        className="hero-still absolute inset-0"
         style={{ opacity: 1 }}
       >
         <Image

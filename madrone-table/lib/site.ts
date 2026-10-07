@@ -191,6 +191,9 @@ export const story = {
     "A short menu so every dish gets attention",
     "Local where it matters: greens, fruit, dairy, fish when the boats have it",
     "A room meant for conversation",
+    "Bread and stocks made in-house every morning",
+    "Whole fish and whole birds, so nothing goes to waste",
+    "Wine from small California producers that suits the food",
   ],
   reserveTitle: "Reserve a table.",
   reserveBody:
