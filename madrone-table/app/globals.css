@@ -146,6 +146,66 @@ body {
   background: color-mix(in srgb, var(--ink) 12%, transparent);
 }
 
+.copy {
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.45;
+  color: var(--ink);
+}
+
+.hero-copy {
+  font-size: 1.35rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--paper);
+  text-shadow: 0 1px 18px rgba(23, 32, 26, 0.65);
+}
+
+@media (min-width: 768px) {
+  .copy {
+    font-size: 1.5rem;
+    line-height: 1.5;
+  }
+
+  .hero-copy {
+    font-size: 1.75rem;
+    line-height: 1.45;
+  }
+}
+
+.menu-list {
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.45;
+  color: var(--ink);
+}
+
+@media (min-width: 768px) {
+  .menu-list {
+    font-size: 1.5rem;
+  }
+}
+
+@keyframes card-sway {
+  0%,
+  100% {
+    transform: translateX(-8px);
+  }
+  50% {
+    transform: translateX(8px);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .card-sway {
+    animation-name: card-sway;
+    animation-duration: var(--sway-duration, 14s);
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-delay: var(--sway-delay, 0s);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -153,9 +213,14 @@ body {
 
   .marquee-ltr,
   .reveal-play,
-  .reveal-play > .reveal-item {
+  .reveal-play > .reveal-item,
+  .card-sway {
     animation: none;
     will-change: auto;
+  }
+
+  .card-sway {
+    transform: none;
   }
 
   .marquee-ltr {

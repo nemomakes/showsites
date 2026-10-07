@@ -2,24 +2,29 @@ import Image from "next/image";
 
 const frames = [
   {
-    src: "/images/dining.jpg",
-    alt: "An empty dining room with tables set before service",
+    src: "/images/dish-counter-1.jpg",
+    alt: "A plated dish on a pale counter",
+    position: "center",
   },
   {
-    src: "/images/plate.jpg",
-    alt: "Sliced beets and greens on a white ceramic plate",
+    src: "/images/dish-table-1.jpg",
+    alt: "A plated dish on a light wood table",
+    position: "center 78%",
   },
   {
-    src: "/images/pass.jpg",
-    alt: "Hands finishing a plate with herbs",
+    src: "/images/dish-counter-2.jpg",
+    alt: "A plated dish on a pale counter",
+    position: "center",
   },
   {
-    src: "/images/room.jpg",
-    alt: "An empty wood table set before dinner service",
+    src: "/images/dish-table-2.jpg",
+    alt: "A plated dish on a beige table",
+    position: "center",
   },
   {
-    src: "/images/produce.jpg",
-    alt: "Greens, herbs, and tomatoes on a prep board",
+    src: "/images/dish-counter-3.jpg",
+    alt: "A plated dish on a pale counter",
+    position: "center",
   },
 ] as const;
 
@@ -43,6 +48,7 @@ function FrameRow({ decorative }: { decorative?: boolean }) {
             fill
             loading="eager"
             className="object-cover"
+            style={{ objectPosition: frame.position }}
             sizes="(min-width: 1024px) 30rem, (min-width: 768px) 26rem, 18rem"
           />
         </figure>
@@ -54,7 +60,7 @@ function FrameRow({ decorative }: { decorative?: boolean }) {
 export function MarqueeGallery() {
   return (
     <section
-      aria-label="Patio, plates, and the dining room"
+      aria-label="Plated dishes"
       className="relative left-1/2 w-screen max-w-[100vw] -translate-x-1/2 overflow-hidden py-16 md:py-24"
     >
       <div className="marquee-ltr flex w-max">
