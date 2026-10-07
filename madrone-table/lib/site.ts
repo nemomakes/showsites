@@ -88,7 +88,7 @@ export const menuIntro =
   "A sample of what we're cooking this season. Prices and dishes change with the market — call if you want to confirm what's on tonight.";
 
 export const menuNote =
-  "Menu labeled seasonal / sample. Ask about wine pairings and by-the-bottle when you call.";
+  "Ask about wine pairings and by-the-bottle when you call.";
 
 export const menu: readonly MenuSection[] = [
   {
