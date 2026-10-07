@@ -1,5 +1,5 @@
 Royalty-free photography used on the Madrone Table demo.
-No identifiable restaurant signage or people's faces.
+Stock photos have no identifiable restaurant signage or people's faces.
 
 Unsplash (https://unsplash.com/license)
 - plate.jpg — photo-1592417817098-8fd3d9eb14a5
@@ -10,9 +10,9 @@ Unsplash (https://unsplash.com/license)
 Pexels (https://www.pexels.com/license/)
 - dining.jpg — 941861
 - pass.jpg — 3338497
-- chef-luke.jpg — temporary stand-in copied from dining.jpg until the chef portrait is added
 
-AI-generated for Nemomakes (Runway). Home gallery only.
+AI-generated for Nemomakes (Runway).
+- chef-luke.jpg — Chef Luke Park plating a salmon dish
 - gallery/dish-table-1.jpg — Roasted beets
 - gallery/dish-counter-1.jpg — Day-boat rockfish
 - gallery/dish-table-2.jpg — Squash risotto

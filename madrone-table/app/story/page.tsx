@@ -38,10 +38,10 @@ export default function StoryPage() {
               <div className="relative aspect-[4/5] bg-stone md:h-full md:aspect-auto md:min-h-[28rem]">
                 <Image
                   src="/images/chef-luke.jpg"
-                  alt="Chef Luke Park"
+                  alt="Chef Luke Park plating a salmon dish at the pass"
                   fill
                   loading="eager"
-                  className="object-cover"
+                  className="object-cover object-[center_42%]"
                   sizes="(min-width: 768px) 45vw, 100vw"
                 />
               </div>
