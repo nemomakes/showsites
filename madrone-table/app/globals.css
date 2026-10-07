@@ -192,8 +192,14 @@ body {
 }
 
 .gallery-frame {
-  width: 100vw;
+  width: 80vw;
   flex: none;
+}
+
+@media (min-width: 768px) {
+  .gallery-frame {
+    width: 50vw;
+  }
 }
 
 .gallery-frame img {

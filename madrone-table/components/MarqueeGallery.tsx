@@ -32,7 +32,7 @@ const rowFrames = [...frames, ...frames];
 
 function FrameRow({ decorative }: { decorative?: boolean }) {
   return (
-    <div className="flex" aria-hidden={decorative || undefined}>
+    <div className="flex gap-3 pr-3" aria-hidden={decorative || undefined}>
       {rowFrames.map((frame, index) => (
         <figure key={`${frame.src}-${index}`} className="gallery-frame">
           <Image
@@ -42,7 +42,7 @@ function FrameRow({ decorative }: { decorative?: boolean }) {
             height={1073}
             loading="eager"
             className="h-auto w-full"
-            sizes="100vw"
+            sizes="(min-width: 768px) 50vw, 80vw"
           />
         </figure>
       ))}
