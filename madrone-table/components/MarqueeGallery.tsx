@@ -2,28 +2,33 @@ import Image from "next/image";
 
 const frames = [
   {
-    src: "/images/dish-table-1.jpg",
-    alt: "A plated fish dish on a dark restaurant table",
+    src: "/images/gallery/dish-table-1.jpg",
+    alt: "Roasted beets with herbs on a dark table",
     position: "center",
   },
   {
-    src: "/images/dish-counter-1.jpg",
-    alt: "A plated dish on a white marble counter",
+    src: "/images/gallery/dish-counter-1.jpg",
+    alt: "Day-boat rockfish with lemon and herbs on a marble counter",
     position: "center",
   },
   {
-    src: "/images/dish-table-2.jpg",
-    alt: "A plated dish in a ceramic bowl on a dark restaurant table",
+    src: "/images/gallery/dish-table-2.jpg",
+    alt: "Squash risotto finished with herbs on a dark table",
     position: "center",
   },
   {
-    src: "/images/dish-counter-2.jpg",
-    alt: "A plated dish on a white marble counter",
+    src: "/images/gallery/dish-counter-2.jpg",
+    alt: "Olive oil cake with citrus and crème fraîche on a marble counter",
     position: "center",
   },
   {
-    src: "/images/dish-table-3.jpg",
-    alt: "A plated meat dish on a dark restaurant table",
+    src: "/images/gallery/dish-table-3.jpg",
+    alt: "Half chicken with potatoes and greens on a dark table",
+    position: "center",
+  },
+  {
+    src: "/images/gallery/dish-counter-3.jpg",
+    alt: "Grilled Little Gem with dressing on a marble counter",
     position: "center",
   },
 ] as const;
