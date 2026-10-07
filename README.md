@@ -10,7 +10,7 @@ Each demo is its own app in a subdirectory. Do not put sites at the repo root.
 | --- | --- | --- |
 | [`oak-and-crumb/`](./oak-and-crumb) | Oak & Crumb Bakery — Walnut Creek, CA | Live |
 | [`lumen-salon/`](./lumen-salon) | Lumen Salon — Walnut Creek, CA | New |
-| `restaurant/` | Neighborhood restaurant | Later |
+| [`madrone-table/`](./madrone-table) | Madrone Table — Lafayette, CA | New |
 
 ## Oak & Crumb
 
@@ -69,3 +69,32 @@ Point a Vercel project at the `lumen-salon` subdirectory:
 4. Deploy.
 
 Full notes live in [`lumen-salon/README.md`](./lumen-salon/README.md).
+
+## Madrone Table
+
+Modern Californian restaurant site: Home, Menu, Story, Visit. Soft call / email / map CTAs only — no booking widget.
+
+```bash
+cd madrone-table
+npm install
+npm run dev
+```
+
+Production build:
+
+```bash
+cd madrone-table
+npm install
+npm run build
+```
+
+### Vercel
+
+Point a Vercel project at the `madrone-table` subdirectory:
+
+1. Import this GitHub repo in Vercel.
+2. Set **Root Directory** to `madrone-table`.
+3. Framework preset: Next.js. Build command `npm run build`, output as detected.
+4. Deploy.
+
+Full notes live in [`madrone-table/README.md`](./madrone-table/README.md).
