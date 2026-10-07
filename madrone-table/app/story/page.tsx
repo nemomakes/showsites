@@ -22,10 +22,10 @@ export default function StoryPage() {
 
       <div className="relative h-[50vh] min-h-[14rem] w-full overflow-hidden bg-stone">
         <Image
-          src="/images/hall.jpg"
-          alt="A wood dining set in an empty restaurant room"
+          src="/images/story-room.jpg"
+          alt="Madrone Table dining room in the evening"
           fill
-          className="object-cover"
+          className="object-cover object-center"
           sizes="100vw"
           priority
         />
@@ -33,7 +33,7 @@ export default function StoryPage() {
 
       <div className="mx-auto flex w-full max-w-[100rem] flex-col gap-8 px-5 py-16 md:gap-10 md:px-8 md:py-24 xl:px-12">
         <SwayCard index={0} className="overflow-hidden rounded-[1.75rem] bg-white">
-          <div className="grid items-stretch md:grid-cols-2">
+          <div className="card-split">
             <Reveal>
               <div className="relative aspect-[4/5] bg-stone md:h-full md:aspect-auto md:min-h-[28rem]">
                 <Image
@@ -62,7 +62,7 @@ export default function StoryPage() {
         </SwayCard>
 
         <SwayCard index={1} className="overflow-hidden rounded-[1.75rem] bg-white">
-          <div className="grid items-stretch md:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)]">
+          <div className="card-split">
             <Reveal>
               <div className="relative aspect-[4/5] bg-stone md:h-full md:aspect-auto md:min-h-[28rem]">
                 <Image

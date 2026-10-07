@@ -128,11 +128,11 @@ export default function Home() {
           <Reveal delay={0.08}>
             <div className="relative aspect-video bg-stone">
               <Image
-                src="/images/dining.jpg"
-                alt="An empty dining room with tables set before service"
+                src="/images/patio.jpg"
+                alt="Madrone Table patio at dusk with string lights and heaters"
                 fill
                 loading="eager"
-                className="object-cover object-[center_30%]"
+                className="object-cover object-center"
                 sizes="(min-width: 1152px) 72rem, 100vw"
               />
             </div>
