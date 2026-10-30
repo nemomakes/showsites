@@ -1,5 +1,7 @@
 import SignupForm from "@/components/SignupForm";
 import Reveal from "@/components/Reveal";
+import Doodles from "@/components/Doodles";
+import ScrollProgress from "@/components/ScrollProgress";
 import Image from "next/image";
 import heroImg from "./images/hero.jpg";
 import likeImg from "./images/card-like.jpg";
@@ -40,6 +42,7 @@ export default function Page() {
         </section>
 
         <section className="intro sand">
+          <Doodles />
           <div className="wrap narrow">
             <p className="intro-text" data-reveal>For years you knew everyone&apos;s favorites, schedules, and shoe sizes. Then the house got quiet. If you&apos;ve caught yourself thinking &ldquo;is this it?&rdquo;, you&apos;re not the only one, and you&apos;re not starting from zero.</p>
           </div>
@@ -61,14 +64,15 @@ export default function Page() {
         </section>
 
         <section className="how sand">
-          <div className="wrap how-grid">
+          <div className="wrap">
             <div data-reveal>
               <h2 className="h2">How it works</h2>
               <p className="sub">4 weeks, a few minutes a day.</p>
             </div>
             <ol className="weeks">
               {weeks.map((w, i) => (
-                <li key={w} data-reveal style={{ ["--d" as string]: `${i * 80}ms` }}>
+                <li key={w} data-reveal style={{ ["--d" as string]: `${i * 110}ms` }}>
+                  <span className="wn" aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
                   <span className="wk">Week {i + 1}</span>
                   <span className="wt">{w}</span>
                 </li>
@@ -77,10 +81,23 @@ export default function Page() {
           </div>
         </section>
 
-        <div className="band" data-reveal>
-          <Image src={bandWide} alt="" placeholder="blur" quality={70} sizes="100vw" className="band-wide" />
-          <Image src={bandMobile} alt="" placeholder="blur" quality={70} sizes="100vw" className="band-mobile" />
-        </div>
+        <ScrollProgress className="band">
+          <div className="band-photo" aria-hidden="true">
+            <Image src={bandWide} alt="" placeholder="blur" quality={70} sizes="100vw" className="band-wide" />
+            <Image src={bandMobile} alt="" placeholder="blur" quality={70} sizes="100vw" className="band-mobile" />
+          </div>
+          <div className="pages" aria-hidden="true">
+            {weeks.map((w, i) => (
+              <div className="page" key={w} style={{ ["--i" as string]: i }} data-reveal>
+                <div className="page-in">
+                  <span className="wk">Week {i + 1}</span>
+                  <span className="page-t">{w}</span>
+                  <span className="rule w9" /><span className="rule w7" /><span className="bar" /><span className="rule w8" /><span className="rule w5" /><span className="bar short" />
+                </div>
+              </div>
+            ))}
+          </div>
+        </ScrollProgress>
 
         <section className="why">
           <div className="wrap why-grid">
