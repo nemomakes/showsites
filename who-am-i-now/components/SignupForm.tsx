@@ -27,7 +27,8 @@ export default function SignupForm() {
   if (status === "success") {
     return (
       <div className="form-msg form-msg--success" role="status" aria-live="polite">
-        [SUCCESS MESSAGE - from Copywriter]
+        <p className="form-msg-title">You&apos;re in. Your workbook is on its way.</p>
+        <p>Check your inbox in a few minutes (and your spam folder, just in case).</p>
       </div>
     );
   }
@@ -52,7 +53,7 @@ export default function SignupForm() {
         Send me the workbook
       </button>
       {status === "error" && (
-        <p className="form-msg form-msg--error" role="alert">[ERROR MESSAGE - from Copywriter]</p>
+        <p className="form-msg form-msg--error" role="alert">Something went wrong. Please try again in a moment.</p>
       )}
       <p className="fine">Free. One email with your PDF, then an occasional note. Unsubscribe anytime.</p>
     </form>
