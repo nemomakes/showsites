@@ -197,3 +197,12 @@ h1,h2,h3,p{margin:0}
   .walker-1{transform:translateX(calc(4vw + 90px))!important}.walker-1 .stage-0{opacity:0}.walker-1 .stage-1{opacity:1}
 }
 
+
+/* hero pegasus (alternative to the walk; switch in page.tsx) */
+.peg{position:absolute;left:0;bottom:4px;width:180px;height:120px;transform:translate3d(-200px,0,0);will-change:transform}
+.peg-svg{width:100%;height:100%;display:block}
+.peg .wing{display:none}
+.peg[data-pose="0"] .wing-0,.peg[data-pose="1"] .wing-1,.peg[data-pose="2"] .wing-2,.peg[data-pose="3"] .wing-3{display:inline}
+@media (min-width:760px){.peg{width:330px;height:220px;bottom:10px}}
+@media (prefers-reduced-motion:reduce){.peg{transform:translate3d(3vw,0,0)!important}}
+.peg .wing-fill{fill:var(--cream)}

@@ -1,6 +1,10 @@
 import SignupForm from "@/components/SignupForm";
 import Reveal from "@/components/Reveal";
 import HeroWalk from "@/components/HeroWalk";
+import HeroPegasus from "@/components/HeroPegasus";
+
+// Hero background animation. "walk" = the kids growing up (tag hero-walk-v1); "pegasus" = the flight.
+const HERO_ANIMATION = "pegasus" as "pegasus" | "walk";
 import Doodles from "@/components/Doodles";
 import ScrollProgress from "@/components/ScrollProgress";
 import Image from "next/image";
@@ -28,7 +32,7 @@ export default function Page() {
 
       <main>
         <section className="hero">
-          <HeroWalk />
+          {HERO_ANIMATION === "walk" ? <HeroWalk /> : <HeroPegasus />}
           <div className="wrap hero-grid">
             <div className="hero-copy">
               <h1 className="h1 load" style={{ ["--d" as string]: "0ms" }}>The kids are gone, and you can&apos;t remember what you even like.</h1>
