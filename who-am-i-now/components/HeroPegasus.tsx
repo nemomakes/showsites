@@ -87,7 +87,7 @@ const LIFT = [2, 1, -1, -3, -1, 1]; // px offset per frame: rises on the downstr
 
 function Pegasus() {
   return (
-    <svg className="peg-svg" viewBox="0 -30 300 214" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth={2.6} strokeLinecap="round" strokeLinejoin="round">
+    <svg className="peg-svg" viewBox="0 -30 300 214" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
       {POSES.map((p, i) => (
         <g key={i} className={`wing wing-${i}`}>
           {p.far !== undefined && <path className="far" d={wing(p.far, 0.92, 12, -3).outline} />}
@@ -104,7 +104,7 @@ function Pegasus() {
   );
 }
 
-const STEP = 140, REST = 3000, CROSS = 11000;
+const STEP = 140, REST = 3000, CROSS = 12000; // ~same px/s as before over the longer (larger-sprite) path
 export default function HeroPegasus() {
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -117,7 +117,7 @@ export default function HeroPegasus() {
       const dt = Math.min(now - last, 100); last = now;
       if (visible) {
         t += dt;
-        const W = host.clientWidth, w = el.offsetWidth, cross = CROSS * Math.max(0.55, Math.min(1, (W + w) / (1440 + 300)));
+        const W = host.clientWidth, w = el.offsetWidth, cross = CROSS * Math.max(0.55, Math.min(1, (W + w) / (1440 + 430)));
         if (t > cross + REST) { t = 0; nextFrame = 0; }
         if (t >= nextFrame) { frame = (frame + 1) % ORDER.length; nextFrame = t + STEP; el.dataset.pose = String(ORDER[frame]); }
         const p = Math.min(t / cross, 1);
