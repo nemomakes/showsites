@@ -168,3 +168,37 @@ h1,h2,h3,p{margin:0}
   .weeks{grid-template-columns:repeat(4,1fr)}
   .page{flex-basis:240px}
 }
+
+/* hero walk: decorative kids growing up as they cross */
+.hero{position:relative;overflow:hidden}
+.hero>.wrap{position:relative;z-index:1}
+.hero-walk{position:absolute;inset:auto 0 0 0;height:150px;z-index:0;pointer-events:none;color:var(--terra);opacity:.34;contain:strict}
+.walker{position:absolute;left:0;bottom:6px;width:75px;height:150px;transform:translateX(-120px);animation:walk 18s linear infinite;will-change:transform}
+.walker-1{display:none}
+.walker-bob{position:absolute;inset:0;animation:bob .55s ease-in-out infinite alternate}
+.stage{position:absolute;inset:0;width:100%;height:100%;opacity:0;animation:st0 18s linear infinite}
+.stage-1{animation-name:st1}.stage-2{animation-name:st2}.stage-3{animation-name:st3}
+.pose-b{opacity:0;animation:pose 1.1s steps(1) infinite}
+.pose-a{animation:pose 1.1s steps(1) infinite reverse}
+@keyframes pose{0%{opacity:0}50%{opacity:1}}
+@keyframes bob{from{transform:translateY(0)}to{transform:translateY(-2.5px)}}
+@keyframes walk{0%{transform:translateX(-120px) scale(.94)}82%{transform:translateX(calc(100vw + 40px)) scale(1.04)}100%{transform:translateX(calc(100vw + 40px)) scale(1.04)}}
+@keyframes st0{0%,17%{opacity:1}24%,100%{opacity:0}}
+@keyframes st1{0%,17%{opacity:0}24%,38%{opacity:1}45%,100%{opacity:0}}
+@keyframes st2{0%,38%{opacity:0}45%,58%{opacity:1}65%,100%{opacity:0}}
+@keyframes st3{0%,58%{opacity:0}65%,100%{opacity:1}}
+.walker-1 .stage,.walker-1{animation-duration:20s}
+.walker-1{animation-delay:-7s}.walker-1 .stage{animation-delay:-7s}
+.walker-1 .walker-bob{animation-duration:.6s;animation-delay:-.2s}
+.walker-1 .pose-a,.walker-1 .pose-b{animation-duration:1.2s}
+@media (min-width:760px){
+  .hero-walk{height:260px;opacity:.38}
+  .walker{width:130px;height:260px}
+  .walker-1{display:block;width:115px;height:230px;bottom:4px}
+}
+@media (prefers-reduced-motion:reduce){
+  .walker,.walker-bob,.stage,.pose-a,.pose-b{animation:none!important}
+  .pose-b{opacity:0}.pose-a{opacity:1}
+  .walker-0{transform:translateX(4vw)}.walker-0 .stage-3{opacity:1}
+  .walker-1{transform:translateX(calc(4vw + 90px))}.walker-1 .stage-1{opacity:1}
+}
