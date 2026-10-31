@@ -73,10 +73,12 @@ export default function Page() {
             </div>
             <ol className="weeks">
               {weeks.map((w, i) => (
-                <li key={w} data-reveal style={{ ["--d" as string]: `${i * 110}ms` }}>
-                  <span className="wn" aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
-                  <span className="wk">Week {i + 1}</span>
-                  <span className="wt">{w}</span>
+                <li key={w} className="sheet" data-reveal style={{ ["--d" as string]: `${i * 110}ms`, ["--i" as string]: i }}>
+                  <div className="sheet-in">
+                    <span className="wk">Week</span>
+                    <span className="wn">{String(i + 1).padStart(2, "0")}</span>
+                    <span className="wt">{w}</span>
+                  </div>
                 </li>
               ))}
             </ol>
@@ -87,17 +89,6 @@ export default function Page() {
           <div className="band-photo" aria-hidden="true">
             <Image src={bandWide} alt="" placeholder="blur" quality={70} sizes="100vw" className="band-wide" />
             <Image src={bandMobile} alt="" placeholder="blur" quality={70} sizes="100vw" className="band-mobile" />
-          </div>
-          <div className="pages" aria-hidden="true">
-            {weeks.map((w, i) => (
-              <div className="page" key={w} style={{ ["--i" as string]: i }} data-reveal>
-                <div className="page-in">
-                  <span className="wk">Week {i + 1}</span>
-                  <span className="page-t">{w}</span>
-                  <span className="rule w9" /><span className="rule w7" /><span className="bar" /><span className="rule w8" /><span className="rule w5" /><span className="bar short" />
-                </div>
-              </div>
-            ))}
           </div>
         </ScrollProgress>
 

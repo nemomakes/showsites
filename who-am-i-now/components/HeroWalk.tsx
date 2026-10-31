@@ -1,3 +1,5 @@
+"use client";
+import { useEffect, useRef } from "react";
 /* Decorative: two kids walk across the hero, growing up as they go. Pure CSS animation, transform/opacity only. */
 type Stage = { H: number; heads: number; leg: number; d: number; prop: 0 | 1 | 2 | 3 };
 // Side-view walkers, feet at y=236. Proportions shift believably with age:
@@ -12,7 +14,9 @@ const G = 236, CX = 60;
 const f = (n: number) => Math.round(n * 10) / 10;
 function rnd(seed: number) { let s = seed; return () => { s = (s * 9301 + 49297) % 233280; return s / 233280 - 0.5; }; }
 
-function figure(st: Stage, pose: 0 | 1, kid: 0 | 1, seed: number) {
+export const stepOf = (st: Stage) => st.H * st.leg * 0.36;
+
+function figure(st: Stage, pose: 0 | 1 | 2 | 3, kid: 0 | 1, seed: number) {
   const j = rnd(seed); const w = (a: number, k = 1.4) => f(a + j() * k);
   const hh = st.H / st.heads, r = hh * (st.prop === 0 ? 0.56 : 0.5);
   const x = CX, top = G - st.H, hy = top + r;
@@ -41,35 +45,42 @@ function figure(st: Stage, pose: 0 | 1, kid: 0 | 1, seed: number) {
     `c${f(dep * 0.05)} ${f(-T * 0.45)} ${f(0)} ${f(-T * 0.8)} ${f(-dep * 0.3)} ${f(-T - 1)}c${f(-dep * 0.4)} ${f(-1.6)} ${f(-dep * 0.9)} ${f(-1.6)} ${f(-dep * 1.35)} ${f(-0.5)}`);
   if (st.prop === 1) p.push(`M${f(x - dep * 0.95)} ${f(sh + T * 0.08)}c${f(-dep * 0.75)} ${f(0)} ${f(-dep * 0.95)} ${f(T * 0.2)} ${f(-dep * 0.95)} ${f(T * 0.45)}s${f(dep * 0.2)} ${f(T * 0.25)} ${f(dep * 0.7)} ${f(T * 0.25)}`); // backpack
   if (st.prop === 3 && kid === 0) p.push(`M${f(x - dep * 0.2)} ${f(sh + 2)}L${f(x - dep * 1.2)} ${f(hipY + L * 0.05)}M${f(x - dep * 1.75)} ${f(hipY - T * 0.05)}h${f(dep * 1.0)}l${f(dep * 0.1)} ${f(T * 0.4)}h${f(-dep * 1.25)}z`); // tote
-  // legs (from hip)
-  const hx = x + dep * 0.15, fl = r * (0.55 + st.heads * 0.02);
-  if (pose === 0) { // contact: wide stride
-    const s = L * 0.4;
-    p.push(`M${f(hx)} ${f(hipY)}Q${f(hx + s * 0.55)} ${f(hipY + L * 0.5)} ${f(hx + s)} ${f(G - 1)}l${f(fl)} ${f(0.5)}`);
-    p.push(`M${f(hx)} ${f(hipY)}Q${f(hx - s * 0.4)} ${f(hipY + L * 0.52)} ${f(hx - s * 0.9)} ${f(G - L * 0.04)}l${f(fl * 0.85)} ${f(L * 0.05)}`);
-  } else { // passing: one leg under, the other knee forward
-    p.push(`M${f(hx)} ${f(hipY)}Q${f(hx + L * 0.05)} ${f(hipY + L * 0.5)} ${f(hx - L * 0.02)} ${f(G - 1)}l${f(fl)} ${f(0.5)}`);
-    p.push(`M${f(hx)} ${f(hipY)}C${f(hx + L * 0.12)} ${f(hipY + L * 0.2)} ${f(hx + L * 0.2)} ${f(hipY + L * 0.4)} ${f(hx + L * 0.18)} ${f(hipY + L * 0.46)}C${f(hx + L * 0.14)} ${f(hipY + L * 0.62)} ${f(hx + L * 0.02)} ${f(G - L * 0.2)} ${f(hx - L * 0.02)} ${f(G - L * 0.16)}l${f(fl * 0.85)} ${f(L * 0.04)}`);
-  }
+  // legs (from hip). Ankle x positions are exact so the walk can be stepped to keep the planted foot still:
+  // contact: ankles at hx +/- A; passing: support ankle at hx. Body advances A per frame.
+  const hx = x + dep * 0.15, fl = r * (0.55 + st.heads * 0.02), Ast = stepOf(st);
+  const near: string[] = [], far: string[] = [];
+  const contactFront = (o: string[]) => o.push(`M${f(hx)} ${f(hipY)}Q${f(hx + Ast * 0.45)} ${f(hipY + L * 0.5)} ${f(hx + Ast)} ${f(G - 1)}l${f(fl)} ${f(0.5)}`);
+  const contactBack = (o: string[]) => o.push(`M${f(hx)} ${f(hipY)}Q${f(hx - Ast * 0.4)} ${f(hipY + L * 0.52)} ${f(hx - Ast)} ${f(G - fl * 0.35)}l${f(fl * 0.95)} ${f(fl * 0.35)}`);
+  const support = (o: string[]) => o.push(`M${f(hx)} ${f(hipY)}Q${f(hx + L * 0.05)} ${f(hipY + L * 0.5)} ${f(hx)} ${f(G - 1)}l${f(fl)} ${f(0.5)}`);
+  const swing = (o: string[]) => o.push(`M${f(hx)} ${f(hipY)}C${f(hx + L * 0.12)} ${f(hipY + L * 0.2)} ${f(hx + L * 0.2)} ${f(hipY + L * 0.4)} ${f(hx + L * 0.18)} ${f(hipY + L * 0.46)}C${f(hx + L * 0.14)} ${f(hipY + L * 0.62)} ${f(hx + L * 0.02)} ${f(G - L * 0.2)} ${f(hx - L * 0.04)} ${f(G - L * 0.16)}l${f(fl * 0.85)} ${f(L * 0.04)}`);
+  // 4-frame cycle: 0 contact (near front), 1 passing (near supports), 2 contact (far front), 3 passing (far supports)
+  if (pose === 0) { contactFront(near); contactBack(far); }
+  else if (pose === 1) { support(near); swing(far); }
+  else if (pose === 2) { contactBack(near); contactFront(far); }
+  else { swing(near); support(far); }
+  const contact = pose === 0 || pose === 2;
   // arms: swing opposite to legs; elbow soft
   const A = T * 0.98 + r * 0.2, ax = x - dep * 0.1, ay = sh + 2;
-  if (pose === 0) {
-    p.push(`M${f(ax)} ${f(ay)}Q${f(ax - A * 0.22)} ${f(ay + A * 0.5)} ${f(ax - A * 0.42)} ${f(ay + A * 0.86)}`);
-    p.push(`M${f(ax)} ${f(ay)}Q${f(ax + A * 0.12)} ${f(ay + A * 0.55)} ${f(ax + A * 0.42)} ${f(ay + A * 0.82)}`);
+  if (contact) {
+    const sgn = pose === 0 ? 1 : -1; // near arm swings opposite the near leg
+    p.push(`M${f(ax)} ${f(ay)}Q${f(ax - sgn * A * 0.18)} ${f(ay + A * 0.52)} ${f(ax - sgn * A * 0.42)} ${f(ay + A * 0.84)}`);
+    far.push(`M${f(ax)} ${f(ay)}Q${f(ax + sgn * A * 0.14)} ${f(ay + A * 0.52)} ${f(ax + sgn * A * 0.4)} ${f(ay + A * 0.82)}`);
   } else {
     p.push(`M${f(ax)} ${f(ay)}Q${f(ax - A * 0.04)} ${f(ay + A * 0.55)} ${f(ax + A * 0.06)} ${f(ay + A * 0.98)}`);
   }
-  return p.join("");
+  return { near: p.join("") + near.join(""), far: far.join("") };
 }
 
 function Kid({ kid, seed }: { kid: 0 | 1; seed: number }) {
   return (
-    <div className={`walker walker-${kid}`}>
+    <div className={`walker walker-${kid}`} data-pose="0">
       <div className="walker-bob">
         {STAGES.map((st, i) => (
           <svg key={i} className={`stage stage-${i}`} viewBox="0 0 120 240" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth={2.6} strokeLinecap="round" strokeLinejoin="round">
-            <path className="pose-a" d={figure(st, 0, kid, seed + i * 7)} />
-            <path className="pose-b" d={figure(st, 1, kid, seed + i * 7 + 3)} />
+            {([0, 1, 2, 3] as const).map((k) => {
+              const d = figure(st, k, kid, seed + i * 7 + (k % 2) * 3);
+              return <g key={k} className={`pose pose-${k}`}><path d={d.far} className="far" /><path d={d.near} /></g>;
+            })}
           </svg>
         ))}
       </div>
@@ -77,9 +88,54 @@ function Kid({ kid, seed }: { kid: 0 | 1; seed: number }) {
   );
 }
 
+/* Stepped walk: each frame shows one pose and the body advances exactly one step (ankle offset A),
+   so the planted foot keeps the same ground position across frames (no skating). */
+function useWalk(root: React.RefObject<HTMLDivElement | null>) {
+  useEffect(() => {
+    const host = root.current;
+    if (!host || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const kids = Array.from(host.querySelectorAll<HTMLElement>(".walker")).map((el, i) => ({
+      el, bob: el.querySelector<HTMLElement>(".walker-bob")!, stages: Array.from(el.querySelectorAll<SVGElement>(".stage")),
+      x: -140, k: 0, next: i ? 4200 : 300, dt: i ? 330 : 310, wait: 0,
+    }));
+    let raf = 0, visible = true, last = performance.now(), clock = 0;
+    const io = new IntersectionObserver(([e]) => { visible = e.isIntersecting; });
+    io.observe(host);
+    const place = (c: (typeof kids)[number]) => {
+      const W = host.clientWidth, p = Math.min(Math.max((c.x + 60) / (W + 60), 0), 1) * 4 - 0.5; // stage i centred at (i+.5)/4 of the crossing
+      c.stages.forEach((s, i) => { s.style.opacity = String(Math.min(1, Math.max(0, (0.62 - Math.abs(p - i)) / 0.24))); });
+      c.el.dataset.pose = String(c.k % 4);
+      c.el.style.transform = `translate3d(${c.x.toFixed(1)}px,0,0)`;
+      c.bob.style.transform = c.k % 2 ? "translateY(-2px)" : "translateY(0)"; // up on passing, down on contact
+      return p;
+    };
+    kids.forEach(place);
+    const tick = (now: number) => {
+      const dt = Math.min(now - last, 100); last = now;
+      if (visible) {
+        clock += dt;
+        for (const c of kids) {
+          if (!c.el.offsetParent || clock < c.next) continue;
+          c.next = clock + c.dt;
+          const W = host.clientWidth, unit = c.el.offsetHeight / 240;
+          if (c.x > W + 20) { c.x = -140; c.k = 0; c.next = clock + 3500; place(c); continue; } // rest off-stage, then loop
+          const si = Math.min(3, Math.max(0, Math.round(Math.min(Math.max((c.x + 60) / (W + 60), 0), 1) * 4 - 0.5)));
+          c.x += stepOf(STAGES[si]) * unit; c.k++;
+          place(c);
+        }
+      }
+      raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => { cancelAnimationFrame(raf); io.disconnect(); };
+  }, [root]);
+}
+
 export default function HeroWalk() {
+  const ref = useRef<HTMLDivElement>(null);
+  useWalk(ref);
   return (
-    <div className="hero-walk" aria-hidden="true">
+    <div className="hero-walk" aria-hidden="true" ref={ref}>
       <Kid kid={0} seed={11} />
       <Kid kid={1} seed={23} />
     </div>
