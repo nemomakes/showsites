@@ -14,7 +14,7 @@ const G = 236, CX = 60;
 const f = (n: number) => Math.round(n * 10) / 10;
 function rnd(seed: number) { let s = seed; return () => { s = (s * 9301 + 49297) % 233280; return s / 233280 - 0.5; }; }
 
-export const stepOf = (st: Stage) => st.H * st.leg * 0.36;
+export const stepOf = (st: Stage) => st.H * st.leg * 0.42;
 
 function figure(st: Stage, pose: 0 | 1 | 2 | 3, kid: 0 | 1, seed: number) {
   const j = rnd(seed); const w = (a: number, k = 1.4) => f(a + j() * k);
@@ -90,37 +90,48 @@ function Kid({ kid, seed }: { kid: 0 | 1; seed: number }) {
 
 /* Stepped walk: each frame shows one pose and the body advances exactly one step (ankle offset A),
    so the planted foot keeps the same ground position across frames (no skating). */
+/* The pair walks together: kid 0 leads, kid 1 follows GAP px behind. Both read their stage from the
+   leader's position, and the smaller kid steps proportionally more often (dt scaled by its size), so
+   both cover the same px/s and the gap stays constant while every step still equals foot spacing. */
+const DT = 200, GAP = 72, REST = 3000, START = -150;
 function useWalk(root: React.RefObject<HTMLDivElement | null>) {
   useEffect(() => {
     const host = root.current;
     if (!host || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const kids = Array.from(host.querySelectorAll<HTMLElement>(".walker")).map((el, i) => ({
       el, bob: el.querySelector<HTMLElement>(".walker-bob")!, stages: Array.from(el.querySelectorAll<SVGElement>(".stage")),
-      x: -140, k: 0, next: i ? 4200 : 300, dt: i ? 330 : 310, wait: 0,
+      off: i ? -GAP : 0, x: START - (i ? GAP : 0), k: i ? 1 : 0, next: i ? 0.35 * DT : 0, phase: i ? 0.35 : 0,
     }));
-    let raf = 0, visible = true, last = performance.now(), clock = 0;
+    let raf = 0, visible = true, last = performance.now(), clock = 0, lead = START, step = 0;
     const io = new IntersectionObserver(([e]) => { visible = e.isIntersecting; });
     io.observe(host);
+    const prog = () => Math.min(Math.max((lead + 60) / (host.clientWidth + 60), 0), 1) * 4 - 0.5; // stage i centred at (i+.5)/4
     const place = (c: (typeof kids)[number]) => {
-      const W = host.clientWidth, p = Math.min(Math.max((c.x + 60) / (W + 60), 0), 1) * 4 - 0.5; // stage i centred at (i+.5)/4 of the crossing
+      const p = prog();
       c.stages.forEach((s, i) => { s.style.opacity = String(Math.min(1, Math.max(0, (0.62 - Math.abs(p - i)) / 0.24))); });
       c.el.dataset.pose = String(c.k % 4);
       c.el.style.transform = `translate3d(${c.x.toFixed(1)}px,0,0)`;
       c.bob.style.transform = c.k % 2 ? "translateY(-2px)" : "translateY(0)"; // up on passing, down on contact
-      return p;
+    };
+    const reset = () => {
+      lead = START;
+      for (const c of kids) { c.x = START + c.off; c.k = c.off ? 1 : 0; c.next = clock + REST + c.phase * DT; place(c); }
     };
     kids.forEach(place);
     const tick = (now: number) => {
       const dt = Math.min(now - last, 100); last = now;
       if (visible) {
         clock += dt;
-        for (const c of kids) {
-          if (!c.el.offsetParent || clock < c.next) continue;
-          c.next = clock + c.dt;
-          const W = host.clientWidth, unit = c.el.offsetHeight / 240;
-          if (c.x > W + 20) { c.x = -140; c.k = 0; c.next = clock + 3500; place(c); continue; } // rest off-stage, then loop
-          const si = Math.min(3, Math.max(0, Math.round(Math.min(Math.max((c.x + 60) / (W + 60), 0), 1) * 4 - 0.5)));
-          c.x += stepOf(STAGES[si]) * unit; c.k++;
+        const W = host.clientWidth, active = kids.filter((c) => c.el.offsetParent);
+        const u0 = active[0] ? active[0].el.offsetHeight / 240 : 1;
+        if (active.length && active.every((c) => c.x > W + 20)) reset(); // whole pair off-stage: rest, then loop
+        step = stepOf(STAGES[Math.min(3, Math.max(0, Math.round(prog())))]);
+        for (const c of active) {
+          if (clock < c.next || c.x > W + 20) continue;
+          const unit = c.el.offsetHeight / 240;
+          c.next += DT * (unit / u0); if (c.next < clock) c.next = clock;
+          c.x += step * unit; c.k++;
+          if (c === active[0]) lead = c.x - c.off;
           place(c);
         }
       }
