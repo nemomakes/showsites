@@ -19,6 +19,8 @@ import peek3 from "./images/peek-3.webp";
 import peek4 from "./images/peek-4.webp";
 import peek8 from "./images/peek-8.webp";
 import peek9 from "./images/peek-9.webp";
+import peek12 from "./images/peek-12.webp";
+import peek13 from "./images/peek-13.webp";
 import whyImg from "./images/why.jpg";
 import ctaImg from "./images/cta.jpg";
 
@@ -32,6 +34,8 @@ const peekPages = [
   { img: peek4, large: "/peek/peek-4-lg.webp", alt: "Day 1 page: write down 10 things you liked before you had kids, with ten numbered lines" },
   { img: peek8, large: "/peek/peek-8-lg.webp", alt: "Week 2 cover: \"What are you good at now?\", Days 8 to 14, on the real skills built running a household" },
   { img: peek9, large: "/peek/peek-9-lg.webp", alt: "Day 8 page: list 5 things people ask you for help with, then a few lines on a hard week you got everyone through" },
+  { img: peek12, large: "/peek/peek-12-lg.webp", alt: "Week 3 cover: \"Who do you want in your life?\", Days 15 to 21, about the people who matter to you now" },
+  { img: peek13, large: "/peek/peek-13-lg.webp", alt: "Day 15 page: list the people you can just be yourself with, then a few lines on someone you've lost touch with and miss" },
 ];
 const weeks = ["What I like", "What I value", "What I'm good at", "Who I want around me, and my next step"];
 

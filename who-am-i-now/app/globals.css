@@ -244,9 +244,10 @@ h1,h2,h3,p{margin:0}
   .peek{padding:112px 0}
   .peek-cap{font-size:17px;margin-top:18px}
   .peek-row{justify-content:center;overflow:visible;padding:16px 0 8px;margin-top:56px;gap:0}
-  .peek-page{flex:0 0 min(23%,250px);margin:0 -14px;--rot:calc((var(--i) - 1.5) * 3.2deg);--lift:calc((var(--i) - 1.5) * (var(--i) - 1.5) * 9px)}
+  .peek-row{padding:20px 0 12px}
+  .peek-page{flex:0 0 min(17.5%,196px);margin:0 -10px;--c:calc(var(--i) - 2.5);--rot:calc(var(--c) * 2.2deg);--lift:calc(var(--c) * var(--c) * 3.4px)}
   .peek-page[data-reveal].is-in .peek-paper,.peek-paper{transform:translateY(var(--lift)) rotate(var(--rot));transition:transform .5s var(--ease)}
-  .peek-page:nth-child(1){z-index:1}.peek-page:nth-child(2){z-index:2}.peek-page:nth-child(3){z-index:3}.peek-page:nth-child(4){z-index:2}
+  .peek-page:nth-child(1),.peek-page:nth-child(6){z-index:1}.peek-page:nth-child(2),.peek-page:nth-child(5){z-index:2}.peek-page:nth-child(3),.peek-page:nth-child(4){z-index:3}
   .peek-page:hover{z-index:5}
   .peek-page:hover .peek-paper{transform:translateY(calc(var(--lift) - 10px)) rotate(0deg)}
 }
