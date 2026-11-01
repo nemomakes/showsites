@@ -55,7 +55,7 @@ export default function SignupForm() {
       {status === "error" && (
         <p className="form-msg form-msg--error" role="alert">Something went wrong. Please try again in a moment.</p>
       )}
-      <p className="fine">Free. One email with your PDF, then an occasional note. Unsubscribe anytime.</p>
+      <p className="fine">Free PDF by email, plus an occasional note. Unsubscribe anytime.</p>
     </form>
   );
 }
