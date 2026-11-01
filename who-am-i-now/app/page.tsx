@@ -6,7 +6,6 @@ import HeroPegasus from "@/components/HeroPegasus";
 // Hero background animation. "none" = no animation; "walk" = the kids growing up (tag hero-walk-v1); "pegasus" = the flight.
 const HERO_ANIMATION = "none" as "none" | "pegasus" | "walk";
 import ShoreWaves from "@/components/ShoreWaves";
-import ScrollProgress from "@/components/ScrollProgress";
 import Image from "next/image";
 import heroImg from "./images/hero.jpg";
 import likeImg from "./images/card-like.jpg";
@@ -71,6 +70,10 @@ export default function Page() {
         </section>
 
         <section className="how sand">
+          <div className="how-bg" aria-hidden="true">
+            <Image src={bandWide} alt="" placeholder="blur" quality={70} sizes="100vw" className="band-wide" />
+            <Image src={bandMobile} alt="" placeholder="blur" quality={70} sizes="100vw" className="band-mobile" />
+          </div>
           <div className="wrap">
             <div data-reveal>
               <h2 className="h2">How it works</h2>
@@ -89,13 +92,6 @@ export default function Page() {
             </ol>
           </div>
         </section>
-
-        <ScrollProgress className="band">
-          <div className="band-photo" aria-hidden="true">
-            <Image src={bandWide} alt="" placeholder="blur" quality={70} sizes="100vw" className="band-wide" />
-            <Image src={bandMobile} alt="" placeholder="blur" quality={70} sizes="100vw" className="band-mobile" />
-          </div>
-        </ScrollProgress>
 
         <section className="why">
           <div className="wrap why-grid">
