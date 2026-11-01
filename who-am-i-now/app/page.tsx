@@ -18,9 +18,9 @@ import whyImg from "./images/why.jpg";
 import ctaImg from "./images/cta.jpg";
 
 const items = [
-  { title: "Remember what you're like", body: "Short daily prompts help you find your favorites again (food, music, how you spend a free afternoon) without overthinking it.", img: likeImg, alt: "Hands holding a record sleeve beside a cup of coffee" },
-  { title: "What are you good at now?", body: "Twenty years of running a household built real skills. You'll name them in plain words you could use for a job, a side income, or just yourself.", img: goodImg, alt: "A hand writing in a notebook with a pencil" },
-  { title: "Take one real next step.", body: "By day 30 you'll pick one concrete thing to do, whether that's work, earning a little, or finding your people. You won't just come away with a better mood.", img: stepImg, alt: "A woman with a tote bag over her shoulder walking out an open front door" },
+  { title: "Remember what you're like", body: "Short daily prompts help you find your favorites again (food, music, how you spend a free afternoon) without overthinking it.", img: likeImg, alt: "Hands sliding a vinyl record out of its sleeve beside a cup of coffee" },
+  { title: "What are you good at now?", body: "Twenty years of running a household built real skills. You'll name them in plain words you could use for a job, a side income, or just yourself.", img: goodImg, alt: "A hand writing in pencil across an open notebook" },
+  { title: "Take one real next step.", body: "By day 30 you'll pick one concrete thing to do, whether that's work, earning a little, or finding your people. You won't just come away with a better mood.", img: stepImg, alt: "A woman with a tote bag over her shoulder walking out an open front door, past a coat rack with a scarf, jacket and straw hat" },
 ];
 const weeks = ["What I like", "What I value", "What I'm good at", "Who I want around me, and my next step"];
 
