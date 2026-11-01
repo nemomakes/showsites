@@ -251,3 +251,23 @@ h1,h2,h3,p{margin:0}
   .peek-page:hover .peek-paper{transform:translateY(calc(var(--lift) - 10px)) rotate(0deg)}
 }
 @media (prefers-reduced-motion:reduce){.peek-paper{transition:none!important}}
+
+/* peek lightbox */
+.peek-btn{display:block;width:100%;padding:0;border:0;font:inherit;cursor:zoom-in;-webkit-tap-highlight-color:transparent;transition:transform .25s var(--ease),box-shadow .25s var(--ease)}
+.peek-btn:focus-visible{outline:2px solid var(--terra);outline-offset:4px}
+@media (hover:hover){.peek-btn:hover{box-shadow:0 2px 4px rgba(24,23,23,.07),0 28px 52px -22px rgba(120,70,55,.48)}}
+@media (max-width:759px) and (hover:hover){.peek-btn:hover{transform:translateY(-4px)}}
+.lb{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;padding:64px 72px;background:rgba(58,40,33,.72);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);opacity:0;transition:opacity .2s var(--ease);touch-action:pan-y}
+.lb.is-on{opacity:1}
+.lb-fig{margin:0;display:flex;flex-direction:column;align-items:center;gap:14px;max-width:100%;max-height:100%;transform:scale(.97);transition:transform .2s var(--ease)}
+.lb.is-on .lb-fig{transform:none}
+.lb-img{display:block;width:auto;height:auto;max-width:min(100%,760px);max-height:calc(100dvh - 150px);aspect-ratio:1082/1400;border-radius:4px;background:#FFFCF7;box-shadow:0 2px 6px rgba(24,23,23,.12),0 40px 80px -30px rgba(20,10,6,.6)}
+.lb-count{color:rgba(255,250,245,.78);font-size:13px;letter-spacing:.08em;font-variant-numeric:tabular-nums}
+.lb-btn{position:absolute;display:grid;place-items:center;width:44px;height:44px;padding:0;border:0;border-radius:999px;background:rgba(255,250,245,.12);color:var(--cream);cursor:pointer;transition:background .2s var(--ease)}
+.lb-btn:hover{background:rgba(255,250,245,.22)}
+.lb-btn:focus-visible{outline:2px solid var(--cream);outline-offset:2px}
+.lb-close{top:14px;right:14px}
+.lb-prev,.lb-next{top:50%;margin-top:-22px}
+.lb-prev{left:16px}.lb-next{right:16px}
+@media (max-width:759px){.lb{padding:60px 14px 72px}.lb-img{max-height:calc(100dvh - 160px)}.lb-prev,.lb-next{top:auto;bottom:16px;margin-top:0}.lb-prev{left:calc(50% - 64px)}.lb-next{right:calc(50% - 64px)}.lb-count{position:absolute;bottom:30px;left:0;right:0;text-align:center}}
+@media (prefers-reduced-motion:reduce){.lb,.lb-fig,.peek-btn{transition:none!important}.lb-fig{transform:none}}

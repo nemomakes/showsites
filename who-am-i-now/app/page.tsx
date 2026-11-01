@@ -2,6 +2,7 @@ import SignupForm from "@/components/SignupForm";
 import Reveal from "@/components/Reveal";
 import HeroWalk from "@/components/HeroWalk";
 import HeroPegasus from "@/components/HeroPegasus";
+import PeekGallery from "@/components/PeekGallery";
 
 // Hero background animation. "none" = no animation; "walk" = the kids growing up (tag hero-walk-v1); "pegasus" = the flight.
 const HERO_ANIMATION = "none" as "none" | "pegasus" | "walk";
@@ -14,10 +15,10 @@ import goodImg from "./images/card-good.jpg";
 import stepImg from "./images/card-step.jpg";
 import bandWide from "./images/band-wide.jpg";
 import bandMobile from "./images/band-mobile.jpg";
-import peek1 from "./images/peek-1.webp";
 import peek3 from "./images/peek-3.webp";
 import peek4 from "./images/peek-4.webp";
-import peek22 from "./images/peek-22.webp";
+import peek8 from "./images/peek-8.webp";
+import peek9 from "./images/peek-9.webp";
 import whyImg from "./images/why.jpg";
 import ctaImg from "./images/cta.jpg";
 
@@ -27,10 +28,10 @@ const items = [
   { title: "Take one real next step.", body: "By day 30 you'll pick one concrete thing to do, whether that's work, earning a little, or finding your people. You won't just come away with a better mood.", img: stepImg, alt: "A woman with a tote bag over her shoulder pulling the front door closed behind her as she walks out, beside a coat rack with a scarf, jacket and straw hat" },
 ];
 const peekPages = [
-  { img: peek1, alt: "Workbook cover: \"Who Am I Now?\", a 30-day workbook, with a photo of a woman in an armchair holding a cup of coffee and a line for your name" },
-  { img: peek3, alt: "Week 1 opening page: \"Remember what you're like\", Days 1 to 7, with a photo of hands sliding a record from its sleeve" },
-  { img: peek4, alt: "Day 1 page: write down 10 things you liked before you had kids, with ten numbered lines" },
-  { img: peek22, alt: "Day 30 page: \"My one real next step\", with lines for I will, By, and The first thing I'll do, and a closing note" },
+  { img: peek3, large: "/peek/peek-3-lg.webp", alt: "Week 1 cover: \"Remember what you're like\", Days 1 to 7, with a photo of hands sliding a record from its sleeve" },
+  { img: peek4, large: "/peek/peek-4-lg.webp", alt: "Day 1 page: write down 10 things you liked before you had kids, with ten numbered lines" },
+  { img: peek8, large: "/peek/peek-8-lg.webp", alt: "Week 2 cover: \"What are you good at now?\", Days 8 to 14, on the real skills built running a household" },
+  { img: peek9, large: "/peek/peek-9-lg.webp", alt: "Day 8 page: list 5 things people ask you for help with, then a few lines on a hard week you got everyone through" },
 ];
 const weeks = ["What I like", "What I value", "What I'm good at", "Who I want around me, and my next step"];
 
@@ -112,13 +113,7 @@ export default function Page() {
               <p className="peek-cap">Real pages from the workbook. Print it, grab a pen, and start with Day 1.</p>
             </div>
           </div>
-          <ol className="peek-row">
-            {peekPages.map((pg, i) => (
-              <li key={i} className="peek-page" data-reveal style={{ ["--d" as string]: `${i * 90}ms`, ["--i" as string]: i }}>
-                <div className="peek-paper"><Image src={pg.img} alt={pg.alt} quality={80} sizes="(min-width: 760px) 250px, 68vw" /></div>
-              </li>
-            ))}
-          </ol>
+          <PeekGallery pages={peekPages} />
         </section>
 
         <section className="why">
