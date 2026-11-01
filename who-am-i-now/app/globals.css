@@ -101,13 +101,6 @@ h1,h2,h3,p{margin:0}
 
 /* band */
 .band-wide{display:none!important}
-.pages{position:relative;display:flex;gap:14px;overflow-x:auto;padding:12px 22px 20px;scroll-snap-type:x mandatory;scrollbar-width:none}
-.pages::-webkit-scrollbar{display:none}
-.page{flex:0 0 58%;scroll-snap-align:center;--rot:calc((var(--i) - 1.5) * 2deg)}
-.page-in{aspect-ratio:8.5/11;background:#FFFCF7;border-radius:6px;padding:20px 18px;display:flex;flex-direction:column;gap:9px;
-  box-shadow:0 1px 2px rgba(24,23,23,.06),0 18px 40px -18px rgba(120,70,55,.38);transform:rotate(var(--rot))}
-.page .wk{margin:0}
-.page-t{font-family:var(--serif);font-size:19px;line-height:1.2;margin-bottom:8px;text-wrap:balance}
 .rule{display:block;height:1px;background:rgba(171,114,99,.28)}
 .rule.w9{width:90%}.rule.w8{width:80%}.rule.w7{width:70%}.rule.w5{width:50%}
 .bar{display:block;height:34px;border-radius:4px;background:rgba(245,209,196,.45);margin:4px 0}
@@ -133,7 +126,6 @@ h1,h2,h3,p{margin:0}
   .load,[data-reveal]{opacity:1!important;transform:none!important;animation:none!important;transition:none!important}
   .hero-img{animation:none}
   .doodle{animation:none}
-  .page-in{transform:rotate(var(--rot))!important}
   .btn{transition:none}
 }
 
@@ -145,10 +137,6 @@ h1,h2,h3,p{margin:0}
   .hero-arch{width:100%;max-width:380px}
   .card-media{aspect-ratio:4/3}
   .band-wide{display:block!important}
-  .pages{justify-content:center;overflow:visible;padding:0 40px;gap:0}
-  .page{flex:0 0 220px;margin:0 -10px;--rot:calc((var(--i) - 1.5) * 5deg)}
-  .page:nth-child(2n){margin-top:28px}
-  .page-in{padding:24px 22px;transform:translateX(calc((var(--i) - 1.5) * (var(--p) - .5) * 70px)) rotate(calc(var(--rot) * (.4 + var(--p))));transition:transform .2s linear}
   .d-shoes{width:190px;left:3%;top:-42px}
   .d-tee{width:150px;right:4%;top:-38px}
   .d-ball{width:140px;right:11%;bottom:-52px}
@@ -173,7 +161,6 @@ h1,h2,h3,p{margin:0}
 
 @media (min-width:1100px){
   .weeks{grid-template-columns:repeat(4,1fr)}
-  .page{flex-basis:240px}
 }
 
 /* hero walk: decorative kids growing up as they cross */
@@ -243,3 +230,24 @@ h1,h2,h3,p{margin:0}
 .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:0;transition:opacity .4s ease;pointer-events:none}
 .hero-video.is-playing{opacity:1}
 @media (prefers-reduced-motion:reduce){.hero-video{display:none}}
+
+/* peek inside: real workbook pages as paper */
+.peek{padding:80px 0 68px}
+.peek-head{text-align:center}
+.peek-cap{margin:14px auto 0;max-width:34em;text-align:center;color:var(--ink-2);font-size:16px;text-wrap:balance}
+.peek-row{list-style:none;margin:36px 0 0;padding:8px 22px 36px;display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding:0 22px;scrollbar-width:none}
+.peek-row::-webkit-scrollbar{display:none}
+.peek-page{flex:0 0 68%;scroll-snap-align:center}
+.peek-paper{aspect-ratio:8.5/11;border-radius:4px;overflow:hidden;background:#FFFCF7;box-shadow:0 1px 2px rgba(24,23,23,.06),0 20px 44px -22px rgba(120,70,55,.4)}
+.peek-paper img{width:100%;height:100%;object-fit:cover;display:block}
+@media (min-width:760px){
+  .peek{padding:112px 0}
+  .peek-cap{font-size:17px;margin-top:18px}
+  .peek-row{justify-content:center;overflow:visible;padding:16px 0 8px;margin-top:56px;gap:0}
+  .peek-page{flex:0 0 min(23%,250px);margin:0 -14px;--rot:calc((var(--i) - 1.5) * 3.2deg);--lift:calc((var(--i) - 1.5) * (var(--i) - 1.5) * 9px)}
+  .peek-page[data-reveal].is-in .peek-paper,.peek-paper{transform:translateY(var(--lift)) rotate(var(--rot));transition:transform .5s var(--ease)}
+  .peek-page:nth-child(1){z-index:1}.peek-page:nth-child(2){z-index:2}.peek-page:nth-child(3){z-index:3}.peek-page:nth-child(4){z-index:2}
+  .peek-page:hover{z-index:5}
+  .peek-page:hover .peek-paper{transform:translateY(calc(var(--lift) - 10px)) rotate(0deg)}
+}
+@media (prefers-reduced-motion:reduce){.peek-paper{transition:none!important}}
