@@ -36,7 +36,7 @@ export default function Page() {
           {HERO_ANIMATION === "pegasus" && <HeroPegasus />}
           <div className="wrap hero-grid">
             <div className="hero-copy">
-              <h1 className="h1 load" style={{ ["--d" as string]: "0ms" }}>The kids are gone, and you can&apos;t remember what you even like.</h1>
+              <h1 className="h1 load" style={{ ["--d" as string]: "0ms" }}>The kids are gone, and your next chapter starts here.</h1>
               <p className="lede load" style={{ ["--d" as string]: "120ms" }}>This free 30-day workbook helps you find out, and ends with one real next step.</p>
               <div className="load" style={{ ["--d" as string]: "240ms" }}><SignupForm /></div>
             </div>
