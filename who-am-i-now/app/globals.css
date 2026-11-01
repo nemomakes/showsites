@@ -27,7 +27,7 @@ h1,h2,h3,p{margin:0}
 .hero-grid{display:grid;gap:36px}
 .hero-copy .form{margin-top:24px}
 .hero-visual{display:flex;justify-content:center}
-.hero-arch{width:min(78%,300px);aspect-ratio:4/5;border-radius:50% 50% 0 0/40% 40% 0 0;overflow:hidden;background:var(--blush)}
+.hero-arch{position:relative;width:min(78%,300px);aspect-ratio:4/5;border-radius:50% 50% 0 0/40% 40% 0 0;overflow:hidden;background:var(--blush)}
 .hero-arch img,.card-media img,.why-media img,.panel-media img{width:100%;height:100%;object-fit:cover;display:block}
 .hero-img{animation:settle 2.4s var(--ease) both}
 @keyframes settle{from{transform:scale(1.04)}to{transform:scale(1)}}
@@ -239,3 +239,7 @@ h1,h2,h3,p{margin:0}
 @media (min-width:760px){.panel{padding-top:0}.panel-media{width:calc(100% + 80px);margin:0 -40px;aspect-ratio:21/9}}
 .sub-long{max-width:64ch;font-size:16px;line-height:1.65;color:var(--ink-2);margin-top:14px;text-wrap:pretty}
 @media (min-width:760px){.sub-long{font-size:17px;margin-top:18px}}
+
+.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:0;transition:opacity .4s ease;pointer-events:none}
+.hero-video.is-playing{opacity:1}
+@media (prefers-reduced-motion:reduce){.hero-video{display:none}}

@@ -7,7 +7,8 @@ import HeroPegasus from "@/components/HeroPegasus";
 const HERO_ANIMATION = "none" as "none" | "pegasus" | "walk";
 import ShoreWaves from "@/components/ShoreWaves";
 import Image from "next/image";
-import heroImg from "./images/hero.jpg";
+import heroImg from "./images/hero-poster.jpg";
+import HeroVideo from "@/components/HeroVideo";
 import likeImg from "./images/card-like.jpg";
 import goodImg from "./images/card-good.jpg";
 import stepImg from "./images/card-step.jpg";
@@ -42,6 +43,7 @@ export default function Page() {
             <div className="hero-visual load" style={{ ["--d" as string]: "360ms" }}>
               <div className="hero-arch">
                 <Image src={heroImg} alt="A woman sitting in an armchair by the window with a cup of coffee" priority placeholder="blur" quality={75} sizes="(min-width: 760px) 380px, 78vw" className="hero-img" />
+                <HeroVideo />
               </div>
             </div>
           </div>
