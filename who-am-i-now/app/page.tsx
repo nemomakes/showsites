@@ -3,9 +3,9 @@ import Reveal from "@/components/Reveal";
 import HeroWalk from "@/components/HeroWalk";
 import HeroPegasus from "@/components/HeroPegasus";
 
-// Hero background animation. "walk" = the kids growing up (tag hero-walk-v1); "pegasus" = the flight.
-const HERO_ANIMATION = "pegasus" as "pegasus" | "walk";
-import Doodles from "@/components/Doodles";
+// Hero background animation. "none" = no animation; "walk" = the kids growing up (tag hero-walk-v1); "pegasus" = the flight.
+const HERO_ANIMATION = "none" as "none" | "pegasus" | "walk";
+import ShoreWaves from "@/components/ShoreWaves";
 import ScrollProgress from "@/components/ScrollProgress";
 import Image from "next/image";
 import heroImg from "./images/hero.jpg";
@@ -18,9 +18,9 @@ import whyImg from "./images/why.jpg";
 import ctaImg from "./images/cta.jpg";
 
 const items = [
-  { title: "Remember what you actually like.", body: "Short daily prompts help you find your favorites again (food, music, how you spend a free afternoon) without overthinking it.", img: likeImg, alt: "Hands holding a record sleeve beside a cup of coffee" },
-  { title: "See what you're good at, now.", body: "Twenty years of running a household built real skills. You'll name them in plain words you could use for a job, a side income, or just yourself.", img: goodImg, alt: "A hand writing in a notebook with a pencil" },
-  { title: "Leave with one real next step.", body: "By day 30 you'll pick one concrete thing to do, whether that's work, earning a little, or finding your people. You won't just come away with a better mood.", img: stepImg, alt: "Walking shoes by a front door left open to the morning" },
+  { title: "Remember what you're like", body: "Short daily prompts help you find your favorites again (food, music, how you spend a free afternoon) without overthinking it.", img: likeImg, alt: "Hands holding a record sleeve beside a cup of coffee" },
+  { title: "What are you good at now?", body: "Twenty years of running a household built real skills. You'll name them in plain words you could use for a job, a side income, or just yourself.", img: goodImg, alt: "A hand writing in a notebook with a pencil" },
+  { title: "Take one real next step.", body: "By day 30 you'll pick one concrete thing to do, whether that's work, earning a little, or finding your people. You won't just come away with a better mood.", img: stepImg, alt: "A woman with a tote bag over her shoulder walking out an open front door" },
 ];
 const weeks = ["What I like", "What I value", "What I'm good at", "Who I want around me, and my next step"];
 
@@ -32,7 +32,8 @@ export default function Page() {
 
       <main>
         <section className="hero">
-          {HERO_ANIMATION === "walk" ? <HeroWalk /> : <HeroPegasus />}
+          {HERO_ANIMATION === "walk" && <HeroWalk />}
+          {HERO_ANIMATION === "pegasus" && <HeroPegasus />}
           <div className="wrap hero-grid">
             <div className="hero-copy">
               <h1 className="h1 load" style={{ ["--d" as string]: "0ms" }}>The kids are gone, and you can&apos;t remember what you even like.</h1>
@@ -48,9 +49,9 @@ export default function Page() {
         </section>
 
         <section className="intro sand">
-          <Doodles />
+          <ShoreWaves />
           <div className="wrap narrow">
-            <p className="intro-text" data-reveal>For years you knew everyone&apos;s favorites, schedules, and shoe sizes. Then the house got quiet. If you&apos;ve caught yourself thinking &ldquo;is this it?&rdquo;, you&apos;re not the only one, and you&apos;re not starting from zero.</p>
+            <p className="intro-text" data-reveal>For years you knew everyone&apos;s favorites, schedules, and shoe sizes. Then the house got quiet. If you&apos;ve caught yourself thinking &ldquo;<mark className="hl">is this it?</mark>&rdquo;, you&apos;re not the only one, and you&apos;re not starting from zero.</p>
           </div>
         </section>
 
@@ -73,7 +74,7 @@ export default function Page() {
           <div className="wrap">
             <div data-reveal>
               <h2 className="h2">How it works</h2>
-              <p className="sub">4 weeks, a few minutes a day.</p>
+              <p className="sub sub-long">A few minutes a day for 30 days. Each day you answer one short prompt, and each week builds on the last: first you remember what you like, then you name what you&apos;re good at now, and by the end you pick one real next step, whether that&apos;s work, a little income, or new people. Print it, keep it on the kitchen table, and go at your own pace.</p>
             </div>
             <ol className="weeks">
               {weeks.map((w, i) => (
@@ -98,7 +99,7 @@ export default function Page() {
 
         <section className="why">
           <div className="wrap why-grid">
-            <div data-reveal><div className="why-media"><Image src={whyImg} alt="Printed workbook pages on a kitchen table, a hand holding a pencil" placeholder="blur" quality={70} sizes="(min-width: 760px) 460px, 92vw" /></div></div>
+            <div data-reveal><div className="why-media"><Image src={whyImg} alt="A hand writing in pencil on printed workbook pages on a kitchen table" placeholder="blur" quality={70} sizes="(min-width: 760px) 460px, 92vw" /></div></div>
             <div data-reveal style={{ ["--d" as string]: "120ms" }}>
               <h2 className="h2">Why it&apos;s different</h2>
               <p className="body-lg">It&apos;s free and private, and it&apos;s printable, so you can do it at your kitchen table. No course to buy, no group to join, and no pep talks. It ends with you doing something.</p>
@@ -109,7 +110,7 @@ export default function Page() {
         <section className="final">
           <div className="wrap">
             <div className="panel" data-reveal>
-              <div className="panel-media"><Image src={ctaImg} alt="" placeholder="blur" quality={70} sizes="(min-width: 760px) 720px, 92vw" /></div>
+              <div className="panel-media"><Image src={ctaImg} alt="" placeholder="blur" quality={70} sizes="(min-width: 760px) 1080px, 100vw" /></div>
               <h2 className="h2 center">Start your 30 days today.</h2>
               <div className="panel-form"><SignupForm /></div>
             </div>
