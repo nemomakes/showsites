@@ -113,8 +113,8 @@ export default function Page() {
         <section className="peek">
           <div className="wrap">
             <div className="peek-head" data-reveal>
-              <h2 className="h2">Take a look inside</h2>
-              <p className="peek-cap">Real pages from the workbook. Print it, grab a pen, and start with Day 1.</p>
+              <h2 className="h2">A look inside</h2>
+              <p className="peek-cap">Print your workbook, grab a pen, and start your journey.</p>
             </div>
           </div>
           <PeekGallery pages={peekPages} />
