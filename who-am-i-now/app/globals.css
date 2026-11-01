@@ -52,7 +52,8 @@ h1,h2,h3,p{margin:0}
 .form-msg-title{font-family:var(--serif);font-size:21px;line-height:1.25;color:var(--ink)}
 
 /* intro */
-.intro{padding:72px 0;position:relative;overflow:hidden}
+/* --crest = resting foam crest height above the section bottom (shore 120/150px), so text→wave gap == top gap */
+.intro{--pt:72px;--crest:72px;padding:var(--pt) 0 calc(var(--pt) + var(--crest));position:relative;overflow:hidden}
 .intro .wrap{position:relative;z-index:1}
 .doodles{position:absolute;inset:0;pointer-events:none}
 .doodle{position:absolute;display:block;opacity:.9}
@@ -148,7 +149,6 @@ h1,h2,h3,p{margin:0}
   .page{flex:0 0 220px;margin:0 -10px;--rot:calc((var(--i) - 1.5) * 5deg)}
   .page:nth-child(2n){margin-top:28px}
   .page-in{padding:24px 22px;transform:translateX(calc((var(--i) - 1.5) * (var(--p) - .5) * 70px)) rotate(calc(var(--rot) * (.4 + var(--p))));transition:transform .2s linear}
-  .intro{padding:120px 0}
   .d-shoes{width:190px;left:3%;top:-42px}
   .d-tee{width:150px;right:4%;top:-38px}
   .d-ball{width:140px;right:11%;bottom:-52px}
@@ -162,7 +162,7 @@ h1,h2,h3,p{margin:0}
   .panel-media{aspect-ratio:16/9}
   .lede{font-size:18px;margin-top:20px}
   .hero-copy .form{margin-top:32px}
-  .intro{padding:112px 0}
+  .intro{--pt:112px;--crest:98px}
   .inside,.how{padding:112px 0}
   .cards{grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px}
   .why{padding:120px 0}
