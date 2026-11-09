@@ -1,6 +1,7 @@
 export const KIT_NAME = "Friend-Finder Playbook 45+";
 export const CORE_NAME = "Next Chapter";
 export const KIT_PRICE_LABEL = "$27";
+export const KIT_BUY_LABEL = "Friend-Finder Playbook: $27";
 export const CORE_PRICE_LABEL = "$97";
 export const CORE_WITH_CREDIT_LABEL = "$70";
 export const KIT_POLICY = "Because it's a digital download, all sales are final.";

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { CheckoutButton } from "@/components/CheckoutButton";
 import { PaidChrome } from "@/components/PaidChrome";
-import { KIT_NAME, KIT_POLICY, KIT_PRICE_LABEL } from "@/lib/products";
+import { KIT_BUY_LABEL, KIT_NAME, KIT_POLICY, KIT_PRICE_LABEL } from "@/lib/products";
 
 export const metadata: Metadata = {
   title: KIT_NAME,
@@ -20,7 +20,7 @@ export default function KitPage() {
             <p className="offer-price">{KIT_PRICE_LABEL}</p>
             <p className="fine offer-note">{KIT_POLICY}</p>
             <div className="offer-buy">
-              <CheckoutButton endpoint="/api/checkout/kit" label={`${KIT_NAME} — ${KIT_PRICE_LABEL}`} />
+              <CheckoutButton endpoint="/api/checkout/kit" label={KIT_BUY_LABEL} />
             </div>
           </div>
         </div>
