@@ -37,7 +37,7 @@ const peekPages = [
   { img: peek12, large: "/peek/peek-12-lg.webp", alt: "Week 3 cover: \"Who do you want in your life?\", Days 15 to 21, about the people who matter to you now" },
   { img: peek13, large: "/peek/peek-13-lg.webp", alt: "Day 15 page: list the people you can just be yourself with, then a few lines on someone you've lost touch with and miss" },
 ];
-const weeks = ["What I like", "What I value", "What I'm good at", "Who I want around me, and my next step"];
+const weeks = ["Remember what you're like", "What are you good at now?", "Who do you want in your life?", "Take your next step"];
 
 export default function Page() {
   return (
