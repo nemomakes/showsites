@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { CheckoutButton } from "@/components/CheckoutButton";
 import { PaidChrome } from "@/components/PaidChrome";
 import { resolveCoreCredit } from "@/lib/credit";
-import { coreRefundPolicy, CORE_NAME, CORE_NOT_THERAPY, CORE_PRICE_LABEL, CORE_WITH_CREDIT_LABEL, KIT_CREDIT_NOTE } from "@/lib/products";
+import { CORE_BUY_LABEL, CORE_BUY_LABEL_CREDIT, coreRefundPolicy, CORE_NAME, CORE_NOT_THERAPY, CORE_PRICE_LABEL, CORE_WITH_CREDIT_LABEL, KIT_CREDIT_NOTE } from "@/lib/products";
 import { getStripe } from "@/lib/stripe";
 
 export const metadata: Metadata = {
@@ -31,7 +31,7 @@ export default async function NextChapterPage({ searchParams }: { searchParams: 
             <p className="offer-note">{CORE_NOT_THERAPY}</p>
             <p className="fine offer-note">{coreRefundPolicy()}</p>
             <div className="offer-buy">
-              <CheckoutButton endpoint="/api/checkout/core" token={credit.discount ? raw : undefined} label={`${CORE_NAME} — ${price}`} />
+              <CheckoutButton endpoint="/api/checkout/core" token={credit.discount ? raw : undefined} label={credit.discount ? CORE_BUY_LABEL_CREDIT : CORE_BUY_LABEL} />
             </div>
           </div>
         </div>
