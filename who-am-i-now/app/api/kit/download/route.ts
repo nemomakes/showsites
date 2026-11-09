@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { downloadTokenIsValid, kitSessionIsPaid, readPlaybook } from "@/lib/playbook";
+import { downloadTokenIsValid, kitSessionAccess, readPlaybook } from "@/lib/playbook";
 import { getStripe } from "@/lib/stripe";
 
 export const runtime = "nodejs";
@@ -20,8 +20,11 @@ export async function GET(req: Request) {
       if (!stripe) {
         return NextResponse.json({ ok: false, error: "checkout_not_configured", message: "checkout not configured" }, { status: 503 });
       }
-      const paid = await kitSessionIsPaid(stripe, sessionId);
-      if (!paid) return NextResponse.json({ ok: false, error: "forbidden" }, { status: 403 });
+      const access = await kitSessionAccess(stripe, sessionId);
+      if (access === 500) {
+        return NextResponse.json({ ok: false, error: "upstream_error" }, { status: 500 });
+      }
+      if (access !== "paid") return NextResponse.json({ ok: false, error: "forbidden" }, { status: 403 });
     } else if (token) {
       if (!process.env.LINK_SIGNING_SECRET) {
         return NextResponse.json({ ok: false, error: "checkout_not_configured", message: "checkout not configured" }, { status: 503 });

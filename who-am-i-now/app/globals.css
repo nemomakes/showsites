@@ -284,3 +284,9 @@ h1,h2,h3,p{margin:0}
   .offer{padding:28px 0 112px}
   .offer-card{padding:48px 40px 40px}
 }
+/* Desktop paid pages: one centered column. Wordmarks stay left, matching the homepage header. */
+@media (min-width:1024px){
+  .paid .wrap{max-width:720px}
+  .paid .footer{text-align:left}
+  .paid .offer-card{width:100%;max-width:640px}
+}
