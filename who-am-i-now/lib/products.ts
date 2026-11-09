@@ -1,0 +1,40 @@
+export const KIT_NAME = "Friend-Finder Playbook 45+";
+export const CORE_NAME = "Next Chapter";
+export const KIT_PRICE_LABEL = "$27";
+export const KIT_BUY_LABEL = "Friend-Finder Playbook: $27";
+export const CORE_BUY_LABEL = "Next Chapter: $97";
+export const CORE_BUY_LABEL_CREDIT = "Next Chapter: $70";
+export const CORE_PRICE_LABEL = "$97";
+export const CORE_WITH_CREDIT_LABEL = "$70";
+export const KIT_POLICY = "Because it's a digital download, all sales are final.";
+export const CORE_NOT_THERAPY = "It's a self-guided course, not coaching or therapy.";
+export const KIT_CREDIT_NOTE = "your $27 counts toward it";
+export const CORE_REFUND_DEFAULT = "Not the right fit? Reply to any of our emails within 30 days for a full refund.";
+export const KIT_BUYER_TAG = "kit-buyer";
+export const CORE_BUYER_TAG = "core-buyer";
+
+export type Product = "kit" | "core";
+
+export function buyerTag(product: Product): string {
+  return product === "kit" ? KIT_BUYER_TAG : CORE_BUYER_TAG;
+}
+
+/** Course refund wording. Env overrides the approved default. */
+export function coreRefundPolicy(): string {
+  const fromEnv = process.env.CORE_REFUND_POLICY?.trim();
+  return fromEnv && fromEnv.length > 0 ? fromEnv : CORE_REFUND_DEFAULT;
+}
+
+/** Credit-window sentence. The day count stays tied to KIT_CREDIT_DAYS. */
+export function kitCreditWindowLine(days = kitCreditDays()): string {
+  return `Your $27 credit is good for ${days} days. Use your personal link and Next Chapter is $70.`;
+}
+
+/** Kit-credit window in days. Invalid or missing env falls back to 60. */
+export function kitCreditDays(): number {
+  const raw = process.env.KIT_CREDIT_DAYS?.trim();
+  if (!raw) return 60;
+  const n = Number(raw);
+  if (!Number.isFinite(n) || n <= 0) return 60;
+  return n;
+}
