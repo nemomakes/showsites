@@ -22,12 +22,12 @@ export default async function ThanksKitPage({ searchParams }: { searchParams: Pr
         <div className="wrap">
           <div className="offer-card">
             <p className="wk">{KIT_NAME}</p>
-            <h1 className="h1">[KIT THANKS]</h1>
+            <h1 className="h1">Thanks. Your Playbook is ready.</h1>
             {check.state === "unconfigured" ? <p className="offer-note">checkout not configured</p> : null}
             {ready && raw ? (
               <div className="offer-buy">
                 <a className="btn" href={`/api/kit/download?session_id=${encodeURIComponent(raw)}`}>
-                  {KIT_NAME}
+                  Download your Playbook
                 </a>
               </div>
             ) : check.state === "unconfigured" ? null : (

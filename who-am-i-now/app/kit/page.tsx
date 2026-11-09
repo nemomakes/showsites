@@ -15,8 +15,14 @@ export default function KitPage() {
         <div className="wrap">
           <div className="offer-card">
             <p className="wk">{KIT_NAME}</p>
-            <h1 className="h1">[KIT HEADLINE]</h1>
-            <p className="body-lg">[KIT BULLETS]</p>
+            <h1 className="h1">Places, scripts, and a plan for friends your age</h1>
+            <p className="offer-sub">A printable playbook for when the school years stopped bringing people to you.</p>
+            <ul className="offer-list">
+              <li>Where women your age actually show up</li>
+              <li>What to say, and first texts you can send</li>
+              <li>How to turn one coffee into a real friendship, plus a 4-week plan</li>
+            </ul>
+            <p className="fine offer-support">Companion to the free Who Am I Now? workbook.</p>
             <p className="offer-price">{KIT_PRICE_LABEL}</p>
             <p className="fine offer-note">{KIT_POLICY}</p>
             <div className="offer-buy">

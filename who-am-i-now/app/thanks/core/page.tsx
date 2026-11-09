@@ -22,8 +22,8 @@ export default async function ThanksCorePage({ searchParams }: { searchParams: P
         <div className="wrap">
           <div className="offer-card">
             <p className="wk">{CORE_NAME}</p>
-            <h1 className="h1">[CORE THANKS]</h1>
-            {ready ? <p className="body-lg">[CORE THANKS BODY]</p> : null}
+            <h1 className="h1">You&apos;re in. Week 1 is on its way.</h1>
+            {ready ? <p className="body-lg">Check your email for the first lesson. Each week: a short read, a worksheet, and one small action. Go at your own pace.</p> : null}
             {check.state === "unconfigured" ? <p className="offer-note">checkout not configured</p> : null}
             {!ready && check.state !== "unconfigured" ? <p className="offer-note">checkout not confirmed</p> : null}
           </div>

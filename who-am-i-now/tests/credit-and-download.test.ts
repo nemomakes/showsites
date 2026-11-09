@@ -3,6 +3,7 @@ import type Stripe from "stripe";
 import { buildCheckoutParams } from "../lib/checkout";
 import { resolveCoreCredit } from "../lib/credit";
 import { kitDownloadStripeStatus, kitSessionAccess } from "../lib/playbook";
+import { CORE_REFUND_DEFAULT, KIT_POLICY, kitCreditWindowLine } from "../lib/products";
 import { mintCreditToken } from "../lib/tokens";
 
 const SECRET = "credit-test-secret";
@@ -103,6 +104,36 @@ describe("core credit price", () => {
     if (!checkout.ok) return;
     expect(checkout.params.discounts).toBeUndefined();
     expect(checkout.params.allow_promotion_codes).toBe(false);
+  });
+});
+
+describe("checkout policy lines", () => {
+  it("keeps the kit all-sales-final line off core checkout, and the refund line off kit checkout", async () => {
+    delete process.env.CORE_REFUND_POLICY;
+    const stripe = stripeListing(async () => ({ data: [], has_more: false }));
+    const kit = await buildCheckoutParams({
+      stripe,
+      product: "kit",
+      price: "price_kit",
+      origin: "https://example.test",
+    });
+    const core = await buildCheckoutParams({
+      stripe,
+      product: "core",
+      price: "price_core",
+      origin: "https://example.test",
+    });
+    const submit = (params: { custom_text?: { submit?: { message?: string } | "" | null } }) => {
+      const value = params.custom_text?.submit;
+      return value && typeof value === "object" ? value.message : "";
+    };
+    const kitMessage = kit.ok ? submit(kit.params) : "";
+    const coreMessage = core.ok ? submit(core.params) : "";
+    expect(kitMessage).toBe(KIT_POLICY);
+    expect(coreMessage).toBe(CORE_REFUND_DEFAULT);
+    expect(kitMessage).not.toContain("Not the right fit");
+    expect(coreMessage).not.toContain("all sales are final");
+    expect(kitCreditWindowLine(60)).toBe("Your $27 credit is good for 60 days. Use your personal link and Next Chapter is $70.");
   });
 });
 
