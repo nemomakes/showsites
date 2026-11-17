@@ -1,7 +1,15 @@
 "use client";
 import { useId, useState } from "react";
+import { readAttribution } from "@/components/AttributionCapture";
+import { trackLead } from "@/components/MetaPixel";
 
 type Status = "idle" | "sending" | "success" | "error";
+
+function cookieValue(name: string): string | undefined {
+  if (typeof document === "undefined") return undefined;
+  const match = document.cookie.match(new RegExp(`(?:^|; )${name}=([^;]*)`));
+  return match ? decodeURIComponent(match[1]) : undefined;
+}
 
 export default function SignupForm() {
   const id = useId();
@@ -12,13 +20,27 @@ export default function SignupForm() {
     e.preventDefault();
     if (status === "sending") return;
     setStatus("sending");
+    const eventId = crypto.randomUUID();
     try {
       const res = await fetch("/api/subscribe", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({
+          email,
+          event_id: eventId,
+          event_source_url: window.location.href,
+          referring_site: document.referrer,
+          fbp: cookieValue("_fbp"),
+          fbc: cookieValue("_fbc"),
+          ...readAttribution(),
+        }),
       });
-      setStatus(res.ok ? "success" : "error");
+      if (!res.ok) {
+        setStatus("error");
+        return;
+      }
+      trackLead(eventId);
+      setStatus("success");
     } catch {
       setStatus("error");
     }

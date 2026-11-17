@@ -1,4 +1,5 @@
 import SignupForm from "@/components/SignupForm";
+import { SiteFooter } from "@/components/SiteFooter";
 import Reveal from "@/components/Reveal";
 import HeroWalk from "@/components/HeroWalk";
 import HeroPegasus from "@/components/HeroPegasus";
@@ -141,7 +142,7 @@ export default function Page() {
         </section>
       </main>
 
-      <footer className="footer"><div className="wrap"><span className="wordmark">Who Am I Now?</span></div></footer>
+      <SiteFooter />
     </>
   );
 }
